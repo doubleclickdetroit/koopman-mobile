@@ -1,0 +1,5 @@
+// old
+- check localStorage for user
+- check localStorage for data
+
+- load data and push into models
