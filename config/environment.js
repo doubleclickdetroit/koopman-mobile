@@ -28,6 +28,15 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['simple-auth'] = {
+    crossOriginWhitelist: ['http://localhost:3000'],
+    authorizer: 'simple-auth-authorizer:devise'
+  };
+  ENV['simple-auth-devise'] = {
+    identificationAttributeName: 'email',
+    serverTokenEndpoint: 'http://localhost:3000/users/sign_in.json'
+  }
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     ENV.APP.LOG_ACTIVE_GENERATION = true;

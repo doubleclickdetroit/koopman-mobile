@@ -3,6 +3,12 @@
 </header>
 
 <nav>
+  {{#if session.isAuthenticated}}
+    <a href="#" {{ action 'invalidateSession' }}>Logout</a>
+  {{else}}
+    {{#link-to 'login'}}Login{{/link-to}}
+  {{/if}}
+
   {{#link-to 'entries'}}Almanac{{/link-to}}
   {{#link-to 'projects'}}Projects{{/link-to}}
   {{#link-to 'favorites'}}Favorites{{/link-to}}

@@ -17,6 +17,7 @@ Router.map(function() {
   this.resource('reminders', function() { });
 
   this.route('settings');
+  this.route('login');
 });
 
 export default Router;
