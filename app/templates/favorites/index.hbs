@@ -1,0 +1,5 @@
+<ul>
+  {{#each favorite in model}}
+    <li>{{#link-to 'project' favorite.project}}title goes here{{/link-to}}</li>
+  {{/each}}
+</ul>
