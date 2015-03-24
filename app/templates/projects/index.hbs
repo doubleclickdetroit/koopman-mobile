@@ -1,5 +1,8 @@
 <ul>
-  {{#each project in model}}
-    <li>{{#link-to 'project' project}}{{ project.title }}{{/link-to}}</li>
+  {{#each project in sortedProjects}}
+    <li>
+      {{#link-to 'project' project}}{{ project.title }}{{/link-to}}
+      {{#if project.favorite}}<sup>*</sup>{{/if}}
+    </li>
   {{/each}}
 </ul>

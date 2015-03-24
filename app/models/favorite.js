@@ -1,9 +1,10 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  resource_pk: DS.belongsTo( 'project' ),
+  entry  : DS.belongsTo( 'entry' ),
+  project: DS.belongsTo( 'project' ),
 
-  resource_url: DS.attr(),
-  remind_at   : DS.attr('number')
+  url      : DS.attr(),
+  remind_at: DS.attr('date')
 });
 

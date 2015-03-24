@@ -1,9 +1,11 @@
 <h2>{{#link-to 'projects'}}&lt;{{/link-to}} {{ title }}</h2>
 
+<button {{action 'handleFavoriteToggle' this}}>
+  {{#if favorite}}Unfavorite{{else}}Favorite{{/if}}
+</button>
+
 {{#if favorite}}
-  <button {{action 'handleUnfavorite' this}}>Unfavorite</button>
-{{ else }}
-  <button {{action 'handleFavorite' this}}>Favorite</button>
+  <p><em>reminder goes here</em></p>
 {{/if}}
 
 {{{ content.content }}}

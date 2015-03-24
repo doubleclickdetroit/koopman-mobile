@@ -1,0 +1,13 @@
+<ul>
+{{#each reminder in model}}
+  <li>
+    {{#if reminder.entry}}
+      {{#link-to 'entry' reminder.entry}}{{ reminder.entry.title }}{{/link-to}}
+    {{/if}}
+
+    {{#if reminder.project}}
+      {{#link-to 'project' reminder.project}}{{ reminder.project.title }}{{/link-to}}
+    {{/if}}
+  </li>
+{{/each}}
+</ul>
