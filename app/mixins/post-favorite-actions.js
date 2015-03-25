@@ -17,6 +17,10 @@ export default Ember.Mixin.create({
         model.set( 'favorite', favorite );
         favorite.save();
       }
+    },
+
+    handleFavoriteUpdate: function() {
+      this.get( 'favorite' ).save();
     }
 
   }

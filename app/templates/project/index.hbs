@@ -4,6 +4,6 @@
   {{#if favorite}}Unfavorite{{else}}Favorite{{/if}}
 </button>
 
-{{favorite-reminder favorite=favorite}}
+{{favorite-reminder favorite=favorite onSave='handleFavoriteUpdate'}}
 
 {{{ content.content }}}

@@ -4,4 +4,9 @@
 
   <label>Remind me on:</label>
   {{date-pickadate remind_at=favorite.remind_at}}
+
+  <div class="controls">
+    <button {{action 'saveRemindAt'}}>Save</button>
+    <a href="#">Dismiss</a>
+  </div>
 {{/if}}
