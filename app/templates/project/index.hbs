@@ -4,8 +4,6 @@
   {{#if favorite}}Unfavorite{{else}}Favorite{{/if}}
 </button>
 
-{{#if favorite}}
-  <p><em>reminder goes here</em></p>
-{{/if}}
+{{favorite-reminder favorite=favorite}}
 
 {{{ content.content }}}

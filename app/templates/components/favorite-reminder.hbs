@@ -1,0 +1,7 @@
+{{#if favorite}}
+
+  <h4>{{ title }}</h4>
+
+  <label>Remind me on:</label>
+  {{date-pickadate remind_at=favorite.remind_at}}
+{{/if}}
