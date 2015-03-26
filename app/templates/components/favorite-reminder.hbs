@@ -1,13 +1,18 @@
 {{#if favorite}}
-  <h4>{{ title }}</h4>
 
-  <form {{action 'saveRemindAt'}}>
-    <label>Remind me on:</label>
-    {{date-pickadate date=favorite.remind_at}}
+  {{#if favorite.remind_at}}
+    <p>Reminder set for: {{date-moment favorite.remind_at }}</p>
+  {{else}}
+    <h4>{{ title }}</h4>
 
-    <div class="controls">
-      <button>Save</button>
-      <a href="#">Dismiss</a>
-    </div>
-  </form>
+    <form {{action 'saveRemindAt' on='submit'}}>
+      <label>Remind me on:</label>
+      {{date-pickadate date=remindAtBuffer}}
+
+      <div class="controls">
+        <button>Save</button>
+        <a href="#">Dismiss</a>
+      </div>
+    </form>
+  {{/if}}
 {{/if}}
