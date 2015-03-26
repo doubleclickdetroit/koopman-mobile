@@ -1,12 +1,13 @@
 {{#if favorite}}
-
   <h4>{{ title }}</h4>
 
-  <label>Remind me on:</label>
-  {{date-pickadate remind_at=favorite.remind_at}}
+  <form {{action 'saveRemindAt'}}>
+    <label>Remind me on:</label>
+    {{date-pickadate date=favorite.remind_at}}
 
-  <div class="controls">
-    <button {{action 'saveRemindAt'}}>Save</button>
-    <a href="#">Dismiss</a>
-  </div>
+    <div class="controls">
+      <button>Save</button>
+      <a href="#">Dismiss</a>
+    </div>
+  </form>
 {{/if}}
