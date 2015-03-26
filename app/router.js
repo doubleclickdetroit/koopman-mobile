@@ -7,13 +7,14 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.resource('projects', function() {
-    this.resource('project', { path: ':project_id' }, function() { });
+    this.resource('project', {path: ':project_id'}, function() { });
   });
 
-  this.resource('entries', function() { });
+  this.resource('entries', function() {
+    this.resource('entry', {path: ':entry_id'}, function() { });
+  });
 
   this.resource('favorites', function() { });
-
   this.resource('reminders', function() { });
 
   this.route('settings');

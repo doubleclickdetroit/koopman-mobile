@@ -1,7 +1,8 @@
 <h2>Almanac</h2>
+{{#link-to 'entry' entry}}{{ entry.day }} {{ entry.title }}{{/link-to}}
 
 <h2>Featured Project</h2>
-{{ project.title }}
+{{#link-to 'project' project}}{{ project.title }}{{/link-to}}
 
 <h2>My Posts</h2>
 {{#link-to 'favorites'}}Favorites{{/link-to}}

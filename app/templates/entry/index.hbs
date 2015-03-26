@@ -1,0 +1,9 @@
+<h2>{{#link-to 'entries'}}&lt;{{/link-to}} {{ title }}</h2>
+
+<button {{action 'handleFavoriteToggle' this}}>
+  {{#if favorite}}Unfavorite{{else}}Favorite{{/if}}
+</button>
+
+{{favorite-reminder favorite=favorite onSave='handleFavoriteUpdate'}}
+
+{{{ content.content }}}

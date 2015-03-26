@@ -1,9 +1,9 @@
 import Ember from 'ember';
-import { initialize } from 'koopman-mobile/initializers/setup-plugins';
+import { initialize } from 'koopman-mobile/initializers/plugin-moment';
 
 var container, application;
 
-module('SetupPluginsInitializer', {
+module('PluginMomentInitializer', {
   setup: function() {
     Ember.run(function() {
       container = new Ember.Container();

@@ -5,6 +5,7 @@ export default Ember.Route.extend({
     var hash = this.modelFor( 'application' );
 
     return Ember.RSVP.hash({
+      entry  : hash.entries.get( 'firstObject' ),
       project: hash.projects.get( 'firstObject' )
     });
   }

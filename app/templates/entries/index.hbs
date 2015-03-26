@@ -1,0 +1,8 @@
+<ul>
+  {{#each entry in sortedEntries}}
+    <li>
+      {{#link-to 'entry' entry}}{{ entry.title }}{{/link-to}}
+      {{#if entry.favorite}}<sup>*</sup>{{/if}}
+    </li>
+  {{/each}}
+</ul>
