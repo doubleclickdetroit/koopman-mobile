@@ -2,10 +2,10 @@ export function initialize() {
   moment.lang('en', {
     calendar : {
       lastDay : 'MMMM Do, YYYY',
-      sameDay : 'h:mmA',
-      nextDay : 'MMMM Do, YYYY',
-      lastWeek: 'MMMM Do, YYYY',
-      nextWeek: 'MMMM Do, YYYY',
+      sameDay : '[Today]',
+      nextDay : '[Tomorrow]',
+      lastWeek: '[Last] dddd',
+      nextWeek: 'dddd, MMMM Do',
       sameElse: 'MMMM Do, YYYY'
     }
   });

@@ -1,8 +1,7 @@
 {{#if favorite}}
 
-  {{#if favorite.remind_at}}
-    <p>Reminder set for: {{date-moment favorite.remind_at }}</p>
-  {{else}}
+  {{#if isEditable}}
+
     <h4>{{ title }}</h4>
 
     <form {{action 'saveRemindAt' on='submit'}}>
@@ -14,5 +13,11 @@
         <a href="#">Dismiss</a>
       </div>
     </form>
+
+  {{else}}
+
+    <p>{{reminder-message favorite.remind_at }}</p>
+    <button {{action 'setAsEditable'}}>View</button>
+
   {{/if}}
 {{/if}}
