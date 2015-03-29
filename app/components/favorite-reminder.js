@@ -2,9 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   remindAtBuffer: Ember.computed.oneWay( 'favorite.remind_at' ),
-
-  isNone: Ember.computed.none( 'favorite.remind_at' ),
-  isEditable: Ember.computed.or( 'isNone', 'favorite.isDirty' ),
+  isRemindAtNull: Ember.computed.none( 'favorite.remind_at' ),
+  isEditable    : Ember.computed.or( 'isRemindAtNull', 'favorite.isDirty' ),
 
   title: function() {
     var title;
@@ -13,8 +12,16 @@ export default Ember.Component.extend({
     return title + " Reminder";
   }.property( 'favorite.entry', 'favorite.project' ),
 
+  favoriteDidChange: function() {
+    this.set( 'remindAtBuffer', null );
+    this.set( 'isEditable', true );
+  }.observes( 'favorite' ),
+
   actions: {
     setAsEditable: function() {
+      if ( !this.get( 'favorite.remind_at' ) ) {
+        this.set( 'remindAtBuffer', null );
+      }
       this.toggleProperty( 'isEditable' );
     },
 

@@ -15,7 +15,7 @@ export default Ember.Component.extend({
   }.observes( 'dateBuffer' ),
 
   didInsertElement: function() {
-    var $input = this.$( ':input' ).pickadate(/*{ min: new Date() }*/);
+    var $input = this.$( ':input' ).pickadate({ min: new Date() });
 
     // save a reference of the picker
     this.set( 'picker', $input.pickadate('picker') );
