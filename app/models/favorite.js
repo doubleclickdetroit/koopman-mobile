@@ -5,6 +5,7 @@ export default DS.Model.extend({
   project: DS.belongsTo( 'project' ),
 
   url      : DS.attr(),
-  remind_at: DS.attr('date')
+  remind_at: DS.attr( 'date' ),
+  is_hidden: DS.attr( 'boolean' )
 });
 
