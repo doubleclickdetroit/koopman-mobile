@@ -7,3 +7,9 @@
 {{favorite-reminder favorite=favorite onSave='handleFavoriteUpdate'}}
 
 {{{ content.content }}}
+
+<ul class="products">
+{{#each product in products}}
+  <li>{{ product.title }}</li>
+{{/each}}
+</ul>

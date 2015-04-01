@@ -7,3 +7,21 @@
 {{favorite-reminder favorite=favorite onSave='handleFavoriteUpdate'}}
 
 {{{ content.content }}}
+
+<section class="steps">
+{{#each step in steps}}
+  <article class="step">
+    <header>
+      <h1>{{ step.title }}</h1>
+    </header>
+
+    {{{ step.content }}}
+  </article>
+{{/each}}
+</section>
+
+<ul class="products">
+{{#each product in products}}
+  <li>{{ product.title }}</li>
+{{/each}}
+</ul>
