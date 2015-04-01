@@ -1,11 +1,11 @@
 export function initialize(container, application) {
-  application.register( 'moment:main', moment, { instantiate: false } );
+  application.register( 'moment:main', window.moment, { instantiate: false } );
 
   application.inject( 'controller', 'moment', 'moment:main');
   application.inject( 'helper', 'moment', 'moment:main');
   application.inject( 'model', 'moment', 'moment:main');
 
-  moment.lang('en', {
+  window.moment.lang('en', {
     calendar : {
       lastDay : 'MMMM Do, YYYY',
       sameDay : '[Today]',
@@ -15,7 +15,7 @@ export function initialize(container, application) {
       sameElse: 'MMMM Do, YYYY'
     }
   });
-};
+}
 
 export default {
   name: 'plugin-moment',
