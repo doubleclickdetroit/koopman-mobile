@@ -3,7 +3,14 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   remindAtBuffer: Ember.computed.oneWay( 'favorite.remind_at' ),
   isRemindAtNull: Ember.computed.none( 'favorite.remind_at' ),
-  isEditable    : Ember.computed.or( 'isRemindAtNull', 'favorite.isDirty' ),
+
+  isEditable: function() {
+    var isNull   = this.get( 'isRemindAtNull' ),
+        isHidden = this.get( 'favorite.is_hidden'),
+        isDirty  = this.get( 'favorite.isDirty' );
+
+    return isNull && !isDirty && !isHidden;
+  }.property( 'isRemindAtNull', 'favorite.is_hidden', 'favorite.isDirty' ),
 
   title: function() {
     var title;
@@ -23,6 +30,7 @@ export default Ember.Component.extend({
         this.set( 'remindAtBuffer', null );
       }
       this.toggleProperty( 'isEditable' );
+      this.set( 'favorite.is_hidden', false );
     },
 
     saveRemindAt: function() {
@@ -33,6 +41,7 @@ export default Ember.Component.extend({
       favorite.set( 'remind_at', remind_at );
 
       this.toggleProperty( 'isEditable' );
+      this.set( 'favorite.is_hidden', true );
       this.sendAction( 'onSave', favorite );
     }
   }
