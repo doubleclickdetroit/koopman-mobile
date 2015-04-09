@@ -1,13 +1,30 @@
-<ul>
-{{#each reminder in model}}
-  <li>
-    {{#if reminder.entry}}
-      {{#link-to 'entry' reminder.entry}}{{ reminder.entry.title }}{{/link-to}}
-    {{/if}}
+{{view 'select' content=listOfGroupYears value=selectedGroupYear}}
 
-    {{#if reminder.project}}
-      {{#link-to 'project' reminder.project}}{{ reminder.project.title }}{{/link-to}}
-    {{/if}}
-  </li>
+<div class="months">
+{{#each month in groupedByDate}}
+  <p>{{ month.name }}</p>
+
+  <ul class="dates">
+  {{#each date in month.dates}}
+    <li>
+      <p>{{ date.number }}</p>
+
+      <ul class="reminders">
+      {{#each reminder in date.reminders}}
+        <li>
+          {{#if reminder.entry}}
+            {{#link-to 'entry' reminder.entry}}{{ reminder.entry.title }}{{/link-to}}
+          {{/if}}
+
+          {{#if reminder.project}}
+            {{#link-to 'project' reminder.project}}{{ reminder.project.title }}{{/link-to}}
+          {{/if}}
+        </li>
+      {{/each}}
+      </ul>
+
+    </li>
+  {{/each}}
+  </ul>
 {{/each}}
-</ul>
+</div>

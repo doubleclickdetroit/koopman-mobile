@@ -11,6 +11,7 @@ var app = new EmberApp({
 // Use `app.import` to add additional libraries to the generated
 // output files.
 //
+app.import('bower_components/lodash/lodash.min.js');
 app.import('bower_components/moment/min/moment.min.js');
 app.import('bower_components/pickadate/lib/compressed/picker.js');
 app.import('bower_components/pickadate/lib/compressed/picker.date.js');
