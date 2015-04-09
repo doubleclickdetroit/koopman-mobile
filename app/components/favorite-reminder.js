@@ -33,6 +33,12 @@ export default Ember.Component.extend({
       this.set( 'favorite.is_hidden', false );
     },
 
+    dismissReminder: function() {
+      this.toggleProperty( 'isEditable', false );
+      this.set( 'favorite.is_hidden', true );
+      this.sendAction( 'onSave', this.get('favorite') );
+    },
+
     saveRemindAt: function() {
       var favorite  = this.get( 'favorite' ),
           remind_at = this.get( 'remindAtBuffer' );
