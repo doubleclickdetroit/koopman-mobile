@@ -12,5 +12,10 @@ export default DS.Model.extend({
   day: function() {
     var date = this.get( 'date' );
     return this.moment( date ).format( 'DD' );
+  }.property( 'date' ),
+
+  month: function() {
+    var date = this.get( 'date' );
+    return this.moment( date ).format( 'MMM' );
   }.property( 'date' )
 });
