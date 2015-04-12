@@ -11,8 +11,11 @@
 
   {{#link-to 'entries'}}Almanac{{/link-to}}
   {{#link-to 'projects'}}Projects{{/link-to}}
-  {{#link-to 'favorites'}}Favorites{{/link-to}}
-  {{#link-to 'reminders'}}Reminders{{/link-to}}
+
+  {{#if session.isAuthenticated}}
+    {{#link-to 'favorites'}}Favorites{{/link-to}}
+    {{#link-to 'reminders'}}Reminders{{/link-to}}
+  {{/if}}
 
   {{#link-to 'settings'}}Settings{{/link-to}}
 </nav>
