@@ -22,6 +22,14 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 
       // now transition to index
       this.transitionTo( 'index' );
+    },
+
+    sessionInvalidationSucceeded: function() {
+      // just signed-out, reload the model
+      this.refresh();
+
+      // now transition to index
+      this.transitionTo( 'index' );
     }
   }
 });
