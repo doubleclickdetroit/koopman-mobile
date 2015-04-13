@@ -12,11 +12,30 @@ var app = new EmberApp({
 // output files.
 //
 app.import('bower_components/lodash/lodash.min.js');
+
 app.import('bower_components/moment/min/moment.min.js');
+
 app.import('bower_components/pickadate/lib/compressed/picker.js');
 app.import('bower_components/pickadate/lib/compressed/picker.date.js');
 app.import('bower_components/pickadate/lib/compressed/themes/default.css');
 app.import('bower_components/pickadate/lib/compressed/themes/default.date.css');
+
+app.import('bower_components/jQuery.mmenu/dist/js_umd/jquery.mmenu.umd.all.js');
+app.import('bower_components/jQuery.mmenu/dist/css/jquery.mmenu.all.css');
+
+app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js');
+app.import('bower_components/ember-data/ember-data.js.map', { destDir: 'assets' });
+
+app.import('bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.eot', { destDir: 'fonts/bootstrap' });
+app.import('bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.ttf', { destDir: 'fonts/bootstrap' });
+app.import('bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.svg', { destDir: 'fonts/bootstrap' });
+app.import('bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.woff', { destDir: 'fonts/bootstrap' });
+
+app.import('bower_components/fontawesome/fonts/fontawesome-webfont.eot', { destDir: 'fonts' });
+app.import('bower_components/fontawesome/fonts/fontawesome-webfont.ttf', { destDir: 'fonts' });
+app.import('bower_components/fontawesome/fonts/fontawesome-webfont.svg', { destDir: 'fonts' });
+app.import('bower_components/fontawesome/fonts/fontawesome-webfont.woff', { destDir: 'fonts' });
+app.import('bower_components/fontawesome/fonts/FontAwesome.otf', { destDir: 'fonts' });
 
 
 // If you need to use different assets in different

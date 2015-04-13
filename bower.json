@@ -12,11 +12,14 @@
     "ember-qunit": "0.1.8",
     "ember-qunit-notifications": "0.0.4",
     "qunit": "~1.15.0",
-    "jQuery.mmenu": "~4.7.5",
     "ember-localstorage-adapter": "~0.5.2",
     "ember-simple-auth": "0.7.3",
     "pickadate": "~3.5.5",
     "moment": "~2.9.0",
-    "lodash": "~3.6.0"
+    "lodash": "~3.6.0",
+    "jQuery.mmenu": "~5.0.4"
+  },
+  "devDependencies": {
+    "bootstrap-sass-official": "~3.3.4"
   }
 }

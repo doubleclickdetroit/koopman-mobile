@@ -1,0 +1,20 @@
+// FontAwesome CSS
+@import 'bower_components/fontawesome/scss/font-awesome';
+
+// Bootstrap CSS
+@import 'bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap';
+
+// Bootstrap vars, mixins & utils
+@import "bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
+@import "bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
+@import "bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/utilities";
+
+
+body,
+.main-content {
+  background-color: white;
+}
+
+.main-content {
+  //
+}
