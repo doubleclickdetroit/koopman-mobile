@@ -1,0 +1,38 @@
+{{#if session.isAuthenticated}}
+
+You have just registered as {{email}}
+
+{{else}}
+<div class="login-registration">
+  <h3>Sign Up</h3>
+
+  <form {{action 'register' on='submit'}}>
+    <div class="form-group">
+      <label for="email">Email</label>
+      {{input value=email}}
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      {{input type='password' value=password}}
+    </div>
+
+    <div class="form-group">
+      <label for="password_confirmation">Password</label>
+      {{input type='password' value=password_confirmation}}
+    </div>
+
+    <button type="submit">Create Your Account</button>
+  </form>
+
+  <hr>
+
+  <span>
+    Already have an account?
+  </span>
+
+  {{#link-to "login"}}Sign In{{/link-to}}
+
+</div>
+
+{{/if}}

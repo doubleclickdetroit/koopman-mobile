@@ -1,20 +1,20 @@
 import Ember from 'ember';
 
 export default Ember.Mixin.create({
+  delegateAuthenticatedAction: function() {
+    var isAuthed = this.get( 'session.isAuthenticated' );
+    if ( !isAuthed ) {
+      alert( 'You must first sign-in to use this feature.' );
+    }
+    return isAuthed;
+  },
+
+
   actions: {
-
-    delegateAuthenticatedAction: function() {
-      var isAuthed = this.get( 'session.isAuthenticated' );
-      if ( !isAuthed ) {
-        alert( 'You must first sign-in to use this feature.' );
-      }
-      return isAuthed;
-    },
-
     handleFavoriteToggle: function(model) {
       var favorite;
 
-      if ( !this.send('delegateAuthenticatedAction') ) {
+      if ( !this.delegateAuthenticatedAction() ) {
         return false;
       }
 
@@ -34,6 +34,5 @@ export default Ember.Mixin.create({
     handleFavoriteUpdate: function() {
       this.get( 'favorite' ).save();
     }
-
   }
 });

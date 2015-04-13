@@ -1,30 +1,38 @@
-{{view 'select' content=listOfGroupYears value=selectedGroupYear}}
+{{#if content.length}}
 
-<div class="months">
-{{#each month in groupedByDate}}
-  <p>{{ month.name }}</p>
+  {{view 'select' content=listOfGroupYears value=selectedGroupYear}}
 
-  <ul class="dates">
-  {{#each date in month.dates}}
-    <li>
-      <p>{{ date.number }}</p>
+  <div class="months">
+  {{#each month in groupedByDate}}
+    <p>{{ month.name }}</p>
 
-      <ul class="reminders">
-      {{#each reminder in date.reminders}}
-        <li>
-          {{#if reminder.entry}}
-            {{#link-to 'entry' reminder.entry}}{{ reminder.entry.title }}{{/link-to}}
-          {{/if}}
+    <ul class="dates">
+    {{#each date in month.dates}}
+      <li>
+        <p>{{ date.number }}</p>
 
-          {{#if reminder.project}}
-            {{#link-to 'project' reminder.project}}{{ reminder.project.title }}{{/link-to}}
-          {{/if}}
-        </li>
-      {{/each}}
-      </ul>
+        <ul class="reminders">
+        {{#each reminder in date.reminders}}
+          <li>
+            {{#if reminder.entry}}
+              {{#link-to 'entry' reminder.entry}}{{ reminder.entry.title }}{{/link-to}}
+            {{/if}}
 
-    </li>
+            {{#if reminder.project}}
+              {{#link-to 'project' reminder.project}}{{ reminder.project.title }}{{/link-to}}
+            {{/if}}
+          </li>
+        {{/each}}
+        </ul>
+
+      </li>
+    {{/each}}
+    </ul>
   {{/each}}
-  </ul>
-{{/each}}
-</div>
+  </div>
+
+{{else}}
+
+  <p>Looks like you don&#39;t have any reminders scheduled.</p>
+
+{{/if}}

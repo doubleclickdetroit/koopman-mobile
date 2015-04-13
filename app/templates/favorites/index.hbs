@@ -1,13 +1,21 @@
-<ul>
-  {{#each favorite in model}}
-    <li>
-      {{#if favorite.entry}}
-        {{#link-to 'entry' favorite.entry}}{{ favorite.entry.title }}{{/link-to}}
-      {{/if}}
+{{#if content.length}}
 
-      {{#if favorite.project}}
-        {{#link-to 'project' favorite.project}}{{ favorite.project.title }}{{/link-to}}
-      {{/if}}
-    </li>
-  {{/each}}
-</ul>
+  <ul>
+    {{#each favorite in model}}
+      <li>
+        {{#if favorite.entry}}
+          {{#link-to 'entry' favorite.entry}}{{ favorite.entry.title }}{{/link-to}}
+        {{/if}}
+
+        {{#if favorite.project}}
+          {{#link-to 'project' favorite.project}}{{ favorite.project.title }}{{/link-to}}
+        {{/if}}
+      </li>
+    {{/each}}
+  </ul>
+
+{{else}}
+
+  <p>Looks like you haven&#39;t saved any favorites.</p>
+
+{{/if}}

@@ -29,7 +29,6 @@ module.exports = function(environment) {
   };
 
   ENV['simple-auth'] = {
-    crossOriginWhitelist: ['http://localhost:3000'],
     authorizer: 'simple-auth-authorizer:devise'
   };
   ENV['simple-auth-devise'] = {
@@ -43,6 +42,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    ENV['simple-auth']['crossOriginWhitelist'] = ['http://localhost:3000'];
   }
 
   if (environment === 'test') {
@@ -55,6 +56,8 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+
+    ENV['simple-auth']['crossOriginWhitelist'] = ['http://localhost:3000'];
   }
 
   if (environment === 'production') {
