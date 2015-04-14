@@ -1,6 +1,6 @@
 <section class="main-content">
   <header>
-    <a href="#menu">Open</a>
+    <a href="#menu"><i class="fa fa-bars"></i></a>
     <h1>Koopman App</h1>
   </header>
 
@@ -11,15 +11,6 @@
 {{#nav-canvas id="menu"}}
   <ul>
     <li>{{#link-to 'index'}}Home{{/link-to}}</li>
-
-    <li>
-      {{#if session.isAuthenticated}}
-        <a href="#" {{action 'invalidateSession'}}>Logout</a>
-      {{else}}
-        {{#link-to 'login'}}Login{{/link-to}}
-      {{/if}}
-    </li>
-
     <li>{{#link-to 'entries'}}Almanac{{/link-to}}</li>
     <li>{{#link-to 'projects'}}Projects{{/link-to}}</li>
 
@@ -29,5 +20,12 @@
     {{/if}}
 
     <li>{{#link-to 'settings'}}Settings{{/link-to}}</li>
+    <li>
+      {{#if session.isAuthenticated}}
+        <a href="#" {{action 'invalidateSession'}}>Logout</a>
+      {{else}}
+        {{#link-to 'login'}}Login{{/link-to}}
+      {{/if}}
+    </li>
   </ul>
 {{/nav-canvas}}
