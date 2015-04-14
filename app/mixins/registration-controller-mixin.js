@@ -35,23 +35,19 @@ export default Ember.Mixin.create(LoginControllerMixin, {
 
       function handleSuccess(response) {
         Ember.run(function() {
-          var session       = this.get( 'session' ),
-              authenticator = this.get( 'authenticator' );
-
           this.send( 'authenticate' );
           this.set( 'password_confirmation', null );
-          return this.send( 'onSuccess', response );
+          this.send( 'onSuccess', response );
         }.bind( this ));
-      };
+      }
 
-      function handleFailure(xhr, status, error) {
+      function handleFailure(xhr) {
         Ember.run(function() {
           var responseHash = JSON.parse( xhr.responseText ),
               errorHash    = responseHash[ 'errors' ];
-
-          return this.send( 'onFailure', errorHash );
+          this.send( 'onFailure', errorHash );
         }.bind( this ));
-      };
+      }
 
       return request;
     }
