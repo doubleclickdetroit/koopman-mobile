@@ -1,3 +1,8 @@
+{{view 'select' content=listOfCategories
+                valueBinding=selectedCategoryId
+                optionValuePath='content.id'
+                optionLabelPath='content.name'}}
+
 <ul>
   {{#each project in sortedProjects}}
     <li>

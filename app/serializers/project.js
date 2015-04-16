@@ -4,10 +4,12 @@ export default DS.RESTSerializer.extend({
   primaryKey: 'ID',
 
   extractArray: function(store, type, payload) {
-    var products = [];
+    var products   = [],
+        categories = {};
 
     payload.forEach(function(project) {
-      project.products = [];
+      project.products   = [];
+      project.categories = [0]; // add "all" category
 
       if ( !!project.acf_related_products ) {
         project.acf_related_products.forEach(function(product) {
@@ -15,11 +17,25 @@ export default DS.RESTSerializer.extend({
           project.products.push( product.ID );
         });
       }
+
+      if ( !!project.terms && !!project.terms.category ) {
+        project.terms.category.forEach(function(category) {
+          categories[ category.ID ] = category;
+          project.categories.push( category.ID );
+        });
+      }
+    });
+
+    categories = _.map( categories );
+    categories.unshift({
+      ID: 0,
+      name: 'All'
     });
 
     payload = {
-      projects: payload,
-      products: products
+      categories: categories,
+      projects  : payload,
+      products  : products
     };
 
     return this._super( store, type, payload );

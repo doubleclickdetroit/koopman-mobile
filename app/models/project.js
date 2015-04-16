@@ -1,8 +1,9 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  products: DS.hasMany( 'product' ),
-  favorite: DS.belongsTo( 'favorite' ),
+  categories: DS.hasMany( 'category' ),
+  products  : DS.hasMany( 'product' ),
+  favorite  : DS.belongsTo( 'favorite' ),
 
   date   : DS.attr( 'date' ),
   link   : DS.attr(),
