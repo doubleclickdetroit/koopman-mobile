@@ -11,6 +11,8 @@ var app = new EmberApp({
 // Use `app.import` to add additional libraries to the generated
 // output files.
 //
+app.import('bower_components/ember-data/ember-data.js.map', { destDir: 'assets' });
+
 app.import('bower_components/lodash/lodash.min.js');
 
 app.import('bower_components/moment/min/moment.min.js');
@@ -20,12 +22,10 @@ app.import('bower_components/pickadate/lib/compressed/picker.date.js');
 app.import('bower_components/pickadate/lib/compressed/themes/default.css');
 app.import('bower_components/pickadate/lib/compressed/themes/default.date.css');
 
-app.import('bower_components/jQuery.mmenu/dist/js_umd/jquery.mmenu.umd.all.js');
-app.import('bower_components/jQuery.mmenu/dist/css/jquery.mmenu.all.css');
+app.import('bower_components/pikabu/build/pikabu.min.js');
+app.import('bower_components/pikabu/build/pikabu.css');
 
 app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js');
-app.import('bower_components/ember-data/ember-data.js.map', { destDir: 'assets' });
-
 app.import('bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.eot', { destDir: 'fonts/bootstrap' });
 app.import('bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.ttf', { destDir: 'fonts/bootstrap' });
 app.import('bower_components/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.svg', { destDir: 'fonts/bootstrap' });

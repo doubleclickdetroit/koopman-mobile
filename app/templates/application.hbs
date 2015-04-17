@@ -1,14 +1,5 @@
-<section class="main-content">
-  <header>
-    <a href="#menu"><i class="fa fa-bars"></i></a>
-    <h1>Koopman App</h1>
-  </header>
-
-  {{outlet}}
-</section>
-
-
-{{#nav-canvas id="menu"}}
+<!-- the left sidebar -->
+<div class="m-pikabu-sidebar m-pikabu-left">
   <ul>
     <li>{{#link-to 'index'}}Home{{/link-to}}</li>
     <li>{{#link-to 'entries'}}Almanac{{/link-to}}</li>
@@ -28,4 +19,19 @@
       {{/if}}
     </li>
   </ul>
-{{/nav-canvas}}
+</div>
+
+<!-- the main page content -->
+<div class="m-pikabu-container">
+  <header>
+    <a href="#menu" class="m-pikabu-nav-toggle" data-role="left">
+      <i class="fa fa-bars"></i>
+    </a>
+
+    <h1>Koopman App</h1>
+  </header>
+
+  <section>
+    {{outlet}}
+  </section>
+</div>

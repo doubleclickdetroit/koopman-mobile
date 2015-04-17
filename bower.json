@@ -17,9 +17,10 @@
     "pickadate": "~3.5.5",
     "moment": "~2.9.0",
     "lodash": "~3.6.0",
-    "jQuery.mmenu": "~5.0.4"
+    "pikabu": "~0.2.2"
   },
   "devDependencies": {
-    "bootstrap-sass-official": "~3.3.4"
+    "bootstrap-sass-official": "~3.3.4",
+    "fontawesome": "~4.3.0"
   }
 }
