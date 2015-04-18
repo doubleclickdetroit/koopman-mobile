@@ -1,0 +1,19 @@
+.m-pikabu-container {
+  > header {
+    display: table;
+    width: 100%;
+
+    h1,
+    .m-pikabu-nav-toggle {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    .m-pikabu-nav-toggle {
+      width: 50px;
+      font-size: 20px;
+      background-color: red;
+    }
+  }
+}
