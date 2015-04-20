@@ -1,0 +1,18 @@
+@import "header";
+
+
+html,
+body {
+  @extend %font-entypo;
+}
+
+
+.m-pikabu-viewport {
+  .m-pikabu-sidebar {
+    background-color: $color-gray-darkest;
+  }
+
+  .m-pikabu-container {
+    background-color: $color-white;
+  }
+}

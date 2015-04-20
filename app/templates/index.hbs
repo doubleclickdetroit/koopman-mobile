@@ -1,8 +1,13 @@
 <h2>Almanac</h2>
-{{ entry.month }} {{ entry.day }} {{#link-to 'entry' entry}}{{ entry.title }}{{/link-to}}
+{{ model.entry.month }} {{ model.entry.day }}
+{{#link-to 'entry' model.entry}}
+  {{ model.entry.title }}
+{{/link-to}}
 
 <h2>Featured Project</h2>
-{{#link-to 'project' project}}{{ project.title }}{{/link-to}}
+{{#link-to 'project' model.project}}
+  {{ model.project.title }}
+{{/link-to}}
 
 <h2>My Posts</h2>
 {{#link-to 'favorites'}}Favorites{{/link-to}}

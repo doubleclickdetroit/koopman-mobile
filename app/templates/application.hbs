@@ -1,21 +1,5 @@
-<!-- main content -->
-<div class="m-pikabu-container">
-  <header>
-    <h1>Koopman App</h1>
-
-    <a href="#menu" class="m-pikabu-nav-toggle" data-role="right">
-      <i class="fa fa-bars"></i>
-    </a>
-  </header>
-
-  <section>
-    {{outlet}}
-  </section>
-</div>
-
-
 <!-- sidebar menu -->
-<div class="m-pikabu-sidebar m-pikabu-right">
+<div class="m-pikabu-sidebar m-pikabu-left">
   <ul>
     <li>{{#link-to 'index'}}Home{{/link-to}}</li>
     <li>{{#link-to 'entries'}}Almanac{{/link-to}}</li>
@@ -36,3 +20,22 @@
     </li>
   </ul>
 </div>
+
+
+
+<!-- main content -->
+<div class="m-pikabu-container">
+  <header>
+    <a href="#menu" class="m-pikabu-nav-toggle" data-role="left">
+      <i class="fa fa-bars"></i>
+    </a>
+
+    <h1>Koopman App</h1>
+  </header>
+
+  <section>
+    {{outlet}}
+  </section>
+</div>
+
+

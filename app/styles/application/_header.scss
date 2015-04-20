@@ -1,19 +1,25 @@
 .m-pikabu-container {
+
   > header {
     display: table;
     width: 100%;
+    background-color: $color-brand;
 
     h1,
     .m-pikabu-nav-toggle {
       display: table-cell;
       vertical-align: middle;
       text-align: center;
+      color: $color-white;
     }
 
     .m-pikabu-nav-toggle {
       width: 50px;
       font-size: 20px;
-      background-color: red;
+
+      .fa-bars {
+        color: $color-white;
+      }
     }
   }
 }
