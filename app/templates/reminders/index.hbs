@@ -1,6 +1,7 @@
 {{#if content.length}}
 
-  {{view 'select' content=listOfGroupYears value=selectedGroupYear}}
+  {{view 'select' content=listOfGroupYears
+                  value=selectedGroupYear}}
 
   <div class="months">
   {{#each month in groupedByDate}}

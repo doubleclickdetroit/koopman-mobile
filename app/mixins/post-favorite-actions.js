@@ -32,7 +32,7 @@ export default Ember.Mixin.create({
     },
 
     handleFavoriteUpdate: function() {
-      this.get( 'favorite' ).save();
+      this.get( 'model.favorite' ).save();
     }
   }
 });

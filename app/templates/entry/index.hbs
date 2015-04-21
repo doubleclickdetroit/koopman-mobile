@@ -1,15 +1,16 @@
-<h2>{{#link-to 'entries'}}&lt;{{/link-to}} {{ title }}</h2>
+<h2>{{#link-to "entries"}}&lt;{{/link-to}} {{ title }}</h2>
 
-<button {{action 'handleFavoriteToggle' this}}>
-  {{#if favorite}}Unfavorite{{else}}Favorite{{/if}}
+<button {{action "handleFavoriteToggle" model}}>
+  {{#if model.favorite}}Unfavorite{{else}}Favorite{{/if}}
 </button>
 
-{{favorite-reminder favorite=favorite onSave='handleFavoriteUpdate'}}
+{{favorite-reminder favorite=model.favorite
+                    onSave="handleFavoriteUpdate"}}
 
-{{{ content.content }}}
+{{{ model.content }}}
 
 <ul class="products">
-{{#each product in products}}
+{{#each product in model.products}}
   <li>{{ product.title }}</li>
 {{/each}}
 </ul>
