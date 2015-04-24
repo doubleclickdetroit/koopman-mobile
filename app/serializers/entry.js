@@ -9,6 +9,11 @@ export default DS.RESTSerializer.extend({
     payload.forEach(function(entry) {
       entry.products = [];
 
+      if ( !!entry.acf_almanac_date ) {
+        entry.date = entry.acf_almanac_date;
+        delete entry.acf_almanac_date;
+      }
+
       if ( !!entry.acf_related_products ) {
         entry.acf_related_products.forEach(function(product) {
           products.push( product );

@@ -1,8 +1,26 @@
-<ul>
-  {{#each entry in sortedEntries}}
-    <li>
-      {{#link-to 'entry' entry}}{{ entry.title }}{{/link-to}}
-      {{#if entry.favorite}}<sup>*</sup>{{/if}}
-    </li>
+{{view 'select' content=listOfGroupYears
+                value=selectedGroupYear}}
+
+<div class="months">
+  {{#each month in groupedByDate}}
+    <p>{{ month.name }}</p>
+
+    <ul class="dates">
+    {{#each date in month.dates}}
+      <li>
+        <p>{{ date.number }}</p>
+
+        <ul class="reminders">
+        {{#each entry in date.entries}}
+          <li>
+            {{#link-to 'entry' entry}}{{ entry.title }}{{/link-to}}
+            {{#if entry.favorite}}<sup>*</sup>{{/if}}
+          </li>
+        {{/each}}
+        </ul>
+
+      </li>
+    {{/each}}
+    </ul>
   {{/each}}
-</ul>
+  </div>
