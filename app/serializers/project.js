@@ -11,6 +11,11 @@ export default DS.RESTSerializer.extend({
       project.products   = [];
       project.categories = [0]; // add "all" category
 
+      if ( !!project.acf_related_post ) {
+        project.relatedPost = project.acf_related_post.ID;
+        delete project.acf_related_post;
+      }
+
       if ( !!project.acf_related_products ) {
         project.acf_related_products.forEach(function(product) {
           products.push( product );

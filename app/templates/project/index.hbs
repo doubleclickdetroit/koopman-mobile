@@ -26,3 +26,16 @@
   <li>{{ product.title }}</li>
 {{/each}}
 </ul>
+
+
+{{#if relatedPost}}
+  <div class="pull-left">
+    <p class="text-center">Recommended Post</p>
+    <img src="{{ relatedPostThumb.url }}">
+  </div>
+{{/if}}
+
+<div class="pull-left">
+  <p class="text-center">Recent Post</p>
+  <img src="{{ recentPostThumb.url }}">
+</div>
