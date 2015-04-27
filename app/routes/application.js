@@ -15,6 +15,11 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     });
   },
 
+  afterModel: function(model) {
+    model.entries = model.entries.sortBy( 'date', 'title' );
+    this._super( model );
+  },
+
   actions: {
     sessionAuthenticationSucceeded: function() {
       // just signed-in, reload the model
