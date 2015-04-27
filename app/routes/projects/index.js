@@ -9,10 +9,6 @@ export default Ember.Route.extend({
     var categories = this.store.all( 'category' );
 
     this._super( controller, model );
-
-    this.controllerFor( 'projects.index' ).setProperties({
-      categories: categories,
-      initialSelectedCategoryId: categories.get( 'firstObject.id' )
-    });
+    controller.set( 'categories', categories );
   }
 });
