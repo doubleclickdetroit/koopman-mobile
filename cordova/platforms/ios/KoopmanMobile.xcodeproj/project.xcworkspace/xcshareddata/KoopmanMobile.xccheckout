@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>61BC22EC-370A-4B40-8FDB-ED16AECEA685</string>
+	<key>IDESourceControlProjectName</key>
+	<string>KoopmanMobile</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B84BF8B93DDF03DF3AEFE0A1120407FF84547402</key>
+		<string>https://github.com/doubleclickdetroit/koopman-mobile.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>cordova/platforms/ios/KoopmanMobile.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B84BF8B93DDF03DF3AEFE0A1120407FF84547402</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/doubleclickdetroit/koopman-mobile.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B84BF8B93DDF03DF3AEFE0A1120407FF84547402</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B84BF8B93DDF03DF3AEFE0A1120407FF84547402</string>
+			<key>IDESourceControlWCCName</key>
+			<string>mobile</string>
+		</dict>
+	</array>
+</dict>
+</plist>
