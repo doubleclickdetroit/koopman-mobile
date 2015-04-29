@@ -1,41 +1,45 @@
-<h2>{{#link-to "projects"}}&lt;{{/link-to}} {{ title }}</h2>
+<section class="page-show">
 
-<button {{action "handleFavoriteToggle" model}}>
-  {{#if model.favorite}}Unfavorite{{else}}Favorite{{/if}}
-</button>
+  <h2>{{#link-to "projects"}}&lt;{{/link-to}} {{ title }}</h2>
 
-{{favorite-reminder favorite=model.favorite
-                    onSave="handleFavoriteUpdate"}}
+  <button {{action "handleFavoriteToggle" model}}>
+    {{#if model.favorite}}Unfavorite{{else}}Favorite{{/if}}
+  </button>
 
-{{{ model.content }}}
+  {{favorite-reminder favorite=model.favorite
+                      onSave="handleFavoriteUpdate"}}
 
-<section class="steps">
-{{#each step in model.steps}}
-  <article class="step">
-    <header>
-      <h1>{{ step.title }}</h1>
-    </header>
+  {{{ model.content }}}
 
-    {{{ step.content }}}
-  </article>
-{{/each}}
-</section>
+  <section class="steps">
+  {{#each step in model.steps}}
+    <article class="step">
+      <header>
+        <h1>{{ step.title }}</h1>
+      </header>
 
-<ul class="products">
-{{#each product in model.products}}
-  <li>{{ product.title }}</li>
-{{/each}}
-</ul>
+      {{{ step.content }}}
+    </article>
+  {{/each}}
+  </section>
+
+  <ul class="products">
+  {{#each product in model.products}}
+    <li>{{ product.title }}</li>
+  {{/each}}
+  </ul>
 
 
-{{#if relatedPost}}
+  {{#if relatedPost}}
+    <div class="pull-left">
+      <p class="text-center">Recommended Post</p>
+      <img src="{{ relatedPostThumb.url }}">
+    </div>
+  {{/if}}
+
   <div class="pull-left">
-    <p class="text-center">Recommended Post</p>
-    <img src="{{ relatedPostThumb.url }}">
+    <p class="text-center">Recent Post</p>
+    <img src="{{ recentPostThumb.url }}">
   </div>
-{{/if}}
 
-<div class="pull-left">
-  <p class="text-center">Recent Post</p>
-  <img src="{{ recentPostThumb.url }}">
-</div>
+</section>

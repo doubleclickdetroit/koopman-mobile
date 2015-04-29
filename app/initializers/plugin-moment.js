@@ -1,6 +1,7 @@
 export function initialize(container, application) {
   application.register( 'moment:main', window.moment, { instantiate: false } );
 
+  application.inject( 'route', 'moment', 'moment:main');
   application.inject( 'controller', 'moment', 'moment:main');
   application.inject( 'helper', 'moment', 'moment:main');
   application.inject( 'model', 'moment', 'moment:main');

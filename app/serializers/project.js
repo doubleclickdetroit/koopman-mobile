@@ -51,6 +51,11 @@ export default DS.RESTSerializer.extend({
       hash.steps = hash.acf_project_steps;
       delete hash.acf_project_steps;
 
+      if ( hash.featured_image ) {
+        hash.image = hash.featured_image.attachment_meta.sizes;
+        delete hash.featured_image;
+      }
+
       return hash;
     }
   }

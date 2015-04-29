@@ -1,14 +1,44 @@
-<h2>Almanac</h2>
-{{ model.entry.month }} {{ model.entry.day }}
-{{#link-to 'entry' model.entry}}
-  {{ model.entry.title }}
-{{/link-to}}
+<article class="app-view view-dashboard">
 
-<h2>Featured Project</h2>
-{{#link-to 'project' model.project}}
-  {{ model.project.title }}
-{{/link-to}}
+  <section class="tiles pages">
+    <div class="tile">
+      {{#link-to 'entries'}}<i class="fa fa-calendar"></i>Almanac{{/link-to}}
+    </div>
 
-<h2>My Posts</h2>
-{{#link-to 'favorites'}}Favorites{{/link-to}}
-{{#link-to 'reminders'}}Reminders{{/link-to}}
+    <div class="tile">
+      {{#link-to 'projects'}}<i class="fa fa-wrench"></i>Projects{{/link-to}}
+    </div>
+
+    <div class="tile">
+      <a href="#"><i class="fa fa-check-square-o"></i>Shopping List</a>
+    </div>
+
+    <div class="tile">
+      {{#link-to 'reminders'}}<i class="fa fa-clock-o"></i>Reminders{{/link-to}}
+    </div>
+  </section>
+
+  <section class="tiles posts">
+    <article class="tile">
+      <header>
+        <h1>Recent Almanac - {{ model.entry.month }}/{{ model.entry.day }}</h1>
+      </header>
+
+      {{#link-to 'entry' model.entry tagName='figure'}}
+        <img src={{ model.entry.image.full_width.url }}>
+        <caption>{{ model.entry.title }}</caption>
+      {{/link-to}}
+    </article>
+
+    <article class="tile">
+      <header>
+        <h1>Recent Project</h1>
+      </header>
+      {{#link-to 'project' model.project tagName='figure'}}
+          <img src={{ model.project.image.post-medium.url }}>
+          <caption>{{ model.project.title }}</caption>
+      {{/link-to}}
+    </article>
+  </section>
+
+</article>

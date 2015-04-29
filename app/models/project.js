@@ -10,6 +10,7 @@ export default DS.Model.extend({
   title      : DS.attr(),
   content    : DS.attr(),
   relatedPost: DS.attr( 'number' ),
+  image      : DS.attr(),
 
   steps: DS.attr( 'array' )
 });

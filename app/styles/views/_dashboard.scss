@@ -1,0 +1,70 @@
+.view-dashboard {
+
+  .tiles {
+    @include clearfix();
+    padding: 0 5px;
+
+    .tile {
+      position: relative;
+      float: left;
+      margin: 10px 5px 0;
+      width: calc(50% - 10px);
+
+      a,
+      figure,
+      caption {
+        display: block;
+        color: $color-white;
+        text-transform: uppercase;
+      }
+      a {
+        line-height: 50px;
+      }
+      caption {
+        background-color: rgba(0, 0, 0, .4);
+      }
+    }
+
+    &.pages .tile {
+      background-color: $color-gray-darker;
+
+      .fa {
+        position: absolute;
+        top : 50%;
+        left: 15px;
+        margin-top: -11px;
+        font-size: $font-size-base + 8px;
+        opacity: .8;
+      }
+
+      a {
+        padding-left: 50px;
+      }
+    }
+
+    &.posts .tile {
+      header {
+        h1 {
+          font-size: $font-size-base + 4px;
+        }
+      }
+
+      figure {
+        cursor: pointer;
+        background-color: $color-white;
+
+        img {
+          max-width: 100%;
+        }
+
+        caption {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+}

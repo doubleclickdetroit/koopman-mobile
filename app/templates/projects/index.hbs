@@ -1,13 +1,19 @@
-{{view 'select' content=listOfCategories
-                value=selectedCategoryId
-                optionValuePath='content.id'
-                optionLabelPath='content.name'}}
+<section class="page-index">
 
-<ul>
-  {{#each project in sortedProjects}}
-    <li>
-      {{#link-to 'project' project}}{{ project.title }}{{/link-to}}
-      {{#if project.favorite}}<sup>*</sup>{{/if}}
-    </li>
-  {{/each}}
-</ul>
+  <header>
+    {{view 'select' content=listOfCategories
+                    value=selectedCategoryId
+                    optionValuePath='content.id'
+                    optionLabelPath='content.name'}}
+    <h1>Project Book</h1>
+  </header>
+
+    {{#each project in sortedProjects}}
+
+      {{#link-to 'project' project tagName="figure"}}
+        <img src={{ project.image.blog-medium.url }}>
+      {{/link-to}}
+
+    {{/each}}
+
+</section>

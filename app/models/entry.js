@@ -4,10 +4,12 @@ export default DS.Model.extend({
   products: DS.hasMany( 'product' ),
   favorite: DS.belongsTo( 'favorite' ),
 
-  date   : DS.attr( 'date' ),
-  link   : DS.attr(),
-  title  : DS.attr(),
-  content: DS.attr(),
+  date    : DS.attr( 'date' ),
+  link    : DS.attr(),
+  title   : DS.attr(),
+  content : DS.attr(),
+  image   : DS.attr(),
+  excerpt : DS.attr(),
 
   day: function() {
     var date = this.get( 'date' );
@@ -16,6 +18,6 @@ export default DS.Model.extend({
 
   month: function() {
     var date = this.get( 'date' );
-    return this.moment( date ).format( 'MMM' );
+    return this.moment( date ).format( 'M' );
   }.property( 'date' )
 });

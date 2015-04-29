@@ -10,13 +10,19 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 
     return Ember.RSVP.hash({
       favorites: this.store.find( 'favorite' ).catch( handleFailFn ),
-      entries  : this.store.find( 'entry' ),
-      projects : this.store.find( 'project' )
+      entries  : this.store.find( 'entry' ).catch( handleFailFn ),
+      projects : this.store.find( 'project' ).catch( handleFailFn )
     });
   },
 
   afterModel: function(model) {
-    model.entries = model.entries.sortBy( 'date', 'title' );
+    var moment = this.moment;
+
+    model.entries = model.entries.filter(function(entry) {
+      var date = moment( entry.get('date') );
+      return date.diff( moment(), 'days' ) >= 0;
+    }).sortBy( 'date', 'title' );
+
     this._super( model );
   },
 
@@ -32,6 +38,10 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     sessionInvalidationSucceeded: function() {
       // just signed-out, reload the model
       this.refresh();
+
+      // unload all favorites
+      // there has to be a better way to do this!!
+      this.store.unloadAll( 'favorite' );
 
       // now transition to index
       this.transitionTo( 'index' );

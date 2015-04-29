@@ -3,7 +3,8 @@
 
 html,
 body {
-  @extend %font-entypo;
+  height: 100%;
+  background-color: $color-gray-light;
 }
 
 
@@ -11,8 +12,9 @@ body {
   .m-pikabu-sidebar {
     background-color: $color-gray-darkest;
   }
-
   .m-pikabu-container {
-    background-color: $color-white;
+    background-color: $color-gray-light;
   }
 }
+
+
