@@ -23,8 +23,8 @@ module.exports = function(environment) {
     },
 
     cordova: {
-      rebuildOnChange: false,
-      emulate: false
+      rebuildOnChange: true,
+      emulate: true
     }
   };
 
@@ -36,14 +36,14 @@ module.exports = function(environment) {
     serverTokenEndpoint: 'http://localhost:3000/users/sign_in.json'
   }
 
+  ENV['simple-auth']['crossOriginWhitelist'] = ['http://localhost:3000'];
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
-
-    ENV['simple-auth']['crossOriginWhitelist'] = ['http://localhost:3000'];
   }
 
   if (environment === 'test') {
@@ -56,8 +56,6 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
-
-    ENV['simple-auth']['crossOriginWhitelist'] = ['http://localhost:3000'];
   }
 
   if (environment === 'production') {
