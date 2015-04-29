@@ -1,33 +1,30 @@
-<section class="page-index">
+{{view 'select' content=listOfGroupYears
+                value=selectedGroupYear}}
 
-  <header>
-    {{view 'select' content=listOfGroupYears
-                    value=selectedGroupYear}}
-    <h1>Almanac</h1>
-  </header>
+<div class="months">
+  {{#each month in groupedByDate}}
+    <p>{{ month.name }}</p>
 
-  <div class="months">
-    {{#each month in groupedByDate}}
-      <p>{{ month.name }}</p>
+    <ul class="dates">
+    {{#each date in month.dates}}
+      <li>
+        <p>{{ date.number }}</p>
 
-      <ul class="dates">
-      {{#each date in month.dates}}
-        <li>
-          <p>{{ date.number }}</p>
+        <ul class="reminders">
+        {{#each entry in date.entries}}
 
-          <ul class="reminders">
-          {{#each entry in date.entries}}
-            {{#link-to 'entry' entry tagName="li"}}
+          <li>
+            {{#link-to 'entry' entry }}
               <p>{{ entry.title }}</p>
               {{{ entry.excerpt }}}
             {{/link-to}}
-          {{/each}}
-          </ul>
+          </li>
 
-        </li>
-      {{/each}}
-      </ul>
+        {{/each}}
+        </ul>
+
+      </li>
     {{/each}}
+    </ul>
+  {{/each}}
   </div>
-
-</section>
