@@ -21,12 +21,16 @@
   <section class="tiles posts">
     <article class="tile">
       <header>
-        <h1>Recent Almanac - {{ model.entry.month }}/{{ model.entry.day }}</h1>
+        <h1>Recent Almanac</h1>
       </header>
 
-      {{#link-to 'entry' model.entry tagName='figure'}}
-        <img src={{ model.entry.image.full_width.url }}>
-        <caption>{{ model.entry.title }}</caption>
+      {{#link-to 'entry' model.entry tagName='blockquote'}}
+        <span class="date">
+          <span class="month">{{ model.entry.month }}</span>
+          <span class="day">{{ model.entry.day }}</span>
+        </span>
+
+        {{{ model.entry.excerpt }}}
       {{/link-to}}
     </article>
 
