@@ -1,7 +1,6 @@
 import Ember from 'ember';
-import PostFavoriteActionsMixin from '../../mixins/post-favorite-actions';
 
-export default Ember.Controller.extend(PostFavoriteActionsMixin, {
+export default Ember.Controller.extend({
   // related post
   relatedPost     : Ember.computed.alias( 'model.relatedPostObject' ),
   relatedPostImage: Ember.computed.alias( 'relatedPost.featured_image' ),

@@ -1,4 +1,4 @@
-<h2>{{#link-to "entries"}}&lt;{{/link-to}} {{ title }}</h2>
+<h2>{{#link-to "entries"}}&lt;{{/link-to}} {{ model.title }}</h2>
 
 <button {{action "handleFavoriteToggle" model}}>
   {{#if model.favorite}}Unfavorite{{else}}Favorite{{/if}}
@@ -11,6 +11,14 @@
 
 <ul class="tools">
 {{#each tool in model.tools}}
-  <li>{{ tool.title }}</li>
+  <li>
+    {{ tool.title }}
+
+    {{#if tool.product}}
+      <button {{action 'removeProduct' tool.product}}>Remove</button>
+    {{else}}
+      <button {{action 'addProduct' tool}}>Add</button>
+    {{/if}}
+  </li>
 {{/each}}
 </ul>
