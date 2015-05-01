@@ -1,0 +1,10 @@
+.picker__input {
+  width: 100%;
+}
+
+.picker--opened {
+  .picker__frame {
+    top   : 0 !important;
+    bottom: auto !important;
+  }
+}
