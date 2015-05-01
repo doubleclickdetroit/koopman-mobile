@@ -9,6 +9,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     }
 
     return Ember.RSVP.hash({
+      products : this.store.find( 'product' ).catch( handleFailFn ),
       favorites: this.store.find( 'favorite' ).catch( handleFailFn ),
       entries  : this.store.find( 'entry' ).catch( handleFailFn ),
       projects : this.store.find( 'project' ).catch( handleFailFn )
