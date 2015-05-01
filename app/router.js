@@ -16,6 +16,7 @@ Router.map(function() {
 
   this.resource('favorites', function() { });
   this.resource('reminders', function() { });
+  this.route('cart');
 
   this.route('settings');
   this.route('login');

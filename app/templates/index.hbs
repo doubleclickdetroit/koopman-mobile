@@ -2,19 +2,27 @@
 
   <section class="tiles pages">
     <div class="tile">
-      {{#link-to 'entries'}}<i class="fa fa-calendar"></i>Almanac{{/link-to}}
+      {{#link-to 'entries'}}
+        <i class="fa fa-calendar"></i>Almanac
+      {{/link-to}}
     </div>
 
     <div class="tile">
-      {{#link-to 'projects'}}<i class="fa fa-wrench"></i>Projects{{/link-to}}
+      {{#link-to 'projects'}}
+        <i class="fa fa-wrench"></i>Projects
+      {{/link-to}}
     </div>
 
     <div class="tile">
-      <a href="#"><i class="fa fa-check-square-o"></i>Shopping List</a>
+      {{#link-to 'cart'}}
+        <i class="fa fa-check-square-o"></i>Shopping List
+      {{/link-to}}
     </div>
 
     <div class="tile">
-      {{#link-to 'reminders'}}<i class="fa fa-clock-o"></i>Reminders{{/link-to}}
+      {{#link-to 'reminders'}}
+        <i class="fa fa-clock-o"></i>Reminders
+      {{/link-to}}
     </div>
   </section>
 
@@ -24,7 +32,7 @@
         <h1>Recent Almanac</h1>
       </header>
 
-      {{#link-to 'entry' model.entry tagName='blockquote'}}
+      {{#link-to 'entry' model.entry}}
         <span class="date">
           <span class="month">{{ model.entry.month }}</span>
           <span class="day">{{ model.entry.day }}</span>
@@ -38,6 +46,7 @@
       <header>
         <h1>Recent Project</h1>
       </header>
+
       {{#link-to 'project' model.project tagName='figure'}}
           <img src={{ model.project.image.post-medium.url }}>
           <caption>{{ model.project.title }}</caption>
