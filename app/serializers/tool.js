@@ -4,7 +4,7 @@ export default DS.RESTSerializer.extend({
   primaryKey: 'ID',
 
   normalizeHash: {
-    products: function(hash) {
+    tools: function(hash) {
       hash.sku         = hash.acf_sku;
       hash.image       = hash.acf_image;
       hash.description = hash.acf_description;

@@ -4,11 +4,11 @@ export default DS.RESTSerializer.extend({
   primaryKey: 'ID',
 
   extractArray: function(store, type, payload) {
-    var products   = [],
+    var tools      = [],
         categories = {};
 
     payload.forEach(function(project) {
-      project.products   = [];
+      project.tools      = [];
       project.categories = [0]; // add "all" category
 
       if ( !!project.acf_related_post ) {
@@ -17,9 +17,9 @@ export default DS.RESTSerializer.extend({
       }
 
       if ( !!project.acf_related_products ) {
-        project.acf_related_products.forEach(function(product) {
-          products.push( product );
-          project.products.push( product.ID );
+        project.acf_related_products.forEach(function(tool) {
+          tools.push( tool );
+          project.tools.push( tool.ID );
         });
       }
 
@@ -40,7 +40,7 @@ export default DS.RESTSerializer.extend({
     payload = {
       categories: categories,
       projects  : payload,
-      products  : products
+      tools     : tools
     };
 
     return this._super( store, type, payload );

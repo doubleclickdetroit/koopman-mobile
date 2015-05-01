@@ -4,22 +4,22 @@ export default DS.RESTSerializer.extend({
   primaryKey: 'ID',
 
   extractArray: function(store, type, payload) {
-    var products = [];
+    var tools = [];
 
     payload.forEach(function(entry) {
-      entry.products = [];
+      entry.tools = [];
 
       if ( !!entry.acf_related_products ) {
-        entry.acf_related_products.forEach(function(product) {
-          products.push( product );
-          entry.products.push( product.ID );
+        entry.acf_related_products.forEach(function(tool) {
+          tools.push( tool );
+          entry.tools.push( tool.ID );
         });
       }
     });
 
     payload = {
       entries : payload,
-      products: products
+      tools: tools
     };
 
     return this._super( store, type, payload );

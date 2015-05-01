@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('serializer:product', 'ProductSerializer', {
+moduleFor('serializer:tool', 'ToolSerializer', {
   // Specify the other units that are required for this test.
   // needs: ['serializer:foo']
 });
