@@ -1,8 +1,14 @@
 .picker__input {
-  width: 100%;
+  &.form-control {
+    background-color: $color-white;
+  }
 }
 
 .picker--opened {
+  position: fixed;
+  top : 0;
+  left: 0;
+
   .picker__frame {
     top   : 0 !important;
     bottom: auto !important;
