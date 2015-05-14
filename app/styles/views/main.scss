@@ -1,7 +1,12 @@
 @import "dashboard";
+@import "cart";
+@import "entries";
+@import "favorites";
 @import "projects";
+@import "reminders";
 
 
 .app-view {
-
+  @include make-xs-column(12);
+  padding-top: $grid-gutter-width / 2;
 }

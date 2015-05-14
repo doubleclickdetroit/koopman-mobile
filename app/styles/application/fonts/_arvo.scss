@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'arvoregular';
+    src: url('fonts/arvo/arvo-regular-webfont.eot');
+    src: url('fonts/arvo/arvo-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/arvo/arvo-regular-webfont.woff2') format('woff2'),
+         url('fonts/arvo/arvo-regular-webfont.woff') format('woff'),
+         url('fonts/arvo/arvo-regular-webfont.ttf') format('truetype'),
+         url('fonts/arvo/arvo-regular-webfont.svg#arvoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'arvobold';
+    src: url('fonts/arvo/arvo-bold-webfont.eot');
+    src: url('fonts/arvo/arvo-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/arvo/arvo-bold-webfont.woff2') format('woff2'),
+         url('fonts/arvo/arvo-bold-webfont.woff') format('woff'),
+         url('fonts/arvo/arvo-bold-webfont.ttf') format('truetype'),
+         url('fonts/arvo/arvo-bold-webfont.svg#arvobold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'arvobold_italic';
+    src: url('fonts/arvo/arvo-bolditalic-webfont.eot');
+    src: url('fonts/arvo/arvo-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/arvo/arvo-bolditalic-webfont.woff2') format('woff2'),
+         url('fonts/arvo/arvo-bolditalic-webfont.woff') format('woff'),
+         url('fonts/arvo/arvo-bolditalic-webfont.ttf') format('truetype'),
+         url('fonts/arvo/arvo-bolditalic-webfont.svg#arvobold_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'arvoitalic';
+    src: url('fonts/arvo/arvo-italic-webfont.eot');
+    src: url('fonts/arvo/arvo-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/arvo/arvo-italic-webfont.woff2') format('woff2'),
+         url('fonts/arvo/arvo-italic-webfont.woff') format('woff'),
+         url('fonts/arvo/arvo-italic-webfont.ttf') format('truetype'),
+         url('fonts/arvo/arvo-italic-webfont.svg#arvoitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+%font-arvo,
+%font-arvo-regular {
+  font-family: 'arvoregular';
+}
+
+%font-arvo-italic {
+  font-family: 'arvoitalic';
+}
+
+%font-arvo-bold {
+  font-family: 'arvobold';
+}
+
+%font-arvo-italic-bold,
+%font-arvo-bold-italic {
+  font-family: 'arvobold_italic';
+}

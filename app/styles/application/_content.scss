@@ -1,0 +1,51 @@
+@import "content/navigation";
+@import "content/titlebar";
+@import "content/viewport";
+@import "content/calendar";
+@import "content/paper-list";
+@import "content/post";
+@import "content/modal-shopping-list";
+
+
+html,
+body {
+  background-color: $color-white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @extend %font-arvo;
+}
+
+header {
+  display: table;
+  width: 100%;
+
+  h1,
+  nav {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 24px;
+  }
+
+  h1 {
+    margin: 0 0 12px;
+    line-height: 1.45;
+    text-transform: none;
+    word-wrap: break-word;
+  }
+  nav {
+    .btn-back {
+      display: block;
+      width: 30px;
+    }
+  }
+
+  h1 + nav {
+    text-align: right;
+  }
+}
+
+
+
+
+

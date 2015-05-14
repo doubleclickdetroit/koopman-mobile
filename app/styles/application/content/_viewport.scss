@@ -1,0 +1,22 @@
+.m-pikabu-viewport {
+  -moz-transform   : initial;
+  -o-transform     : initial;
+  -ms-transform    : initial;
+  -webkit-transform: initial;
+  transform        : initial;
+
+  -webkit-perspective: 0;
+  -moz-perspective   : 0;
+  -ms-perspective    : 0;
+  -o-perspective     : 0;
+  perspective        : 0;
+
+  .m-pikabu-sidebar {
+    background-color: #333;
+  }
+  .m-pikabu-container {
+    position: relative;
+    z-index: 1;
+    background-color: $color-white;
+  }
+}

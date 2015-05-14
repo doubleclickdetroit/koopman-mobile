@@ -1,0 +1,108 @@
+.post {
+
+  font-size: 16px;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 10px 0;
+    text-transform: uppercase;
+  }
+
+  header {
+    margin: ($grid-gutter-width / 2) 0 $grid-gutter-width;
+  }
+
+  .post-image {
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .post-body {
+    p {
+      line-height: 25px;
+    }
+  }
+
+  .actions {
+    margin-top: 18px;
+    @extend .text-center;
+    border-top: 1px solid #ccc;
+
+    .btn-group {
+      top: -18px;
+    }
+  }
+
+
+  .steps {
+    .step {
+      margin-top : $grid-gutter-width;
+      padding-top: $grid-gutter-width / 2;
+      border-top : 1px solid #ccc;
+
+      &:last-child {
+        margin-bottom : $grid-gutter-width;
+        padding-bottom: $grid-gutter-width / 2;
+        border-bottom : 1px solid #ccc;
+      }
+
+      header {
+        margin-bottom: $grid-gutter-width / 2;
+
+        h1 {
+          font-size: 20px;
+          color: $color-brand;
+        }
+      }
+
+      .step-content {
+        h2, h3, h4, h5, h6 {
+          margin: 20px 0 5px;
+          color: $color-gray-darkest;
+        }
+        h2, h3 {
+          font-size: 18px;
+        }
+        h4 {
+          font-size: 16px;
+        }
+        h5, h6 {
+          font-size: 14px;
+        }
+
+        p {
+          color: $color-gray-darker;
+        }
+
+        img {
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+
+  .wrap-up {
+    margin: $grid-gutter-width 0;
+  }
+
+
+  .content-related {
+    @include clearfix();
+    @extend .well;
+    margin-top: $grid-gutter-width * 2;
+    padding-left : 0;
+    padding-right: 0;
+
+    h4 {
+      margin: 0 0 ($grid-gutter-width / 2);
+      @extend .text-center;
+    }
+
+    .thumbnail {
+      margin-bottom: 0;
+    }
+  }
+
+}

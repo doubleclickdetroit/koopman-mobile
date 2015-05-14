@@ -1,0 +1,18 @@
+.app-view.view-cart {
+
+  .page-index {
+    .controls {
+      @include clearfix();
+      margin-top: $grid-gutter-width;
+
+      .btn.btn-danger {
+        float: right;
+      }
+    }
+  }
+
+  .page-show {
+    //
+  }
+
+}

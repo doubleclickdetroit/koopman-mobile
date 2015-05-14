@@ -1,0 +1,83 @@
+.paper-list {
+  position: relative;
+  margin-bottom: 0;
+  padding: 0 0 10px;
+  list-style: none;
+
+  &:before {
+    position: absolute;
+    top : 0;
+    left: $grid-gutter-width / 2;
+    width : 1px;
+    height: 100%;
+    background-color: #e99abf;
+    content: "";
+  }
+
+  li {
+    margin-bottom: 0;
+    padding: 5px 10px 5px $grid-gutter-width;
+    line-height: $grid-gutter-width;
+    border-bottom: 1px solid #b9e1f4;
+
+    &:after {
+      display: table;
+      clear: both;
+      content: "";
+    }
+  }
+
+  .btn-outline {
+    float: right;
+    margin-top: 2px;
+    padding: 0;
+    width : 25px;
+    height: 25px;
+    line-height: normal;
+    border-radius: 50%;
+  }
+
+  .ui-checkbox {
+    position: relative;
+    display: inline-block;
+    padding-left: 30px;
+    line-height: 20px;
+    cursor: pointer;
+    vertical-align: middle;
+    color: #372f2b;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select : none;
+    -moz-user-select   : none;
+    -ms-user-select    : none;
+    user-select        : none;
+
+    &:before {
+      position: absolute;
+      display: block;
+      top : 0;
+      left: 0;
+      content: "";
+      width      : 20px;
+      height     : 20px;
+      line-height: 20px;
+      text-align: center;
+      font-family: 'FontAwesome';
+      color: transparent;
+      border: 1px solid #e4e4e2;
+      box-shadow: 0 -1px 0 #c5c5c2;
+      background-color: #fff;
+      @include transition(.2s ease-in-out);
+    }
+
+    &.is-checked {
+      color: #aaa;
+      text-decoration: line-through;
+
+      &:before {
+        color: $brand-success;
+        content: "\f00c";
+      }
+    }
+  }
+}

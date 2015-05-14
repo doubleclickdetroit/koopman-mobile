@@ -1,0 +1,29 @@
+.navigation {
+
+  ul {
+    margin: 55px 0 0;
+    padding-left : 20px;
+    list-style: none;
+
+    li {
+      &:not(.heading):not(.app-info) {
+        border-bottom: 1px solid #888;
+      }
+    }
+
+    a {
+        display: block;
+        padding: 10px 20px;
+        color: $color-white;
+        overflow: hidden;
+        line-height: 20px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        &:hover {
+          text-decoration: none;
+        }
+    }
+  }
+
+}

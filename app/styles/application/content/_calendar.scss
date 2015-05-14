@@ -1,0 +1,49 @@
+.calendar {
+  .month {
+    margin-bottom: $grid-gutter-width;
+
+    h4 {}
+
+    .day {
+      @include clearfix();
+      margin-bottom: $grid-gutter-width / 2;
+      border-bottom: 1px solid #ccc;
+
+      .date {
+        float: left;
+        color: $color-brand;
+        font-size: 28px;
+        line-height: normal;
+      }
+      .records {
+        margin-left: 50px;
+
+        .record {
+          display: block;
+          margin-bottom : $grid-gutter-width / 2;
+
+          &:hover {
+            text-decoration: none;
+          }
+
+          .title {
+            margin-bottom: 5px;
+            color: $color-gray-darkest;
+            font-weight: bold;
+            font-size: 16px;
+          }
+          .content {
+            color: $color-gray-medium;
+            line-height: 22px;
+            font-size: 14px;
+          }
+
+          &:not(:last-child) {
+            padding-bottom: $grid-gutter-width / 2;
+            border-bottom: 1px solid #ccc;
+          }
+        }
+      }
+    }
+  }
+}

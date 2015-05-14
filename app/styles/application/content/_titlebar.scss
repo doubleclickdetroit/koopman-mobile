@@ -1,11 +1,19 @@
 .m-pikabu-container {
 
   > header {
+    position: relative;
     display: table;
     width: 100%;
     background-color: $color-brand;
 
-    .logo,
+    .btn-back {
+      position: absolute;
+      left: $grid-gutter-width / 2;
+      color: $color-white;
+      font-size: 25px;
+    }
+
+    .title,
     .m-pikabu-nav-toggle {
       display: table-cell;
       vertical-align: middle;
@@ -13,11 +21,10 @@
       color: $color-white;
     }
 
-    .logo {
-      padding: 10px 0;
+    .title {
+      padding: 10px 0 10px 50px; // padding-left make up for .m-pikabu-nav-toggle width
 
       img {
-        margin-left: -50px;
         max-height: 35px;
       }
     }

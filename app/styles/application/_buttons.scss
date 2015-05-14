@@ -1,0 +1,60 @@
+.btn {
+
+  &.btn-outline {
+    @include transition(.2s ease-in-out);
+
+    &.btn-primary,
+    &.btn-success,
+    &.btn-info,
+    &.btn-warning,
+    &.btn-danger {
+      background-color: transparent;
+
+      &:hover {
+        color: $color-white;
+      }
+    }
+
+    &.btn-primary {
+      color: $brand-primary;
+
+      &:hover {
+        background-color: $brand-primary;
+      }
+    }
+
+    &.btn-success {
+      color: $brand-success;
+
+      &:hover {
+        background-color: $brand-success;
+      }
+    }
+
+    &.btn-info {
+      color: $brand-info;
+
+      &:hover {
+        background-color: $brand-info;
+      }
+    }
+
+    &.btn-warning {
+      color: $brand-warning;
+
+      &:hover {
+        background-color: $brand-warning;
+      }
+    }
+
+    &.btn-danger {
+      color: $brand-danger;
+
+      &:hover {
+        background-color: $brand-danger;
+      }
+    }
+
+  }
+
+}

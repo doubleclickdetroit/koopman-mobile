@@ -1,7 +1,8 @@
-.view-dashboard {
+.app-view.view-dashboard {
+  padding-top: 0;
 
   .tiles {
-    @include clearfix();
+    @include make-row();
     padding: 0 5px;
 
     .tile {
@@ -62,6 +63,39 @@
           bottom: 0;
           width: 100%;
           text-align: center;
+        }
+      }
+
+      &.entry {
+        figure {
+          position: relative;
+
+          .date {
+            position: absolute;
+            display: block;
+            top : 3px;
+            left: 3px;
+            padding-top: 4px;
+            width : 40px;
+            height: 40px;
+            content: "";
+            border-radius: 50%;
+            background-color: rgba(0,0,0,.4);
+
+            .month,
+            .day {
+              display: block;
+              width: 40px;
+              text-align: center;
+            }
+            .month {
+              font-size: 12px;
+            }
+            .day {
+              margin-top: -5px;
+              font-size: 15px;
+            }
+          }
         }
       }
     }

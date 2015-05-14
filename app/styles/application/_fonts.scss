@@ -1,21 +1,3 @@
-@font-face {
-  font-family: 'entypo';
-  src: url("fonts/entypo/entypo.eot");
-  src: url("fonts/entypo/entypo.eot?#iefix") format("embedded-opentype"),
-       url("fonts/entypo/entypo.woff") format("woff"),
-       url("fonts/entypo/entypo.ttf") format("truetype"),
-       url("fonts/entypo/entypo.svg#entypo") format("svg");
-
-  font-weight: normal;
-  font-style: normal;
-}
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  @font-face {
-    font-family: 'entypo';
-    src: url("fonts/entypo/entypo.svg#entypo") format("svg");
-  }
-}
-
-%font-entypo {
-  font-family: 'entypo';
-}
+@import "fonts/arvo";
+@import "fonts/entypo";
+@import "fonts/pt_sans";
