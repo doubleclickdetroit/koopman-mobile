@@ -46,6 +46,20 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 
       // now transition to index
       this.transitionTo( 'index' );
+    },
+
+    showModal: function(name, model) {
+      this.render(name, {
+        into  : 'application',
+        outlet: 'modal'
+      });
+    },
+
+    removeModal: function() {
+      this.disconnectOutlet({
+        outlet    : 'modal',
+        parentView: 'application'
+      });
     }
   }
 });
