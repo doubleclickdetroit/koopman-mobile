@@ -18,6 +18,6 @@ export default DS.Model.extend({
 
   month: function() {
     var date = this.get( 'date' );
-    return this.moment( date ).format( 'M' );
+    return this.moment( date ).format( 'MMM' );
   }.property( 'date' )
 });

@@ -10,7 +10,17 @@ export default DS.Model.extend({
   title      : DS.attr(),
   content    : DS.attr(),
   relatedPost: DS.attr( 'number' ),
+  excerpt    : DS.attr(),
   image      : DS.attr(),
 
-  steps: DS.attr( 'array' )
+  steps                 : DS.attr( 'array' ),
+  hasMultipleParts      : DS.attr(),
+  seriesPartNumber      : DS.attr(),
+  seriesTitle           : DS.attr(),
+  seriesAttributes      : DS.attr( 'array' ),
+  seriesCautionStatement: DS.attr(),
+  seriesPartEstimateTime: DS.attr(),
+  seriesPartDifficulty  : DS.attr(),
+  wrapUp                : DS.attr()
+
 });

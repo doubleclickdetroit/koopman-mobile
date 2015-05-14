@@ -1,53 +1,81 @@
-<section class="page-show">
+<section class="page-show post">
 
-  <h2>{{#link-to "projects"}}&lt;{{/link-to}} {{ model.title }}</h2>
+  <figure class="post-image">
+    <img src="{{ model.image.large.url }}">
+  </figure>
 
-  <button {{action "handleFavoriteToggle" model}}>
-    {{#if model.favorite}}Unfavorite{{else}}Favorite{{/if}}
-  </button>
+  <header>
+    <h1>{{ model.title }}</h1>
+  </header>
+
+  <nav class="actions">
+    <div class="btn-group">
+      <a href="#" class="btn btn-default" {{action "handleFavoriteToggle" model}}>
+        <i class="fa {{if model.favorite 'fa-check' 'fa-plus'}}"></i> Favorite
+      </a>
+
+      <a href="#" class="btn btn-default" {{action "showModal" "modal-shopping-list" model}}>
+        <i class="fa fa-plus"></i> Shopping List
+      </a>
+
+      <a href="#" class="btn btn-default">
+        <i class="fa fa-share"></i> Share
+      </a>
+    </div>
+  </nav>
 
   {{favorite-reminder favorite=model.favorite
+                      title="Remind me on:"
                       onSave="handleFavoriteUpdate"}}
 
-  {{{ model.content }}}
+  <div class="post-body">
+    {{{ model.content }}}
 
-  <section class="steps">
-  {{#each step in model.steps}}
-    <article class="step">
-      <header>
-        <h1>{{ step.title }}</h1>
-      </header>
+    {{{ model.seriesCautionStatement }}}
 
-      {{{ step.content }}}
-    </article>
-  {{/each}}
-  </section>
+    <section class="steps">
+    {{#each step in model.steps}}
 
-  <ul class="tools">
-  {{#each tool in model.tools}}
-    <li>
-      {{ tool.title }}
+      <article class="step">
+        <header>
+          <h1>{{ step.title }}</h1>
+        </header>
 
-      {{#if tool.product}}
-        <button {{action 'removeProduct' tool.product}}>Remove</button>
-      {{else}}
-        <button {{action 'addProduct' tool}}>Add</button>
-      {{/if}}
-    </li>
-  {{/each}}
-  </ul>
+        <div class="step-content">
+          {{{ step.content }}}
+        </div>
+      </article>
+
+    {{/each}}
+    </section>
+
+    <section class="wrap-up">
+      <h3>Wrap Up</h3>
+      {{{ model.wrapUp }}}
+    </section>
+  </div>
 
 
-  {{#if relatedPost}}
-    <div class="pull-left">
-      <p class="text-center">Recommended Post</p>
-      <img src="{{ relatedPostThumb.url }}">
+  <div class="content-related">
+    <div class="col-xs-12">
+      <h4>Related Content</h4>
     </div>
-  {{/if}}
 
-  <div class="pull-left">
-    <p class="text-center">Recent Post</p>
-    <img src="{{ recentPostThumb.url }}">
+    {{#if relatedPost}}
+      <div class="col-xs-6">
+        <div class="thumbnail">
+          <div class="caption text-center">Recommended</div>
+          <img src="{{ relatedPostThumb.url }}">
+        </div>
+      </div>
+    {{/if}}
+
+    <div class="{{if relatedPost 'col-xs-6' 'col-xs-12'}}">
+      <div class="thumbnail">
+        <div class="caption text-center">Recent Post</div>
+        <img src="{{ recentPostThumb.url }}">
+      </div>
+    </div>
   </div>
 
 </section>

@@ -48,8 +48,32 @@ export default DS.RESTSerializer.extend({
 
   normalizeHash: {
     projects: function(hash) {
+      hash.seriesAttributes = hash.acf_series_attibutes;
+      delete hash.acf_series_attibutes;
+
+      hash.hasMultipleParts = hash.acf_has_multiple_parts;
+      delete hash.acf_has_multiple_parts;
+
+      hash.seriesPartNumber = hash.acf_series_part_number;
+      delete hash.acf_series_part_number;
+
+      hash.seriesTitle = hash.acf_series_title;
+      delete hash.acf_series_title;
+
+      hash.seriesCautionStatement = hash.acf_series_caution_statement;
+      delete hash.acf_series_caution_statement;
+
+      hash.seriesPartEstimateTime = hash.acf_series_part_estimated_time;
+      delete hash.acf_series_part_estimated_time;
+
+      hash.seriesPartDifficulty = hash.acf_series_part_difficulty;
+      delete hash.acf_series_part_difficulty;
+
       hash.steps = hash.acf_project_steps;
       delete hash.acf_project_steps;
+
+      hash.wrapUp = hash.acf_wrap_up;
+      delete hash.acf_wrap_up;
 
       if ( hash.featured_image ) {
         hash.image = hash.featured_image.attachment_meta.sizes;

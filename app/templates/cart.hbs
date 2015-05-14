@@ -1,29 +1,32 @@
 <article class="app-view view-cart">
 
   <section class="page-index">
-    <header>
-      <h1>Shopping List</h1>
+    {{#if productCollection.length}}
 
-      {{#if model.products.length}}
+      <ul class="shopping-cart paper-list">
+        {{#each product in productCollection}}
+          <li>
+            <span class="ui-checkbox {{if product.hasAcquired 'is-checked'}}" {{action 'toggleAcquired' product}}>{{ product.name }}</span>
+            <button class="btn btn-danger btn-outline btn-sm" {{action 'removeProduct' product}}><i class="fa fa-minus"></i></button>
 
-        <button {{action 'emptyProducts'}}>Empty List</button>
+            <div class="related-posts">
+              {{#each post in product.relatedPosts}}
+                <span class="label label-default">{{ post.title }}</span>
+              {{/each}}
+            </div>
+          </li>
+        {{/each}}
+      </ul>
 
-        <ul class="shopping-cart">
-          {{#each product in model.products}}
-            <li>
-              {{ product.name }}
+      <div class="controls">
+        <button class="btn btn-danger btn-outline" disabled={{withoutAcquiredProducts}} {{action 'clearCompleted'}}>Clear Completed</button>
+      </div>
 
-              <button {{action 'removeProduct' product}}>Remove</button>
-            </li>
-          {{/each}}
-        </ul>
+    {{else}}
 
-      {{else}}
+      <p class="text-center">Looks like there aren&#39;t any items in your Shopping List.</p>
 
-        <p class="text-center">Looks like there aren&#39;t any items in your Shopping List.</p>
-
-      {{/if}}
-    </header>
+    {{/if}}
   </section>
 
 </article>

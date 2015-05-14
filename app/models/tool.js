@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -9,5 +10,7 @@ export default DS.Model.extend({
   content    : DS.attr(),
   description: DS.attr(),
   image      : DS.attr(),
-  sku        : DS.attr()
+  sku        : DS.attr(),
+
+  relatedPosts: Ember.computed.union( 'entries', 'projects' )
 });

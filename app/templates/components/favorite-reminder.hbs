@@ -1,23 +1,31 @@
 {{#if favorite}}
 
+  <div class="favorite-reminder alert alert-info {{if isEditable 'is-editable' 'is-readonly'}}" role="alert">
   {{#if isEditable}}
+      <button class="close" {{action 'dismissReminder'}}>&times;</button>
 
-    <h4>{{ title }}</h4>
+      <p><i class="fa fa-clock-o"></i> {{ title }}</p>
 
-    <form {{action 'saveRemindAt' on='submit'}}>
-      <label>Remind me on:</label>
-      {{date-pickadate date=remindAtBuffer}}
+      <form {{action 'saveRemindAt' on='submit'}}>
 
-      <div class="controls">
-        <button>Save</button>
-        <a href="#" {{action 'dismissReminder'}}>Dismiss</a>
-      </div>
-    </form>
+        <div class="input-group">
+          {{date-pickadate date=remindAtBuffer}}
+
+          <span class="input-group-btn">
+            <button class="btn btn-default">Save</button>
+          </span>
+        </div>
+
+      </form>
 
   {{else}}
 
-    <p>{{reminder-message favorite.remind_at }}</p>
-    <button {{action 'setAsEditable'}}>View</button>
+    <div class="clearfix">
+      <i class="fa fa-clock-o"></i> {{reminder-message favorite.remind_at }}
+      <button class="pull-right btn btn-primary btn-outline btn-xs" {{action 'setAsEditable'}}>View</button>
+    </div>
 
   {{/if}}
+  </div>
+
 {{/if}}

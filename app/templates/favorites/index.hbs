@@ -1,21 +1,27 @@
-{{#if content.length}}
+<section class="page-index">
 
-  <ul>
+  {{#if content.length}}
+
     {{#each favorite in model}}
-      <li>
-        {{#if favorite.entry}}
-          {{#link-to 'entry' favorite.entry}}{{ favorite.entry.title }}{{/link-to}}
-        {{/if}}
 
-        {{#if favorite.project}}
-          {{#link-to 'project' favorite.project}}{{ favorite.project.title }}{{/link-to}}
-        {{/if}}
-      </li>
+      {{#if favorite.entry}}
+        {{#link-to 'entry' favorite.entry class="favorite"}}
+          <img src={{ favorite.entry.image.blog-medium.url }}>
+        {{/link-to}}
+      {{/if}}
+
+      {{#if favorite.project}}
+        {{#link-to 'project' favorite.project class="favorite"}}
+          <img src={{ favorite.project.image.blog-medium.url }}>
+        {{/link-to}}
+      {{/if}}
+
     {{/each}}
-  </ul>
 
-{{else}}
+  {{else}}
 
-  <p>Looks like you haven&#39;t saved any favorites.</p>
+    <p class="text-center">Looks like you haven&#39;t saved any favorites.</p>
 
-{{/if}}
+  {{/if}}
+
+</section>

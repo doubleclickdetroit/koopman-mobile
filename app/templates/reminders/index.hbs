@@ -1,39 +1,51 @@
+<section class="page-index">
 {{#if content.length}}
 
-  {{view 'select' content=listOfGroupYears
+  {{view 'select' class="reminder-filter"
+                  content=listOfGroupYears
                   value=selectedGroupYear}}
 
-  <div class="months">
-  {{#each month in groupedByDate}}
-    <p>{{ month.name }}</p>
+  <div class="calendar">
 
-    <ul class="dates">
-    {{#each date in month.dates}}
-      <li>
-        <p>{{ date.number }}</p>
+    {{#each month in groupedByDate}}
+    <div class="month">
+      <h4>{{ month.name }}</h4>
 
-        <ul class="reminders">
+      {{#each date in month.dates}}
+      <div class="day">
+        <div class="date">{{ date.number }}</div>
+
+        <div class="records">
         {{#each reminder in date.reminders}}
-          <li>
-            {{#if reminder.entry}}
-              {{#link-to 'entry' reminder.entry}}{{ reminder.entry.title }}{{/link-to}}
-            {{/if}}
 
-            {{#if reminder.project}}
-              {{#link-to 'project' reminder.project}}{{ reminder.project.title }}{{/link-to}}
-            {{/if}}
-          </li>
+          {{#if reminder.entry}}
+            {{#link-to 'entry' reminder.entry class="record"}}
+              <p class="title">{{ reminder.entry.title }}</p>
+              <div class="content">{{{ reminder.entry.excerpt }}}</div>
+            {{/link-to}}
+          {{/if}}
+
+          {{#if reminder.project}}
+            {{#link-to 'project' reminder.project class="record"}}
+              <p class="title">{{ reminder.project.title }}</p>
+              <div class="content">{{{ reminder.project.excerpt }}}</div>
+            {{/link-to}}
+          {{/if}}
+
         {{/each}}
-        </ul>
+        </div>
 
-      </li>
+      </div>
+      {{/each}}
+
+    </div>
     {{/each}}
-    </ul>
-  {{/each}}
+
   </div>
 
 {{else}}
 
-  <p>Looks like you don&#39;t have any reminders scheduled.</p>
+  <p class="text-center">Looks like you don&#39;t have any reminders scheduled.</p>
 
 {{/if}}
+</section>

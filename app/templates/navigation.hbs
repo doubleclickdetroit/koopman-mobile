@@ -1,21 +1,30 @@
-<ul>
-  <li>{{#link-to 'index'}}Home{{/link-to}}</li>
-  <li>{{#link-to 'entries'}}Almanac{{/link-to}}</li>
-  <li>{{#link-to 'projects'}}Projects{{/link-to}}</li>
+<div class="navigation">
+
+  <ul class="pages">
+    <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+    <li>{{#link-to 'entries'}}Almanac{{/link-to}}</li>
+    <li>{{#link-to 'projects'}}Projects{{/link-to}}</li>
+  </ul>
 
   {{#if session.isAuthenticated}}
+  <ul class="actions">
+    <li class="heading">My Actions</li>
     <li>{{#link-to 'cart'}}Shopping List{{/link-to}}</li>
     <li>{{#link-to 'favorites'}}Favorites{{/link-to}}</li>
     <li>{{#link-to 'reminders'}}Reminders{{/link-to}}</li>
+  </ul>
   {{/if}}
 
-  <li>{{#link-to 'settings'}}Settings{{/link-to}}</li>
 
-  <li>
+  <ul class="session">
     {{#if session.isAuthenticated}}
-      <a href="#" {{action 'invalidateSession'}}>Logout</a>
+      <li>{{#link-to 'settings'}}<i class="fa fa-cog"></i> Settings{{/link-to}}</li>
+      <li><a href="#" {{action 'invalidateSession'}}>Logout</a></li>
     {{else}}
-      {{#link-to 'login'}}Login{{/link-to}}
+      <li>{{#link-to 'login'}}Login{{/link-to}}</li>
     {{/if}}
-  </li>
-</ul>
+
+    <li class="app-info">version 0.0.1</li>
+  </ul>
+
+</div>

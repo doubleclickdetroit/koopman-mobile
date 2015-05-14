@@ -1,24 +1,31 @@
-<h2>{{#link-to "entries"}}&lt;{{/link-to}} {{ model.title }}</h2>
+<section class="page-show post">
 
-<button {{action "handleFavoriteToggle" model}}>
-  {{#if model.favorite}}Unfavorite{{else}}Favorite{{/if}}
-</button>
+  <header>
+    <h1>{{ model.title }}</h1>
+  </header>
 
-{{favorite-reminder favorite=model.favorite
-                    onSave="handleFavoriteUpdate"}}
+  <nav class="actions">
+    <div class="btn-group">
+      <a href="#" class="btn btn-default" {{action "handleFavoriteToggle" model}}>
+        <i class="fa {{if model.favorite 'fa-check' 'fa-plus'}}"></i> Favorite
+      </a>
 
-{{{ model.content }}}
+      <a href="#" class="btn btn-default" {{action "showModal" "modal-shopping-list" model}}>
+        <i class="fa fa-plus"></i> Shopping List
+      </a>
 
-<ul class="tools">
-{{#each tool in model.tools}}
-  <li>
-    {{ tool.title }}
+      <a href="#" class="btn btn-default">
+        <i class="fa fa-share"></i> Share
+      </a>
+    </div>
+  </nav>
 
-    {{#if tool.product}}
-      <button {{action 'removeProduct' tool.product}}>Remove</button>
-    {{else}}
-      <button {{action 'addProduct' tool}}>Add</button>
-    {{/if}}
-  </li>
-{{/each}}
-</ul>
+  {{favorite-reminder favorite=model.favorite
+                      title="Remind me on:"
+                      onSave="handleFavoriteUpdate"}}
+
+  <div class="post-body">
+    {{{ model.content }}}
+  </div>
+
+</section>

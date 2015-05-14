@@ -1,30 +1,36 @@
-{{view 'select' content=listOfGroupYears
-                value=selectedGroupYear}}
+<section class="page-index">
 
-<div class="months">
-  {{#each month in groupedByDate}}
-    <p>{{ month.name }}</p>
+  {{view 'select' class="entry-filter"
+                  content=listOfGroupYears
+                  value=selectedGroupYear}}
 
-    <ul class="dates">
-    {{#each date in month.dates}}
-      <li>
-        <p>{{ date.number }}</p>
+  <div class="calendar">
 
-        <ul class="reminders">
+    {{#each month in groupedByDate}}
+    <div class="month">
+      <h4>{{ month.name }}</h4>
+
+      {{#each date in month.dates}}
+      <div class="day">
+        <div class="date">{{ date.number }}</div>
+
+        <div class="records">
         {{#each entry in date.entries}}
 
-          <li>
-            {{#link-to 'entry' entry }}
-              <p>{{ entry.title }}</p>
-              {{{ entry.excerpt }}}
-            {{/link-to}}
-          </li>
+          {{#link-to 'entry' entry class="record"}}
+            <p class="title">{{ entry.title }}</p>
+            <div class="content">{{{ entry.excerpt }}}</div>
+          {{/link-to}}
 
         {{/each}}
-        </ul>
+        </div>
 
-      </li>
+      </div>
+      {{/each}}
+
+    </div>
     {{/each}}
-    </ul>
-  {{/each}}
+
   </div>
+
+</section>
