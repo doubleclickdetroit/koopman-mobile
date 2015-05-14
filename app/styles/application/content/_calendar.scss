@@ -19,11 +19,29 @@
         margin-left: 50px;
 
         .record {
+          position: relative;
           display: block;
-          margin-bottom : $grid-gutter-width / 2;
+          padding-right : $grid-gutter-width;
+          padding-bottom: $grid-gutter-width / 2;
+
+          + .record {
+            margin-top: $grid-gutter-width / 2;
+          }
 
           &:hover {
             text-decoration: none;
+          }
+
+          &:after {
+            position: absolute;
+            top  : 50%;
+            right: -10px;
+            margin-top: -12px;
+            width : 20px;
+            height: 25px;
+            content: "";
+            font-family: 'FontAwesome';
+            font-size: 25px;
           }
 
           .title {
@@ -36,10 +54,14 @@
             color: $color-gray-medium;
             line-height: 22px;
             font-size: 14px;
+
+            p {
+              margin: 0;
+            }
           }
 
           &:not(:last-child) {
-            padding-bottom: $grid-gutter-width / 2;
+            // padding-bottom: $grid-gutter-width / 2;
             border-bottom: 1px solid #ccc;
           }
         }
