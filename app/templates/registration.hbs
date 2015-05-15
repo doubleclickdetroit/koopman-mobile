@@ -1,10 +1,9 @@
+<article class="app-view view-registration">
 {{#if session.isAuthenticated}}
 
 You have just registered as {{email}}
 
 {{else}}
-
-<div class="login-registration">
 
   <form {{action 'register' on='submit'}}>
     <div class="form-group">
@@ -33,6 +32,5 @@ You have just registered as {{email}}
 
   {{#link-to "login"}}Sign In{{/link-to}}
 
-</div>
-
 {{/if}}
+</article>

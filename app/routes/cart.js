@@ -3,9 +3,9 @@ import ToolProductActionsMixin from '../mixins/tool-product-actions';
 
 export default Ember.Route.extend(ToolProductActionsMixin, {
   activate: function() {
-    this.controllerFor( 'application' ).set( 'title', 'Shopping List' );
+    this.controllerFor( 'application' ).set( 'model.title', 'Shopping List' );
   },
   deactivate: function() {
-    this.controllerFor( 'application' ).set( 'title', null );
+    this.controllerFor( 'application' ).set( 'model.title', null );
   }
 });
