@@ -3,8 +3,8 @@
 You have just registered as {{email}}
 
 {{else}}
+
 <div class="login-registration">
-  <h3>Sign Up</h3>
 
   <form {{action 'register' on='submit'}}>
     <div class="form-group">
@@ -18,7 +18,7 @@ You have just registered as {{email}}
     </div>
 
     <div class="form-group">
-      <label for="password_confirmation">Password</label>
+      <label for="password_confirmation">Password Confirmation</label>
       {{input type='password' value=password_confirmation}}
     </div>
 
