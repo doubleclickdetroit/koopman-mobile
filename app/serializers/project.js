@@ -34,7 +34,7 @@ export default DS.RESTSerializer.extend({
     categories = _.map( categories );
     categories.unshift({
       ID: 0,
-      name: 'All'
+      name: 'All Categories'
     });
 
     payload = {
