@@ -1,36 +1,50 @@
 <article class="app-view view-registration">
 {{#if session.isAuthenticated}}
 
-You have just registered as {{email}}
+  <div class="alert alert-success" role="alert">
+    You have just registered as <strong>{{email}}</strong>
+  </div>
 
 {{else}}
 
   <form {{action 'register' on='submit'}}>
-    <div class="form-group">
-      <label for="email">Email</label>
-      {{input value=email}}
-    </div>
+    <section class="information-signin">
+      <div class="form-group">
+        <label for="email">Email</label>
+        {{input value=email class="form-control"}}
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        {{input type="password" value=password class="form-control"}}
+      </div>
+
+      <div class="form-group">
+        <label for="password_confirmation">Password Confirmation</label>
+        {{input type="password" value=password_confirmation class="form-control"}}
+      </div>
+    </section>
+
+    <hr>
 
     <div class="form-group">
-      <label for="password">Password</label>
-      {{input type='password' value=password}}
+      <button type="submit" class="btn btn-primary btn-block">Create Your Account</button>
     </div>
 
-    <div class="form-group">
-      <label for="password_confirmation">Password Confirmation</label>
-      {{input type='password' value=password_confirmation}}
-    </div>
+    <hr>
 
-    <button type="submit">Create Your Account</button>
+    <section class="cta-signin well">
+      <div class="blocks">
+        <div class="block">
+          <h4>Already have an account?</h4>
+        </div>
+
+        <div class="block content-right">
+          {{#link-to "login" class="btn btn-primary btn-outline"}}Sign In{{/link-to}}
+        </div>
+      </div>
+    </section>
   </form>
-
-  <hr>
-
-  <span>
-    Already have an account?
-  </span>
-
-  {{#link-to "login"}}Sign In{{/link-to}}
 
 {{/if}}
 </article>

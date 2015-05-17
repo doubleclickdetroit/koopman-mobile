@@ -1,31 +1,47 @@
 <article class="app-view view-login">
 {{#if session.isAuthenticated}}
 
-You have signed in as {{identification}}
+  <div class="alert alert-success" role="alert">
+    You have signed in as <strong>{{identification}}</strong>
+  </div>
 
 {{else}}
 
   <form {{action 'authenticate' on='submit'}}>
-    <div class="form-group">
-      <label for="identification">Login</label>
-      {{input value=identification placeholder='Enter Login'}}
-    </div>
+    <section class="information-signin">
+      <div class="form-group">
+        <label for="identification">Email Address</label>
+        {{input value=identification class="form-control"}}
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        {{input value=password type="password" class="form-control"}}
+      </div>
+    </section>
+
+    <hr>
 
     <div class="form-group">
-      <label for="password">Password</label>
-      {{input value=password placeholder='Enter Password' type='password'}}
+      <button type="submit" class="btn btn-primary btn-block">Login</button>
     </div>
 
-    <button type="submit">Login</button>
+    <hr>
+
+    <section class="cta-signup well">
+      <div class="blocks">
+        <div class="block">
+          <h4>Don&#39;t have an account?</h4>
+        </div>
+
+        <div class="block content-right">
+          {{#link-to "registration" class="btn btn-danger btn-outline"}}Sign Up{{/link-to}}
+        </div>
+      </div>
+    </section>
   </form>
 
-  <hr>
 
-  <span>
-    Don&#39;t have an account?
-  </span>
-
-  {{#link-to "registration"}}Sign Up{{/link-to}}
 
 {{/if}}
 </article>
