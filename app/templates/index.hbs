@@ -38,8 +38,7 @@
           <span class="day">{{ model.entry.day }}</span>
         </span>
 
-        {{log model.entry}}
-        <img src={{ model.entry.image.post-medium.url }}>
+        <img src={{if model.entry.image model.entry.image.post-medium.url 'http://lorempixel.com/180/137/'}}>
       {{/link-to}}
     </article>
 
@@ -50,6 +49,7 @@
 
       {{#link-to 'project' model.project tagName='figure'}}
         <img src={{ model.project.image.post-medium.url }}>
+        <caption>{{ model.project.title }}</caption>
       {{/link-to}}
     </article>
   </section>

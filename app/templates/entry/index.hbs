@@ -1,5 +1,9 @@
 <section class="page-show post">
 
+  <figure class="post-image">
+    <img src="{{if model.image model.image.large.url 'http://lorempixel.com/1024/500/'}}">
+  </figure>
+
   <header>
     <h1>{{ model.title }}</h1>
   </header>
@@ -7,7 +11,7 @@
   <nav class="actions">
     <div class="btn-group">
       <a href="#" class="btn btn-default" {{action "handleFavoriteToggle" model}}>
-        <i class="fa {{if model.favorite 'fa-check' 'fa-plus'}}"></i> Favorite
+        <i class="fa fa-{{if model.favorite 'check' 'plus'}}"></i> Favorite
       </a>
 
       <a href="#" class="btn btn-default" {{action "showModal" "modal-shopping-list" model}}>

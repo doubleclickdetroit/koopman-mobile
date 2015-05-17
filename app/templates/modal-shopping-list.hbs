@@ -2,19 +2,21 @@
 
   <ul class="tools paper-list">
     {{#each tool in tools}}
+
       <li>
         {{ tool.title }}
 
         {{#if tool.product}}
-
           <button class="btn btn-danger btn-outline btn-sm" {{action 'removeProduct' tool.product}}><i class="fa fa-minus"></i></button>
-
         {{else}}
-
           <button class="btn btn-success btn-outline btn-sm" {{action 'addProduct' tool}}><i class="fa fa-plus"></i></button>
-
         {{/if}}
       </li>
+
+    {{else}}
+
+      <li>Looks like there aren&#39;t any items to purchase.</li>
+
     {{/each}}
   </ul>
 

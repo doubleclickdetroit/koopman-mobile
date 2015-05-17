@@ -1,0 +1,19 @@
+figure {
+  position: relative;
+  cursor: pointer;
+  background-color: $color-white;
+
+  img {
+    max-width: 100%;
+  }
+
+  caption {
+    position: absolute;
+    bottom: 0;
+    padding-left : $grid-gutter-width / 2;
+    padding-right: $grid-gutter-width / 2;
+    width: 100%;
+    color: $color-white;
+    background-color: rgba(0, 0, 0, .4);
+  }
+}

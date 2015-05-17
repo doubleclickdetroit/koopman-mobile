@@ -1,6 +1,6 @@
 <section class="page-index">
 
-  {{view 'select' class="project-filter"
+  {{view 'select' class="form-control project-filter"
                   content=listOfCategories
                   value=selectedCategoryId
                   optionValuePath='content.id'
@@ -9,7 +9,10 @@
   {{#each project in sortedProjects}}
 
     {{#link-to 'project' project class="project"}}
-      <img src={{ project.image.blog-medium.url }}>
+      <figure>
+        <img src={{ project.image.blog-medium.url }}>
+        <caption>{{ project.title }}</caption>
+      </figure>
     {{/link-to}}
 
   {{/each}}
