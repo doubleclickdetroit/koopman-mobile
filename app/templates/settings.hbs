@@ -1,3 +1,83 @@
 <article class="app-view view-settings">
-  {{outlet}}
+  {{#if session.isAuthenticated}}
+
+    <form {{action 'update' on='submit'}}>
+      <section class="information-personal">
+        <h4>Personal Information</h4>
+
+        <div class="form-group">
+          <label>First Name</label>
+          {{input value=model.firstName class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label>Last Name</label>
+          {{input value=model.lastName class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label>Gender</label>
+          {{view 'select' class="form-control gender-selection"
+                          content=listOfGenders
+                          value=model.gender
+                          optionValuePath='content.id'
+                          optionLabelPath='content.label'}}
+        </div>
+
+        <div class="form-group">
+          <label>Telephone</label>
+          {{input value=model.tel type="tel" class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label>Street Address</label>
+          {{input value=model.street class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label>City</label>
+          {{input value=model.city class="form-control"}}
+        </div>
+
+        <div class="form-group">
+          <label>State</label>
+          {{view 'select' class="form-control state-selection"
+                          content=listOfStates
+                          value=model.state
+                          optionValuePath='content.id'
+                          optionLabelPath='content.label'}}
+        </div>
+
+        <div class="form-group">
+          <label>Zipcode</label>
+          {{input value=model.zipcode class="form-control"}}
+        </div>
+      </section>
+
+      <hr>
+
+      <section class="information-customer">
+        <h4>Customer Information</h4>
+
+        <div class="well">
+          <div class="form-group">
+            <label>Customer Number</label>
+            {{input value=model.customer_number class="form-control"}}
+          </div>
+
+          <div class="form-group">
+            <label>Loyalty Number</label>
+            {{input value=model.loyalty_number class="form-control"}}
+          </div>
+        </div>
+      </section>
+
+      <hr>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-outline btn-block">Save</button>
+      </div>
+    </form>
+
+  {{/if}}
 </article>
