@@ -19,6 +19,7 @@ export default DS.Model.extend({
   seriesTitle           : DS.attr(),
   seriesAttributes      : DS.attr( 'array' ),
   seriesCautionStatement: DS.attr(),
+  seriesPartTitle       : DS.attr(),
   seriesPartEstimateTime: DS.attr(),
   seriesPartDifficulty  : DS.attr(),
   wrapUp                : DS.attr()

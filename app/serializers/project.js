@@ -57,6 +57,9 @@ export default DS.RESTSerializer.extend({
       hash.seriesPartNumber = hash.acf_series_part_number;
       delete hash.acf_series_part_number;
 
+      hash.seriesPartTitle = hash.acf_series_part_title;
+      delete hash.acf_series_part_title;
+
       hash.seriesTitle = hash.acf_series_title;
       delete hash.acf_series_title;
 

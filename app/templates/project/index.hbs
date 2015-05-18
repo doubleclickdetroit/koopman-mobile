@@ -29,6 +29,47 @@
                       onSave="handleFavoriteUpdate"}}
 
   <div class="post-body">
+    <section class="post-attributes">
+      {{#if model.seriesTitle}}
+        <dl>
+          <dt>Blog Series:</dt>
+          <dd>{{ model.seriesTitle }}</dd>
+        </dl>
+      {{/if}}
+
+      {{#if model.hasMultipleParts}}
+        {{#if model.seriesPartNumber}}
+          <dl>
+            <dt>Part {{ model.seriesPartNumber }}:</dt>
+            <dd>{{ model.seriesPartTitle }}</dd>
+          </dl>
+        {{/if}}
+      {{/if}}
+
+      {{#if model.seriesPartDifficulty}}
+        <dl>
+          <dt>Difficulty:</dt>
+          <dd>{{ model.seriesPartDifficulty }}</dd>
+        </dl>
+      {{/if}}
+
+      {{#if model.seriesPartEstimateTime}}
+        <dl>
+          <dt>Time:</dt>
+          <dd>{{ model.seriesPartEstimateTime }}</dd>
+        </dl>
+      {{/if}}
+
+      {{#if model.seriesAttributes}}
+        {{#each attr in model.seriesAttributes}}
+          <dl>
+            <dt>{{ attr.attribute_name }}:</dt>
+            <dd>{{ attr.attribute_value }}</dd>
+          </dl>
+        {{/each}}
+      {{/if}}
+    </section>
+
     {{{ model.content }}}
 
     {{{ model.seriesCautionStatement }}}

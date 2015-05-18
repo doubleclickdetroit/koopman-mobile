@@ -23,6 +23,29 @@
     }
   }
 
+  .post-attributes {
+    display: table;
+    width: 100%;
+    font-size: $font-size-base;
+
+    dl {
+      display: table-row;
+
+      dt, dd {
+        display: table-cell;
+        padding-bottom: 5px;
+      }
+      dt {
+        text-align: right;
+        white-space: nowrap;
+        color: $color-brand;
+      }
+      dd {
+        padding-left: 10px;
+      }
+    }
+  }
+
   .actions {
     margin-top: 18px;
     @extend .text-center;
