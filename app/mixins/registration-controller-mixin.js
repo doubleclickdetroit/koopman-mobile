@@ -5,20 +5,22 @@ export default Ember.Mixin.create(LoginControllerMixin, {
   identification: Ember.computed.alias( 'email' ),
 
   actions: {
-    onSuccess: function(response) {
-      // override method
-      console.log( 'onSuccess', response );
+    onRegister: function() {
+      this.set( 'errors', null );
     },
-
-    onFailure: function(errorHash) {
-      // override method
-      console.log( 'onFailure', errorHash );
+    onSuccess: function(response) {
+      this.set( 'errors', null );
+    },
+    onFailure: function(errors) {
+      var errorHash = Ember.Object.create( errors );
+      this.set( 'errors', errorHash );
     },
 
     register: function() {
       var request, credentialsHash;
-
       credentialsHash = this.getProperties( 'email', 'password', 'password_confirmation' );
+
+      this.send( 'onRegister' );
 
       request = Ember.$.ajax({
         method  : 'POST',

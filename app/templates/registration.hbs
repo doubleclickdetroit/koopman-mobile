@@ -7,28 +7,61 @@
 
 {{else}}
 
+  {{#if errors}}
+    <div class="alert alert-danger" role="alert">
+      Please correct the following {{pluralize errorsCollection.length 'error'}} below:
+    </div>
+  {{/if}}
+
   <form {{action 'register' on='submit'}}>
     <section class="information-signin">
-      <div class="form-group">
-        <label for="email">Email</label>
+      <div class="form-group has-feedback {{if errors.email 'has-error'}}">
+        <label class="control-label" for="email">Email</label>
         {{input value=email class="form-control"}}
+        {{#if errors.email }}
+          <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+
+          <ul class="error-messages">
+            {{#each message in errors.email}}
+              <li class="help-block">{{ message }}</li>
+            {{/each}}
+          </ul>
+        {{/if}}
       </div>
 
-      <div class="form-group">
-        <label for="password">Password</label>
+      <div class="form-group has-feedback {{if errors.password 'has-error'}}">
+        <label class="control-label" for="password">Password</label>
         {{input type="password" value=password class="form-control"}}
+        {{#if errors.password }}
+          <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+
+          <ul class="error-messages">
+            {{#each message in errors.password}}
+              <li class="help-block">{{ message }}</li>
+            {{/each}}
+          </ul>
+        {{/if}}
       </div>
 
-      <div class="form-group">
-        <label for="password_confirmation">Password Confirmation</label>
+      <div class="form-group has-feedback {{if errors.password_confirmation 'has-error'}}">
+        <label class="control-label" for="password_confirmation">Password Confirmation</label>
         {{input type="password" value=password_confirmation class="form-control"}}
+        {{#if errors.password_confirmation }}
+          <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+
+          <ul class="error-messages">
+            {{#each message in errors.password_confirmation}}
+              <li class="help-block">{{ message }}</li>
+            {{/each}}
+          </ul>
+        {{/if}}
       </div>
     </section>
 
     <hr>
 
     <div class="form-group">
-      <button type="submit" class="btn btn-primary btn-block">Create Your Account</button>
+      <button type="submit" class="btn btn-primary btn-block btn-lg">Create Your Account</button>
     </div>
 
     <hr>

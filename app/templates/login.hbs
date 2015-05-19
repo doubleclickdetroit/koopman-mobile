@@ -7,6 +7,12 @@
 
 {{else}}
 
+  {{#if errorMessage}}
+    <div class="alert alert-danger" role="alert">
+      {{ errorMessage }}
+    </div>
+  {{/if}}
+
   <form {{action 'authenticate' on='submit'}}>
     <section class="information-signin">
       <div class="form-group">
@@ -23,7 +29,7 @@
     <hr>
 
     <div class="form-group">
-      <button type="submit" class="btn btn-primary btn-block">Login</button>
+      <button type="submit" class="btn btn-primary btn-block btn-lg">Login</button>
     </div>
 
     <hr>
