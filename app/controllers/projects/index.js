@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
   sortProperties: [ 'date:desc' ],
   sortedProjects: Ember.computed.sort( 'listOfProjects', 'sortProperties' ),
 
-  listOfCategories  : Ember.computed.alias( 'categories' ),
+  listOfCategories  : Ember.computed.alias( 'model.categories' ),
   selectedCategoryId: Ember.computed.oneWay( 'categories.firstObject.id' ),
 
   selectedCategoryObject: function() {

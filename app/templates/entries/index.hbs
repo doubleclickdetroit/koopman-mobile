@@ -18,7 +18,7 @@
         {{#each entry in date.entries}}
 
           {{#link-to 'entry' entry class="record"}}
-            <p class="title">{{ entry.title }}</p>
+            <p class="title">{{{ entry.title }}}</p>
             <div class="content">{{{ entry.excerpt }}}</div>
           {{/link-to}}
 

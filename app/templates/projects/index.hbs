@@ -6,7 +6,7 @@
                   optionValuePath='content.id'
                   optionLabelPath='content.name'}}
 
-  {{#each project in sortedProjects}}
+  {{#each sortedProjects as |project|}}
 
     {{#link-to 'project' project class="project"}}
       <figure>
