@@ -6,13 +6,19 @@
 
       {{#if favorite.entry}}
         {{#link-to 'entry' favorite.entry class="favorite"}}
-          <img src={{ favorite.entry.image.blog-medium.url }}>
+          <figure>
+            <img src={{ favorite.entry.image.blog-medium.url }}>
+            <caption>{{{ favorite.entry.title }}}</caption>
+          </figure>
         {{/link-to}}
       {{/if}}
 
       {{#if favorite.project}}
         {{#link-to 'project' favorite.project class="favorite"}}
-          <img src={{ favorite.project.image.blog-medium.url }}>
+          <figure>
+            <img src={{ favorite.project.image.blog-medium.url }}>
+            <caption>{{{ favorite.project.title }}}</caption>
+          </figure>
         {{/link-to}}
       {{/if}}
 
