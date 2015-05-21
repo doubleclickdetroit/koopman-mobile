@@ -43,6 +43,8 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       // unload all favorites
       // there has to be a better way to do this!!
       this.store.unloadAll( 'favorite' );
+      this.store.unloadAll( 'product' );
+      this.store.unloadAll( 'profile' );
 
       // now transition to index
       this.transitionTo( 'index' );
