@@ -19,6 +19,13 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   afterModel: function(model) {
     var moment = this.moment;
 
+    model.posts = Ember.ArrayProxy.create({
+      content: Ember.A(_.union(
+        model.entries.toArray(),
+        model.projects.toArray()
+      ))
+    });
+
     model.entries = model.entries.filter(function(entry) {
       var date = moment( entry.get('date') );
       return date.diff( moment(), 'days' ) >= 0;
