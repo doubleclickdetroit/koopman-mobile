@@ -2,10 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   activate: function() {
-    this.controllerFor( 'application' ).set( 'model.title', 'Reminders' );
+    this.controllerFor( 'application' ).setProperties({
+      'model.title'    : 'Reminders',
+      'model.routeName': null
+    });
   },
   deactivate: function() {
-    this.controllerFor( 'application' ).set( 'model.title', null );
+    this.controllerFor( 'application' ).set( 'model.routeName', this.routeName );
   },
 
   model: function() {

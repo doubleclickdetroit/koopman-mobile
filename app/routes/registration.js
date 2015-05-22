@@ -2,9 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   activate: function() {
-    this.controllerFor( 'application' ).set( 'model.title', 'Sign Up' );
+    this.controllerFor( 'application' ).setProperties({
+      'model.title'    : 'Sign Up',
+      'model.routeName': null
+    });
   },
-  deactivate: function() {
-    this.controllerFor( 'application' ).set( 'model.title', null );
-  }
 });

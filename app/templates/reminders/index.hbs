@@ -19,14 +19,14 @@
         {{#each reminder in date.reminders}}
 
           {{#if reminder.entry}}
-            {{#link-to 'entry' reminder.entry class="record"}}
+            {{#link-to 'post' reminder.entry class="record"}}
               <p class="title">{{ reminder.entry.title }}</p>
               <div class="content">{{{ reminder.entry.excerpt }}}</div>
             {{/link-to}}
           {{/if}}
 
           {{#if reminder.project}}
-            {{#link-to 'project' reminder.project class="record"}}
+            {{#link-to 'post' reminder.project class="record"}}
               <p class="title">{{ reminder.project.title }}</p>
               <div class="content">{{{ reminder.project.excerpt }}}</div>
             {{/link-to}}

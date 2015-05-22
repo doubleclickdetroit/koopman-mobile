@@ -2,10 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   activate: function() {
-    this.controllerFor( 'application' ).set( 'model.title', 'Almanac' );
-  },
-  deactivate: function() {
-    this.controllerFor( 'application' ).set( 'model.title', null );
+    this.controllerFor( 'application' ).setProperties({
+      'model.title'    : 'Almanac',
+      'model.routeName': null
+    });
   },
 
   model: function() {

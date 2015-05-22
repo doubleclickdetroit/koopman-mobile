@@ -5,7 +5,7 @@
     {{#each favorite in model}}
 
       {{#if favorite.entry}}
-        {{#link-to 'entry' favorite.entry class="favorite"}}
+        {{#link-to 'post' favorite.entry class="favorite"}}
           <figure>
             <img src={{ favorite.entry.image.blog-medium.url }}>
             <caption>{{{ favorite.entry.title }}}</caption>
@@ -14,7 +14,7 @@
       {{/if}}
 
       {{#if favorite.project}}
-        {{#link-to 'project' favorite.project class="favorite"}}
+        {{#link-to 'post' favorite.project class="favorite"}}
           <figure>
             <img src={{ favorite.project.image.blog-medium.url }}>
             <caption>{{{ favorite.project.title }}}</caption>

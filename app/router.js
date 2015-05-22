@@ -15,6 +15,8 @@ Router.map(function() {
   this.resource('favorites', function() { });
   this.resource('reminders', function() { });
 
+  this.route( 'post', { path: '/post/:post_id' } );
+
   this.route( 'cart' );
   this.route( 'settings' );
   this.route( 'login' );
