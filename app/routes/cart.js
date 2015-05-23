@@ -8,4 +8,7 @@ export default Ember.Route.extend(ToolProductActionsMixin, {
       'model.routeName': null
     });
   },
+  deactivate: function() {
+    this.controllerFor( 'application' ).set( 'model.routeName', 'cart' );
+  }
 });

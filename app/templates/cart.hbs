@@ -9,11 +9,7 @@
             <span class="ui-checkbox {{if product.hasAcquired 'is-checked'}}" {{action 'toggleAcquired' product}}>{{ product.name }}</span>
             <button class="btn btn-danger btn-outline btn-sm" {{action 'removeProduct' product}}><i class="fa fa-minus"></i></button>
 
-            <div class="related-posts">
-              {{#each post in product.relatedPosts}}
-                <span class="label label-default">{{ post.title }}</span>
-              {{/each}}
-            </div>
+            {{product-related-posts product=product}}
           </li>
         {{/each}}
       </ul>

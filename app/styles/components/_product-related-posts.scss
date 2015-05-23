@@ -1,0 +1,24 @@
+.related-posts {
+  .related-post-link {
+    display: inline-block;
+    overflow: hidden;
+    margin: 1px 4px 2px 0;
+    max-width: 150px;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    color: $color-white;
+    border-radius: 10px;
+  }
+
+  .btn-toggle {
+    position: relative;
+    top: -5px;
+    text-decoration: none;
+    font-size: $font-size-base - 4px;
+  }
+
+  &,
+  .list-posts {
+    line-height: normal;
+  }
+}

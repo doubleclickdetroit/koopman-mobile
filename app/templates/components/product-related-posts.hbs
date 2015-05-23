@@ -1,0 +1,15 @@
+<a href="#" class="btn-toggle" {{action 'toggleRelatedPosts'}}>
+  {{ labelAction }} Related Posts
+</a>
+
+{{#if isDisplayed}}
+<div class="list-posts">
+
+  {{#each post in product.relatedPosts}}
+    {{#link-to 'post' post class="related-post-link label label-primary"}}
+      {{{ post.title }}}
+    {{/link-to}}
+  {{/each}}
+
+</div>
+{{/if}}
