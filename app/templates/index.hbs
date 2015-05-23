@@ -33,12 +33,16 @@
       </header>
 
       {{#link-to 'entry' model.entry tagName='figure'}}
-        <span class="date">
-          <span class="month">{{ model.entry.month }}</span>
-          <span class="day">{{ model.entry.day }}</span>
-        </span>
-
         <img src={{if model.entry.image model.entry.image.post-medium.url 'http://lorempixel.com/180/137/'}}>
+        <caption>
+          <div class="date">
+            <span class="month">{{ model.entry.month }}</span>
+            <span class="day">{{ model.entry.day }}</span>
+          </div>
+          <div class="title">
+            {{{ model.entry.title }}}
+          </div>
+        </caption>
       {{/link-to}}
     </article>
 
@@ -49,7 +53,7 @@
 
       {{#link-to 'project' model.project tagName='figure'}}
         <img src={{ model.project.image.post-medium.url }}>
-        <caption>{{ model.project.title }}</caption>
+        <caption>{{{ model.project.title }}}</caption>
       {{/link-to}}
     </article>
   </section>
