@@ -1,0 +1,49 @@
+<section class="page-index">
+
+  {{#each model as |location index|}}
+    <article class="location">
+      <h4 class="title">
+        {{ location.title }}
+
+        {{#if location.isNewLocation}}
+          <span class="label label-sm label-primary">NEW</span>
+        {{/if}}
+      </h4>
+
+      <dl class="location-attributes">
+        <dt>Address:</dt>
+        <dd>
+          <a href="maps:q={{ location.encodedAddress }}" target="_blank">
+            {{{ location.address }}}
+          </a>
+        </dd>
+
+        <dt>Hours:</dt>
+        <dd>
+          {{#each location.scheduleCollection as |schedule|}}
+            <span class="schedule">
+              <span class="days">{{ schedule.days_range }}:</span>
+              <span class="hours">{{ schedule.hours_range }}</span>
+            </span>
+          {{/each}}
+        </dd>
+
+        <dt>Phone:</dt>
+        <dd>
+          <a href="tel:{{ location.encodedPhone }}">
+            {{ location.phone }}
+          </a>
+        </dd>
+
+        {{#if location.fax}}
+          <dt>Fax:</dt>
+          <dd>{{ location.fax }}</dd>
+        {{/if}}
+
+        <dt>General Manager:</dt>
+        <dd>{{ location.generalManager }}</dd>
+      </dl>
+    </article>
+  {{/each}}
+
+</section>

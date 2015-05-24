@@ -1,0 +1,62 @@
+.app-view.view-locations {
+
+  .page-index {
+    padding-top   : 20px;
+    padding-bottom: 20px;
+
+    .location {
+      @include clearfix();
+
+      &:not(:last-child) {
+        margin-bottom : 20px;
+        padding-bottom: 20px;
+        border-bottom : 1px solid #ccc;
+      }
+
+      .title {
+        margin-top: 0;
+        color: $color-brand;
+
+        .label {
+          margin-left: 5px;
+          font-size: $font-size-base - 4px;
+          font-weight: normal;
+          vertical-align: middle;
+        }
+      }
+
+      .schedule {
+        + .schedule:before {
+          margin: 0 5px;
+          color: #333;
+          content: "|";
+        }
+
+        .days {
+          color: #333;
+        }
+      }
+
+      .location-attributes {
+        dt {
+          margin-right: 10px;
+          color: #333;
+        }
+        dd {
+          color: #666;
+
+          &:not(:last-of-type) {
+            margin-bottom: 8px;
+          }
+        }
+        dt.inline {
+          clear: left;
+        }
+        .inline {
+          float: left;
+        }
+      }
+    }
+  }
+
+}

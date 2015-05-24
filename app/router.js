@@ -17,6 +17,8 @@ Router.map(function() {
 
   this.route( 'post', { path: '/post/:post_id' } );
 
+  this.resource('locations', function() { });
+
   this.route( 'cart' );
   this.route( 'settings' );
   this.route( 'login' );
