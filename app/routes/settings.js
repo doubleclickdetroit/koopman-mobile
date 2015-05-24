@@ -4,7 +4,7 @@ export default Ember.Route.extend({
   activate: function() {
     this.controllerFor( 'application' ).setProperties({
       'model.title'    : 'Settings',
-      'model.routeName': null
+      'model.routeName': 'index'
     });
   },
 
