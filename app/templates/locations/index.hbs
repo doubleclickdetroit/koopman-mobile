@@ -11,13 +11,6 @@
       </h4>
 
       <dl class="location-attributes">
-        <dt>Address:</dt>
-        <dd>
-          <a href="maps:q={{ location.encodedAddress }}" target="_blank">
-            {{{ location.address }}}
-          </a>
-        </dd>
-
         <dt>Hours:</dt>
         <dd>
           {{#each location.scheduleCollection as |schedule|}}
@@ -28,8 +21,23 @@
           {{/each}}
         </dd>
 
+        <dt>Address:</dt>
+        <dd>
+          <a href="maps:q={{ location.encodedAddress }}" target="_blank" class="icon-map">
+            <i class="fa fa-lg fa-map-marker"></i>
+          </a>
+
+          <a href="maps:q={{ location.encodedAddress }}" target="_blank">
+            {{{ location.address }}}
+          </a>
+        </dd>
+
         <dt>Phone:</dt>
         <dd>
+          <a href="tel:{{ location.encodedPhone }}" class="icon-phone">
+            <i class="fa fa-lg fa-phone"></i>
+          </a>
+
           <a href="tel:{{ location.encodedPhone }}">
             {{ location.phone }}
           </a>

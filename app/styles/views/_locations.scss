@@ -43,6 +43,7 @@
           color: #333;
         }
         dd {
+          @include clearfix();
           color: #666;
 
           &:not(:last-of-type) {
@@ -54,6 +55,26 @@
         }
         .inline {
           float: left;
+        }
+
+        .icon-map,
+        .icon-phone {
+          float: right;
+          width : 30px;
+          height: 30px;
+          line-height: 30px;
+          text-align: center;
+          border-width: 2px;
+          border-style: solid;
+          border-radius: 15px;
+
+          i.fa {
+            vertical-align: inherit;
+          }
+        }
+
+        .icon-phone {
+          margin-top: -15px;
         }
       }
     }
