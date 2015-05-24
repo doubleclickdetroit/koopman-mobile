@@ -15,6 +15,7 @@ export default Ember.Route.extend(PostFavoriteActionsMixin, ToolProductActionsMi
   },
 
   setupController: function(controller, model) {
+    /*
     var KOOPMAN_URL   = "http://koopmanblog.com/wp-json/posts/",
         categories    = model.get( 'categories' ),
         relatedPostId = model.get( 'relatedPost' );
@@ -51,15 +52,19 @@ export default Ember.Route.extend(PostFavoriteActionsMixin, ToolProductActionsMi
         controller.set( 'model.relatedPostObject', relatedPostJSON );
       });
     }
+    */
 
 
     // set data
     this._super( controller, model );
+
+    /*
     fetchRecentPost();
 
     if ( relatedPostId ) {
       fetchRelatedPost();
     }
+    */
 
     this.controllerFor( 'modal-shopping-list' ).set( 'tools', model.get('tools') );
   }
