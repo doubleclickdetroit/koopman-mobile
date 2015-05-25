@@ -11,7 +11,10 @@ export default Ember.Route.extend({
   model: function() {
     var locations = this.store.all( 'location' );
 
-    if ( locations.get('length') ) return locations;
+    if ( locations.get('length') ) {
+      return locations;
+    }
+
     return this.store.find( 'location' );
   }
 });

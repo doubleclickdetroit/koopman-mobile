@@ -35,6 +35,11 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   },
 
   actions: {
+    loading: function(transition, originRoute) {
+      var view = this.container.lookup( 'view:loading' ).append();
+      this.router.one( 'didTransition', view, 'destroy' );
+    },
+
     sessionAuthenticationSucceeded: function() {
       // just signed-in, reload the model
       this.refresh();

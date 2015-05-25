@@ -23,7 +23,7 @@ module.exports = function(environment) {
     },
 
     cordova: {
-      rebuildOnChange: true,
+      // rebuildOnChange: true,
       emulate: true
     }
   };
