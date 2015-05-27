@@ -7,7 +7,7 @@ export default Ember.Route.extend(PostFavoriteActionsMixin, ToolProductActionsMi
     this.controllerFor( 'application' ).set( 'model.routeName', 'entries' );
   },
   deactivate: function() {
-    this.controllerFor( 'application' ).set( 'model.routeName', null );
+    this.controllerFor( 'application' ).set( 'model.routeName', 'index' );
   },
 
   model: function(params) {
