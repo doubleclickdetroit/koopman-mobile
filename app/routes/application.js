@@ -4,15 +4,27 @@ import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
   model: function() {
+    var entries, projects;
+
     function handleFailFn() {
       return [];
+    }
+
+    entries  = this.store.all( 'entry' );
+    if ( entries.get('length') < 1 ) {
+      entries = this.store.find( 'entry' ).catch( handleFailFn );
+    }
+
+    projects = this.store.all( 'project' );
+    if ( projects.get('length') < 1 ) {
+      projects = this.store.find( 'project' ).catch( handleFailFn );
     }
 
     return Ember.RSVP.hash({
       products : this.store.find( 'product' ).catch( handleFailFn ),
       favorites: this.store.find( 'favorite' ).catch( handleFailFn ),
-      entries  : this.store.find( 'entry' ).catch( handleFailFn ),
-      projects : this.store.find( 'project' ).catch( handleFailFn )
+      entries  : entries,
+      projects : projects
     });
   },
 
