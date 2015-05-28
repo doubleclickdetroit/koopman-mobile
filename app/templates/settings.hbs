@@ -1,6 +1,12 @@
 <article class="app-view view-settings">
   {{#if session.isAuthenticated}}
 
+    {{#if displaySuccessMessage}}
+      <div class="alert alert-success fade {{if animateSuccessMessage 'in'}}">
+        Your settings have been successfully saved.
+      </div>
+    {{/if}}
+
     <form {{action 'update' on='submit'}}>
       <section class="information-personal">
         <h4>Personal Information</h4>
