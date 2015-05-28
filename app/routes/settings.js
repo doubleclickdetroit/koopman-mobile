@@ -22,7 +22,10 @@ export default Ember.Route.extend({
 
   actions: {
     update: function() {
-      var model = this.controller.get( 'model' );
+      var model        = this.controller.get( 'model' ),
+          hasConfirmed = this.controller.get( 'hasConfirmed' );
+
+      model.set( 'has_confirmed_linked_account', true );
       model.save();
     }
   }
