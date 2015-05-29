@@ -53,11 +53,18 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     },
 
     sessionAuthenticationSucceeded: function() {
+      var hasConfirmedProfile = this.session.get( 'profile.has_confirmed_linked_account' );
+
       // just signed-in, reload the model
       this.refresh();
 
-      // now transition to index
-      this.transitionTo( 'index' );
+      if ( hasConfirmedProfile ) {
+        // now transition to index
+        this.transitionTo( 'index' );
+      }
+      else {
+        this.transitionTo( 'settings' );
+      }
     },
 
     sessionInvalidationSucceeded: function() {

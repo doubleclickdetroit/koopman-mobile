@@ -2,10 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   activate: function() {
-    this.controllerFor( 'application' ).setProperties({
-      'model.title'    : 'Settings',
-      'model.routeName': 'index'
-    });
+    this.controllerFor( 'application' ).set( 'model.title', 'Settings' );
   },
 
   model: function() {
@@ -16,20 +13,38 @@ export default Ember.Route.extend({
   },
 
   setupController: function(controller, model) {
+    var hasConfirmedAccount = model.get( 'hasConfirmedLinkedAccount' );
+
     this._super( controller, model );
     controller.set( 'listOfStates', this.get('listStatesService.states') );
+
+    // only display the back button if the account has been confirmed
+    if ( hasConfirmedAccount ) {
+      this.controllerFor( 'application' ).set( 'model.routeName', 'index' );
+    }
   },
 
   actions: {
     update: function() {
-      var controller   = this.controller,
-          model        = controller.get( 'model' ),
-          hasConfirmed = controller.get( 'hasConfirmed' );
+      var controller = this.controller,
+          model      = controller.get( 'model' ),
+          hasPreviouslyConfirmed = model.get( 'hasConfirmedLinkedAccount' );
 
-      model.set( 'has_confirmed_linked_account', true );
+      // we just registered and will save for the first time
+      if ( !hasPreviouslyConfirmed ) {
+        model.set( 'hasConfirmedLinkedAccount', true );
+      }
+
       model.save().then(function() {
-        controller.flashSuccessMessage();
-      });
+        // we just registered and saved profile, now redirect to 'index'
+        if ( !hasPreviouslyConfirmed ) {
+          this.transitionTo( 'index' );
+        }
+        // we're a returning user, just display the success message
+        else {
+          controller.flashSuccessMessage();
+        }
+      }.bind( this ));
     }
   }
 });
