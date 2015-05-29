@@ -4,7 +4,7 @@ export default Ember.Mixin.create({
   delegateAuthenticatedAction: function() {
     var isAuthed = this.get( 'session.isAuthenticated' );
     if ( !isAuthed ) {
-      alert( 'You must first sign-in to use this feature.' );
+      this.send( 'showModal', 'modal-login-prompt' );
     }
     return isAuthed;
   },

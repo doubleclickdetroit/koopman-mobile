@@ -5,11 +5,11 @@
   -webkit-transform: initial;
   transform        : initial;
 
-  -webkit-perspective: 0;
-  -moz-perspective   : 0;
-  -ms-perspective    : 0;
-  -o-perspective     : 0;
-  perspective        : 0;
+  -webkit-perspective: none;
+  -moz-perspective   : none;
+  -ms-perspective    : none;
+  -o-perspective     : none;
+  perspective        : none;
 
   .m-pikabu-sidebar {
     background-color: #333;

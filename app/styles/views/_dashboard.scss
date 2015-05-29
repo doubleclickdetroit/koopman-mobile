@@ -11,15 +11,69 @@
       margin: 10px 5px 0;
       width: calc(50% - 10px);
 
-      a,
+      &.full {
+        width: calc(100% - 10px);
+
+        &.banner {
+          margin-top : 20px;
+          padding-top: 20px;
+          border-top : 1px dotted #ccc;
+        }
+      }
+
+      a:not(.btn),
       figure,
       caption {
         display: block;
         color: $color-white;
         text-transform: uppercase;
       }
-      a {
+      a:not(.btn) {
         line-height: 50px;
+      }
+    }
+
+    &.session .tile {
+      .alert {
+        margin-bottom: 0;
+
+        h4 {
+          margin-bottom: 0;
+
+          + .btn {
+            margin-top: 10px;
+          }
+        }
+      }
+
+      .glyphicon {
+        width : 60px;
+        height: 60px;
+        font-size: 40px;
+        text-align: center;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 30px;
+
+        &:before {
+          vertical-align: middle;
+        }
+      }
+    }
+
+    &.locations .tile {
+      a {
+        display: block;
+        line-height: 100px;
+        text-align: center;
+        font-family: 'arvoregular';
+        font-size: $font-size-base + 4px;
+        text-shadow: 0 3px 0 #000;
+        background: url(/assets/images/views/dashboard/locations.jpg) no-repeat -1020px top;
+
+        &:hover {
+          text-decoration: none;
+        }
       }
     }
 

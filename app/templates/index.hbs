@@ -58,16 +58,41 @@
     </article>
   </section>
 
-  <section>
-    {{link-to 'Koopman Locations' 'locations'}}
+  <section class="tiles locations">
+    <article class="tile full banner">
+      {{link-to 'Koopman Locations' 'locations'}}
+    </article>
   </section>
 
-  <section>
-    <ul>
-      <li>Loyalty</li>
-      <li>Offers</li>
-      <li>Koopman Locations</li>
-    </ul>
+  <section class="tiles session">
+    <article class="tile full banner">
+        <div class="alert alert-info" role="alert">
+          <div class="blocks">
+            <div class="block">
+              <i class="glyphicon glyphicon-user"></i>
+            </div>
+
+            {{#if session.isAuthenticated}}
+
+              <div class="block text-center">
+                <h4>My Account</h4>
+              </div>
+              <div class="block text-right">
+                {{link-to "View Account" "settings" class="btn btn-primary btn-outline"}}
+              </div>
+
+            {{else}}
+
+              <div class="block text-center">
+                <h4>Already have an account?</h4>
+                {{link-to "Sign In" "login" class="btn btn-primary btn-outline"}}
+              </div>
+
+            {{/if}}
+
+          </div>
+        </div>
+    </article>
   </section>
 
 </article>

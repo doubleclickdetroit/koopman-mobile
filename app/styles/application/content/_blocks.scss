@@ -12,5 +12,13 @@
     &.content-right {
       text-align: right;
     }
+
+    p {
+      margin-bottom: 0;
+
+      + p {
+        margin-top: 10px;
+      }
+    }
   }
 }
