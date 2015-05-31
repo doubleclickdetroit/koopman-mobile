@@ -25,15 +25,12 @@ export default Ember.Mixin.create({
     },
 
     clearCompleted: function() {
-      var isConfirmed = confirm( 'Are you sure you want to clear your entire shopping list?' );
-      if ( isConfirmed ) {
-        this.get( 'controller.model.products' )
-        .filter(function(product) {
-          return product.get( 'hasAcquired' ) === true;
-        })
-        .invoke( 'set', 'isHidden', true )
-        .invoke( 'save' );
-      }
+      this.get( 'controller.model.products' )
+      .filter(function(product) {
+        return product.get( 'hasAcquired' ) === true;
+      })
+      .invoke( 'set', 'isHidden', true )
+      .invoke( 'save' );
     }
 
   }
