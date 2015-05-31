@@ -40,6 +40,8 @@ export default Ember.ArrayController.extend({
       return { name: month, dates: groupOfDates };
     });
 
-    return groupDates;
+    // groupDates is currently DESC order, resort to ASC order
+    // return groupDates
+    return groupDates.reverse();
   }.property( 'selectedGroupYear', 'groupedByYear' )
 });

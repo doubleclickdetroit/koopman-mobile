@@ -41,8 +41,9 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     model.entries = model.entries.filter(function(entry) {
       var date = moment( entry.get('date') );
       return date.diff( moment(), 'days' ) >= 0;
-    }).sortBy( 'date', 'title' );
+    }).sortBy( 'date' );
 
+    // schedule modal-network-down modal if "network is down"
     if ( !model.entries.length && !model.projects.length ) {
       Ember.run.schedule('afterRender', this, function() {
         this.send( 'showModal', 'modal-network-down' );
