@@ -54,7 +54,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   },
 
   actions: {
-    loading: function(transition, originRoute) {
+    loading: function() {
       var view = this.container.lookup( 'view:loading' ).append();
       this.router.one( 'didTransition', view, 'destroy' );
     },
@@ -88,7 +88,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       this.transitionTo( 'index' );
     },
 
-    showModal: function(name, model) {
+    showModal: function(name) {
       this.render(name, {
         into  : 'application',
         outlet: 'modal'

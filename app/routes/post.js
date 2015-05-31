@@ -5,7 +5,9 @@ import ToolProductActionsMixin from '../mixins/tool-product-actions';
 export default Ember.Route.extend(PostFavoriteActionsMixin, ToolProductActionsMixin, {
   model: function(params) {
     return this.modelFor( 'application' ).posts.find(function(post) {
-      if ( post.get('id') == params.post_id ) return true;
+      if ( post.get('id') === params.post_id ) {
+        return true;
+      }
     });
   },
 

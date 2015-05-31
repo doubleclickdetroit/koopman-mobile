@@ -27,8 +27,6 @@ export default DS.RESTSerializer.extend({
 
   normalizeHash: {
     entries: function(hash) {
-      var date;
-
       if ( hash.acf_almanac_date ) {
         hash.date = hash.acf_almanac_date;
         delete hash.acf_almanac_date;

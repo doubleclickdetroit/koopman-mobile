@@ -8,7 +8,7 @@ export default Ember.Mixin.create(LoginControllerMixin, {
     onRegister: function() {
       this.set( 'errors', null );
     },
-    onSuccess: function(response) {
+    onSuccess: function() {
       this.set( 'errors', null );
     },
     onFailure: function(errors) {

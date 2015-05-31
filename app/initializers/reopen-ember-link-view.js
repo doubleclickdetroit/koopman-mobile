@@ -11,7 +11,7 @@ export function initialize() {
   Ember.LinkView.reopen({
     attributeBindings: [ 'data-toggle', 'data-dismiss' ]
   });
-};
+}
 
 export default {
   name: 'reopen-ember-link-view',
