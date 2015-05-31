@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.ActiveModelAdapter.extend({
-  host: 'http://localhost:3000',
+  host: 'https://koopman.herokuapp.com',
 
   buildURL: function(type, id, record) {
     type = 'post';

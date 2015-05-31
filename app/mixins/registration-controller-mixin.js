@@ -25,7 +25,7 @@ export default Ember.Mixin.create(LoginControllerMixin, {
       request = Ember.$.ajax({
         method  : 'POST',
         dataType: 'json',
-        url: 'http://localhost:3000/users.json',
+        url: 'https://koopman.herokuapp.com/users.json',
         data: {
           user: credentialsHash
         }

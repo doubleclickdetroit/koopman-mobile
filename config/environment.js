@@ -33,10 +33,10 @@ module.exports = function(environment) {
   };
   ENV['simple-auth-devise'] = {
     identificationAttributeName: 'email',
-    serverTokenEndpoint: 'http://localhost:3000/users/sign_in.json'
+    serverTokenEndpoint: 'https://koopman.herokuapp.com/users/sign_in.json'
   }
 
-  ENV['simple-auth']['crossOriginWhitelist'] = ['http://localhost:3000'];
+  ENV['simple-auth']['crossOriginWhitelist'] = ['https://koopman.herokuapp.com'];
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
