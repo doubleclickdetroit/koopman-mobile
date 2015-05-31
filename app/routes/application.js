@@ -43,6 +43,12 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       return date.diff( moment(), 'days' ) >= 0;
     }).sortBy( 'date', 'title' );
 
+    if ( !model.entries.length && !model.projects.length ) {
+      Ember.run.schedule('afterRender', this, function() {
+        this.send( 'showModal', 'modal-network-down' );
+      });
+    }
+
     this._super( model );
   },
 
