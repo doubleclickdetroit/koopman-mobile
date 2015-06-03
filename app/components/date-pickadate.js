@@ -3,7 +3,9 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   dateDidChange: function() {
     var date = this.get( 'date' );
-    this.get( 'picker' ).set( 'select', date );
+    if ( date ) {
+      this.get( 'picker' ).set( 'select', date );
+    }
   }.observes( 'date' ),
 
   dateBufferDidChange: function() {
