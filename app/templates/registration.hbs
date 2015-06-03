@@ -17,7 +17,7 @@
     <section class="information-signin">
       <div class="form-group has-feedback {{if errors.email 'has-error'}}">
         <label class="control-label" for="email">Email</label>
-        {{input value=email class="form-control"}}
+        {{input type="email" value=email class="form-control"}}
         {{#if errors.email }}
           <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
 
