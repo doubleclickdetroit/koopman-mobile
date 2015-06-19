@@ -14,7 +14,7 @@
         <i class="fa fa-{{if model.favorite 'check' 'plus'}}"></i> Favorite
       </a>
 
-      <a href="#" class="btn btn-default" {{action "showModal" "modal-shopping-list" model}}>
+      <a href="#" class="btn btn-default" {{action "handleDisplayShoppingList" model}}>
         <i class="fa fa-plus"></i> Shopping List
       </a>
 
@@ -35,7 +35,7 @@
       {{#if model.seriesTitle}}
         <dl>
           <dt>Blog Series:</dt>
-          <dd>{{ model.seriesTitle }}</dd>
+          <dd>{{{ model.seriesTitle }}}</dd>
         </dl>
       {{/if}}
 
@@ -58,7 +58,7 @@
       {{#if model.seriesPartEstimateTime}}
         <dl>
           <dt>Time:</dt>
-          <dd>{{ model.seriesPartEstimateTime }}</dd>
+          <dd>{{{ model.seriesPartEstimateTime }}}</dd>
         </dl>
       {{/if}}
 

@@ -11,6 +11,14 @@ export default Ember.Mixin.create({
 
 
   actions: {
+    handleDisplayShoppingList: function(model) {
+      if ( !this.delegateAuthenticatedAction() ) {
+        return false;
+      }
+
+      this.send( 'showModal', 'modal-shopping-list', model );
+    },
+
     handleFavoriteToggle: function(model) {
       var favorite;
 
