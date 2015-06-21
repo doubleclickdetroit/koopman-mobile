@@ -1,6 +1,7 @@
 import DS from 'ember-data';
+import ENV from 'koopman-mobile/config/environment';
 
 export default DS.RESTAdapter.extend({
-  host     : 'http://koopmanblog.com',
-  namespace: 'wp-json'
+  host: ENV.API_WP_URL,
+  namespace: ENV.defaults.apiWp.namespace
 });

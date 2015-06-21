@@ -1,7 +1,10 @@
 /* jshint node: true */
 
 module.exports = function(environment) {
+  var config = require( './config' ).config;
+
   var ENV = {
+    defaults: config,
     modulePrefix: 'koopman-mobile',
     environment: environment,
     baseURL: '/',
@@ -28,22 +31,15 @@ module.exports = function(environment) {
     }
   };
 
-  ENV['simple-auth'] = {
-    authorizer: 'simple-auth-authorizer:devise'
-  };
-  ENV['simple-auth-devise'] = {
-    identificationAttributeName: 'email',
-    serverTokenEndpoint: 'https://koopman.herokuapp.com/users/sign_in.json'
-  }
-
-  ENV['simple-auth']['crossOriginWhitelist'] = ['https://koopman.herokuapp.com'];
-
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    ENV.API_WP_URL = config.apiWp.url.dev;
+    ENV.API_RAILS_URL = config.apiRails.url.dev;
   }
 
   if (environment === 'test') {
@@ -59,8 +55,21 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.API_WP_URL = config.apiWp.url.prod;
+    ENV.API_RAILS_URL = config.apiRails.url.prod;
   }
+
+
+  ENV['simple-auth'] = {
+    authorizer: 'simple-auth-authorizer:devise'
+  };
+  ENV['simple-auth-devise'] = {
+    identificationAttributeName: 'email'
+  };
+
+  ENV['simple-auth']['crossOriginWhitelist'] = [ENV.API_RAILS_URL];
+  ENV['simple-auth-devise']['serverTokenEndpoint'] = ENV.API_RAILS_URL + '/users/sign_in.json';
+
 
   return ENV;
 };
