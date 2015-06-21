@@ -7,4 +7,8 @@ export default Ember.Route.extend({
       'model.routeName': null
     });
   },
+
+  deactivate: function() {
+    this.controllerFor( 'application' ).set( 'model.previousRouteBeforeLogin', null );
+  }
 });

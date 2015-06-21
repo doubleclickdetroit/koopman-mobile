@@ -1,12 +1,13 @@
-{{#modal-base title="Please Login" class="modal-login-prompt" close="removeModal" hideFooter=true}}
+{{#modal-base class="modal-login-prompt"
+              title="Please Login"
+              ok="setPreviousRouteBeforeLogin"
+              close="removeModal"
+              okLabel="Login"
+              hideCancelButton=true}}
 
   <div class="blocks">
     <div class="block">
       <p>You must log in or sign up to use this feature.</p>
-    </div>
-
-    <div class="block">
-      {{link-to 'Login' 'login' class="btn btn-primary" data-dismiss="modal"}}
     </div>
   </div>
 

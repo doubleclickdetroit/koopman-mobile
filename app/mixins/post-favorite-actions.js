@@ -6,11 +6,23 @@ export default Ember.Mixin.create({
     if ( !isAuthed ) {
       this.send( 'showModal', 'modal-login-prompt' );
     }
+
     return isAuthed;
   },
 
 
   actions: {
+    setPreviousRouteBeforeLogin: function() {
+      var controller = this.controllerFor( 'application' );
+
+      controller.set('model.previousRouteBeforeLogin', {
+        route: this.routeName,
+        model: this.controller.get( 'model' )
+      });
+
+      this.transitionTo( 'login' );
+    },
+
     handleDisplayShoppingList: function(model) {
       if ( !this.delegateAuthenticatedAction() ) {
         return false;

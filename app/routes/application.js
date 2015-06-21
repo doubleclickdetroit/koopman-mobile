@@ -60,14 +60,25 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     },
 
     sessionAuthenticationSucceeded: function() {
-      var hasConfirmedProfile = this.session.get( 'profile.has_confirmed_linked_account' );
+      var previousTransitionData = this.controller.get( 'model.previousRouteBeforeLogin' ),
+          hasConfirmedProfile = this.session.get( 'profile.has_confirmed_linked_account' );
 
       // just signed-in, reload the model
       this.refresh();
 
       if ( hasConfirmedProfile ) {
-        // now transition to index
-        this.transitionTo( 'index' );
+        if ( previousTransitionData && previousTransitionData.model ) {
+          this.transitionTo( previousTransitionData.route, previousTransitionData.model );
+        }
+        else if ( previousTransitionData ) {
+          this.transitionTo( previousTransitionData.route );
+        }
+        else {
+          // now transition to index
+          this.transitionTo( 'index' );
+        }
+
+        this.controller.set( 'model.previousRouteBeforeLogin', null );
       }
       else {
         this.transitionTo( 'settings' );
