@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import ENV from 'koopman-mobile/config/environment';
 import LoginControllerMixin from 'simple-auth/mixins/login-controller-mixin';
 
 export default Ember.Mixin.create(LoginControllerMixin, {
@@ -25,7 +26,7 @@ export default Ember.Mixin.create(LoginControllerMixin, {
       request = Ember.$.ajax({
         method  : 'POST',
         dataType: 'json',
-        url: 'https://koopman.herokuapp.com/users.json',
+        url: ENV.API_RAILS_URL + '/users.json',
         data: {
           user: credentialsHash
         }
