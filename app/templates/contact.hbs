@@ -1,0 +1,29 @@
+<article class="app-view view-contact">
+
+  <h4>Need to get a hold of us?</h4>
+  <p>
+    <i class="fa fa-lg fa-phone"></i> Call us at:
+    <a href="tel:(508) 234-4545">
+      (508) 234-4545
+    </a>
+  </p>
+
+  <hr>
+
+  {{#if displaySuccessMessage}}
+    <div class="alert alert-success fade {{if animateSuccessMessage 'in'}}">
+      Your message has been sent successfully.
+    </div>
+  {{/if}}
+
+  <form {{action "saveReaction" on="submit"}}>
+    <h4>Do you have something to say?</h4>
+    <div class="form-group has-feedback">
+      {{textarea value=model.feedback placeholder="Enter any feedback here" class="form-control" rows=10}}
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary pull-right" disabled={{ isWithoutFeedback }}>Send Feedback</button>
+    </div>
+  </form>
+</article>
