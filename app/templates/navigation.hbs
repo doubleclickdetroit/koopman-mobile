@@ -17,6 +17,8 @@
 
 
   <ul class="session">
+    <li>{{#link-to 'contact'}}Contact Us{{/link-to}}</li>
+
     {{#if session.isAuthenticated}}
       <li>{{#link-to 'settings'}}<i class="fa fa-cog"></i> Settings{{/link-to}}</li>
       <li><a href="#" {{action 'invalidateSession'}}>Logout</a></li>
