@@ -13,6 +13,7 @@ figure {
     padding-left : $grid-gutter-width / 2;
     padding-right: $grid-gutter-width / 2;
     width: 100%;
+    word-break: break-word;
     color: $color-white;
     background-color: rgba(0, 0, 0, .4);
   }

@@ -28,6 +28,9 @@
         color: $color-white;
         text-transform: uppercase;
       }
+      caption {
+        height: 100%;
+      }
       a:not(.btn) {
         line-height: 50px;
       }
