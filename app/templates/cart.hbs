@@ -2,27 +2,48 @@
 
   <section class="page-index">
     {{#if productCollection.length}}
-
       <ul class="shopping-cart paper-list">
         {{#each product in productCollection}}
           <li>
             <span class="ui-checkbox {{if product.hasAcquired 'is-checked'}}" {{action 'toggleAcquired' product}}>{{ product.name }}</span>
             <button class="btn btn-danger btn-outline btn-sm" {{action 'removeProduct' product}}><i class="fa fa-minus"></i></button>
 
-            {{product-related-posts product=product}}
+            {{#if product.tool}}
+              {{product-related-posts product=product}}
+            {{else}}
+              <small class="custom-entry">Custom Entry</small>
+            {{/if}}
           </li>
         {{/each}}
       </ul>
-
-      <div class="controls">
-        <button class="btn btn-danger btn-outline" disabled={{withoutAcquiredProducts}} {{action 'clearCompleted'}}>Clear Completed</button>
-      </div>
-
-    {{else}}
-
-      <p class="text-center">Looks like there aren&#39;t any items in your Shopping List.</p>
-
     {{/if}}
+
+
+    {{#if session.isAuthenticated}}
+      <form {{action "addProduct" customProduct on="submit"}}>
+        <div class="input-group">
+          {{input value=customProduct.title placeholder="Enter item name here..." class="form-control"}}
+
+          <span class="input-group-btn">
+            <button class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add Item</button>
+          </span>
+        </div>
+      </form>
+
+      <hr>
+    {{/if}}
+
+
+    {{#if productCollection.length}}
+      <div class="controls">
+        <button class="btn btn-danger btn-outline btn-sm" disabled={{withoutAcquiredProducts}} {{action 'clearCompleted'}}>Clear Completed</button>
+      </div>
+    {{/if}}
+
+
+    {{#unless productCollection.length}}
+      <p class="text-center">Looks like there aren&#39;t any items in your Shopping List.</p>
+    {{/unless}}
   </section>
 
 </article>

@@ -1,9 +1,25 @@
 .app-view.view-cart {
 
   .page-index {
+    .shopping-cart {
+      margin-bottom: $grid-gutter-width / 2;
+    }
+    .custom-entry {
+      display: block;
+      position: relative;
+      top: -5px;
+      padding-left: $grid-gutter-width;
+      line-height: normal;
+      font-size: 10px;
+      color: #888;
+    }
+
+    .input-group .form-control {
+      height: 33px;
+    }
+
     .controls {
       @include clearfix();
-      margin-top: $grid-gutter-width;
 
       .btn.btn-danger {
         float: right;
