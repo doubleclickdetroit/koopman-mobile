@@ -66,32 +66,35 @@
 
   <section class="tiles session">
     <article class="tile full banner">
-        <div class="alert alert-info" role="alert">
-          <div class="blocks">
-            <div class="block">
-              <i class="glyphicon glyphicon-user"></i>
-            </div>
+      {{#if session.isAuthenticated}}
 
-            {{#if session.isAuthenticated}}
+        <div class="well">
+          {{#link-to "settings"}}
+            <h4><i class="glyphicon glyphicon-user"></i> My Account</h4>
+            <hr>
+            {{#if fullName}}<p class="full-name">{{ fullName }}</p>{{/if}}
 
-              <div class="block text-center">
-                <h4>My Account</h4>
-              </div>
-              <div class="block text-right">
-                {{link-to "View Account" "settings" class="btn btn-primary btn-outline"}}
-              </div>
-
-            {{else}}
-
-              <div class="block text-center">
-                <h4>Already have an account?</h4>
-                {{link-to "Sign In" "login" class="btn btn-primary btn-outline"}}
-              </div>
-
+            {{#if model.membership }}
+              <p class="my-points">My Points: {{ model.membership.pointsConverted }}</p>
             {{/if}}
+          {{/link-to}}
 
-          </div>
+          {{#unless model.membership }}
+            <a class="btn btn-lg btn-danger" href="http://koopmanadvantage.com/?mobileApp=true" target="_blank">
+              Signup For Koopman Rewards
+            </a>
+          {{/unless}}
         </div>
+
+
+      {{else}}
+
+        {{#link-to "login" tagName="div" class="well"}}
+          <h4><i class="glyphicon glyphicon-user"></i> Sign Into My Account</h4>
+        {{/link-to}}
+
+      {{/if}}
+
     </article>
   </section>
 

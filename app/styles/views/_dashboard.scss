@@ -1,5 +1,6 @@
 .app-view.view-dashboard {
   padding-top: 0;
+  padding-bottom: 10px;
 
   .tiles {
     @include make-row();
@@ -37,26 +38,56 @@
     }
 
     &.session .tile {
-      .alert {
+      .well {
         margin-bottom: 0;
+        text-align: center;
+        cursor: pointer;
 
         h4 {
-          margin-bottom: 0;
+          margin: 0;
+          color: #444;
+          text-align: center;
 
           + .btn {
             margin-top: 10px;
           }
         }
+
+        hr {
+          margin-top   : 15px;
+          margin-bottom: 10px;
+          border-top-color: #ddd;
+        }
+
+        .btn-danger {
+          margin-top: 10px;
+        }
+
+        .full-name,
+        .my-points {
+          margin-bottom: 0;
+          line-height: normal;
+          text-transform: capitalize;
+          color: #333;
+        }
+        .full-name {
+          font-size: 16px;
+        }
+        .my-points {
+          font-size: 12px;
+          font-style: italic;
+        }
       }
 
       .glyphicon {
-        width : 60px;
-        height: 60px;
-        font-size: 40px;
+        margin-right: 10px;
+        width : 30px;
+        height: 30px;
+        font-size: 20px;
+        border-radius: 15px;
         text-align: center;
         border-width: 1px;
         border-style: solid;
-        border-radius: 30px;
 
         &:before {
           vertical-align: middle;

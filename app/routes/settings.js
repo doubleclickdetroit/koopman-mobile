@@ -36,6 +36,13 @@ export default Ember.Route.extend({
       }
 
       model.save().then(function() {
+        // meh... update session.profile with new model values
+        this.session.setProperties({
+          'profile.first_name': model.get( 'firstName' ),
+          'profile.last_name' : model.get( 'lastName' )
+        });
+        this.session.set( 'profile', this.session.get('profile') );
+
         // we just registered and saved profile, now redirect to 'index'
         if ( !hasPreviouslyConfirmed ) {
           this.transitionTo( 'index' );

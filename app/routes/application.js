@@ -4,27 +4,31 @@ import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
   model: function() {
-    var entries, projects;
+    var entries, projects, store = this.store;
 
+    function fetchResource(resourceName) {
+      return store.find( resourceName ).catch( handleFailFn );
+    }
     function handleFailFn() {
       return [];
     }
 
-    entries  = this.store.all( 'entry' );
+    entries  = store.all( 'entry' );
     if ( entries.get('length') < 1 ) {
-      entries = this.store.find( 'entry' ).catch( handleFailFn );
+      entries = fetchResource( 'entry' );
     }
 
-    projects = this.store.all( 'project' );
+    projects = store.all( 'project' );
     if ( projects.get('length') < 1 ) {
-      projects = this.store.find( 'project' ).catch( handleFailFn );
+      projects = fetchResource( 'project' );
     }
 
     return Ember.RSVP.hash({
-      products : this.store.find( 'product' ).catch( handleFailFn ),
-      favorites: this.store.find( 'favorite' ).catch( handleFailFn ),
-      entries  : entries,
-      projects : projects
+      membership: fetchResource( 'membership' ),
+      products  : fetchResource( 'product' ),
+      favorites : fetchResource( 'favorite' ),
+      entries   : entries,
+      projects  : projects,
     });
   },
 
@@ -66,18 +70,26 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       // just signed-in, reload the model
       this.refresh();
 
+      // has the user already confirmed their profile?
       if ( hasConfirmedProfile ) {
+        // were they directed to auth from a previous page in the app?
+        // if so, take them back there with data, or without
         if ( previousTransitionData && previousTransitionData.model ) {
           this.transitionTo( previousTransitionData.route, previousTransitionData.model );
         }
         else if ( previousTransitionData ) {
           this.transitionTo( previousTransitionData.route );
         }
+
+        // the user hasn't already confirmed their profile
+        // land them on the dashboard
         else {
           // now transition to index
           this.transitionTo( 'index' );
         }
 
+        // reset the var that keeps track of previous route data
+        // before having to auth
         this.controller.set( 'model.previousRouteBeforeLogin', null );
       }
       else {
@@ -89,11 +101,11 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       // just signed-out, reload the model
       this.refresh();
 
-      // unload all favorites
-      // there has to be a better way to do this!!
+      // unload all user models
       this.store.unloadAll( 'favorite' );
       this.store.unloadAll( 'product' );
       this.store.unloadAll( 'profile' );
+      this.store.unloadAll( 'membership' );
 
       // now transition to index
       this.transitionTo( 'index' );

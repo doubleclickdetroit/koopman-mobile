@@ -9,7 +9,9 @@ export default Ember.Mixin.create({
       });
 
       model.set( 'product', product );
-      product.save();
+      product.save().then(function() {
+        this.controller.set( 'customProduct.title', '' );
+      }.bind( this ));
     },
 
     removeProduct: function(model) {

@@ -12,9 +12,10 @@ export default Ember.Route.extend({
     var hash = this.modelFor( 'application' );
 
     return Ember.RSVP.hash({
-      products: hash.products,
-      entry   : hash.entries.get( 'firstObject' ),
-      project : hash.projects.get( 'firstObject' ),
+      products  : hash.products,
+      entry     : hash.entries.get( 'firstObject' ),
+      project   : hash.projects.get( 'firstObject' ),
+      membership: hash.membership.get( 'firstObject' )
     });
   }
 });
