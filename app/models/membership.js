@@ -13,5 +13,7 @@ export default DS.Model.extend({
   loyaltyId      : DS.attr('string'),
   acctOpenDate   : DS.attr('date'),
   pointsConverted: DS.attr('number'),
-  ytdSales       : DS.attr('number')
+  ytdSales       : DS.attr('number'),
+  loyaltyPoints  : DS.attr('number'),
+  loyaltyDollars : DS.attr('number')
 });
