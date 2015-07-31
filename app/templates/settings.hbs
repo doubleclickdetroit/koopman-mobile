@@ -65,9 +65,13 @@
       <section class="information-customer">
         <h4>Koopman Rewards Information</h4>
 
-        <div class="favorite-reminder alert alert-warning">
-          We paired you with the following Loyalty Account:
-        </div>
+        <p>{{ foo }}</p>
+
+        {{#if shouldDisplayMatchedAccountMsg}}
+          <div class="favorite-reminder alert alert-warning">
+            We paired you with the following Loyalty Account:
+          </div>
+        {{/if}}
 
         <div class="well">
           <div class="form-group">

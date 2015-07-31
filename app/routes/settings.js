@@ -16,7 +16,10 @@ export default Ember.Route.extend({
     var hasConfirmedAccount = model.get( 'hasConfirmedLinkedAccount' );
 
     this._super( controller, model );
-    controller.set( 'listOfStates', this.get('listStatesService.states') );
+    controller.setProperties({
+      loyaltyNumberCache: model.get( 'loyaltyNumber' ),
+      listOfStates: this.get( 'listStatesService.states' ) ,
+    });
 
     // only display the back button if the account has been confirmed
     if ( hasConfirmedAccount ) {
