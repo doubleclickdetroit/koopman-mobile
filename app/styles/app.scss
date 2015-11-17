@@ -1,11 +1,15 @@
-// Bootstrap vars, mixins & utils
-@import "bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
-@import "bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
-@import "bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/utilities";
+@import "ui-panomobile";
+@import "ui-application";
+@import "components";
 
-
-// App Styling
-@import "variables";
-@import "application/main";
-@import "components/main";
-@import "views/main";
+.ember-application {
+  > .ember-view {
+    position: absolute;
+    overflow-x: hidden !important;
+    width : 100%;
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+}

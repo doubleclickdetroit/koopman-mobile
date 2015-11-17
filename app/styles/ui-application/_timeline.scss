@@ -1,0 +1,65 @@
+.pageapp-timeline-2 {
+
+  .timeline-decoration {
+    margin-left: 25px;
+  }
+
+  .timeline-month {
+    position: relative;
+    z-index: 2;
+    padding-bottom: 10px;
+    background-color: #fff;
+  }
+
+  .timeline-item {
+    .timeline-icon {
+      position: absolute;
+      top : 0;
+      left: 0;
+
+      i {
+        display: inline-block;
+      }
+    }
+
+    .timeline-text {
+      position: relative;
+      margin-top: 0;
+      min-height: auto;
+
+      h3 {
+        margin-bottom: 18px;
+        font-size: 18px;
+        line-height: 28px;
+      }
+
+      p {
+        margin-bottom: 0;
+        line-height: 25px;
+        font-size: 13px;
+      }
+
+      small {
+        font-size: 12px;
+      }
+
+      + .timeline-text {
+        margin-top: 30px;
+      }
+    }
+
+    + .timeline-item {
+      margin-top: 45px;
+    }
+
+    + .decoration {
+      margin-top: 30px;
+
+      + .timeline-month {
+        margin-top: -20px;
+        padding: 20px 0;
+      }
+    }
+  }
+
+}

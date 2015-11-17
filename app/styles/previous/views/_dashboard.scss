@@ -1,0 +1,178 @@
+.app-view.view-dashboard {
+  padding-top: 0;
+  padding-bottom: 10px;
+
+  .tiles {
+    @include make-row();
+    padding: 0 5px;
+
+    .tile {
+      position: relative;
+      float: left;
+      margin: 10px 5px 0;
+      width: calc(50% - 10px);
+
+      &.full {
+        width: calc(100% - 10px);
+
+        &.banner {
+          margin-top : 20px;
+          padding-top: 20px;
+          border-top : 1px dotted #ccc;
+        }
+      }
+
+      a:not(.btn),
+      figure,
+      caption {
+        display: block;
+        color: $color-white;
+        text-transform: uppercase;
+      }
+      caption {
+        height: 100%;
+      }
+      a:not(.btn) {
+        line-height: 50px;
+      }
+    }
+
+    &.session .tile {
+      .well {
+        margin-bottom: 0;
+        text-align: center;
+        cursor: pointer;
+
+        h4 {
+          margin: 0;
+          color: #444;
+          text-align: center;
+
+          + .btn {
+            margin-top: 10px;
+          }
+        }
+
+        hr {
+          margin-top   : 15px;
+          margin-bottom: 10px;
+          border-top-color: #ddd;
+        }
+
+        .btn-danger {
+          margin-top: 10px;
+        }
+
+        .full-name,
+        .my-points {
+          margin-bottom: 0;
+          line-height: normal;
+          text-transform: capitalize;
+          color: #333;
+        }
+        .full-name {
+          font-size: 16px;
+        }
+        .my-points {
+          font-size: 12px;
+          font-style: italic;
+        }
+      }
+
+      .glyphicon {
+        margin-right: 10px;
+        width : 30px;
+        height: 30px;
+        font-size: 20px;
+        border-radius: 15px;
+        text-align: center;
+        border-width: 1px;
+        border-style: solid;
+
+        &:before {
+          vertical-align: middle;
+        }
+      }
+    }
+
+    &.locations .tile {
+      a {
+        display: block;
+        line-height: 100px;
+        text-align: center;
+        font-family: 'arvoregular';
+        font-size: $font-size-base + 4px;
+        text-shadow: 0 3px 0 #000;
+        background: url(images/views/dashboard/locations.jpg) no-repeat -1020px top;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    &.pages .tile {
+      background-color: $color-gray-darker;
+
+      .fa {
+        position: absolute;
+        top : 50%;
+        left: 15px;
+        margin-top: -11px;
+        font-size: $font-size-base + 8px;
+        opacity: .8;
+      }
+
+      a {
+        padding-left: 50px;
+      }
+    }
+
+    &.posts .tile {
+      header {
+        h1 {
+          font-size: $font-size-base + 4px;
+        }
+      }
+
+      &.entry {
+        figure {
+          display: table;
+          width: 100%;
+
+          caption {
+            padding-left : 5px;
+            padding-right: 5px;
+          }
+
+          .date,
+          .title {
+            display: table-cell;
+          }
+          .date {
+            width: 40px;
+            border-right: 1px solid $color-white;
+
+            .month,
+            .day {
+              display: block;
+              width: 40px;
+              text-align: center;
+            }
+            .month {
+              font-size: 12px;
+            }
+            .day {
+              margin-top: -5px;
+              font-size: 15px;
+            }
+          }
+          .title {
+            padding-left: 10px;
+          }
+        }
+      }
+    }
+  }
+
+}

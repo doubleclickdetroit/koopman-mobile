@@ -1,18 +1,37 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  sortProperties: [ 'date:desc' ],
-  sortedProjects: Ember.computed.sort( 'listOfProjects', 'sortProperties' ),
+  listOfProjects: Ember.computed.alias( 'model' ),
 
-  listOfCategories  : Ember.computed.alias( 'model.categories' ),
-  selectedCategoryId: Ember.computed.oneWay( 'categories.firstObject.id' ),
+  sortProjectsProperties: [ 'date:desc' ],
+  sortedProjects: Ember.computed.sort( 'listOfProjects', 'sortProjectsProperties' ),
 
-  selectedCategoryObject: function() {
-    var selectedId = this.get( 'selectedCategoryId' ),
-        categories = this.get( 'listOfCategories.content' );
+  listOfCategories: Ember.computed.alias( 'model.categories' ),
 
-    return _.findWhere( categories, {id: selectedId} );
-  }.property( 'listOfCategories', 'selectedCategoryId' ),
+  sortCategoriesProperties: [ 'name:asc' ],
+  sortedCategories: Ember.computed.sort( 'listOfCategories', 'sortCategoriesProperties' ),
 
-  listOfProjects: Ember.computed.alias( 'selectedCategoryObject.projects' )
+  selectedCategory: Ember.computed('model.categories.@each.isSelected', function() {
+    let categories = this.get( 'model.categories' );
+    return categories.findBy( 'isSelected', true );
+  }),
+
+  sortedCategoriesDidChange: Ember.observer('model.categories', function() {
+    let defaultCategory = this.get( 'sortedCategories.firstObject' );
+    this.setCategoryAsSelected( defaultCategory );
+  }),
+
+  setCategoryAsSelected(category) {
+    let categoryId = category.get( 'id' );
+    this.get('model.categories').rejectBy( 'id', categoryId ).setEach( 'isSelected', false );
+    category.set( 'isSelected', true );
+  },
+
+  actions: {
+
+    selectCategory(category) {
+      this.setCategoryAsSelected( category );
+    }
+
+  }
 });

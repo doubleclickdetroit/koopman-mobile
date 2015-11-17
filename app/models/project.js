@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -22,6 +23,10 @@ export default DS.Model.extend({
   seriesPartTitle       : DS.attr(),
   seriesPartEstimateTime: DS.attr(),
   seriesPartDifficulty  : DS.attr(),
-  wrapUp                : DS.attr()
+  wrapUp                : DS.attr(),
+
+  categoryIds: Ember.computed('categories', function() {
+    return this.get( 'categories' ).mapBy( 'id' ).join( ' ' );
+  })
 
 });

@@ -1,0 +1,23 @@
+.app-view.view-projects {
+
+  .page-index {
+    .project-filter {
+      margin-bottom: $grid-gutter-width / 2;
+      width: 100%;
+    }
+    .project {
+      display: block;
+      margin-bottom: 10px;
+      min-height: 100px;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .page-show {
+
+  }
+
+}

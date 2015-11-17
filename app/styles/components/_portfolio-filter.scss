@@ -1,0 +1,38 @@
+.portfolio-filter {
+
+  .portfolio-filter-categories {
+    .portfolio-filter-categories-navigation {
+      padding-bottom: 10px;
+      white-space: nowrap;
+    	overflow-y: hidden;
+    	overflow-x: scroll;
+    	-webkit-overflow-scrolling: touch;
+
+      .filter-category {
+        padding-bottom: 0;
+        white-space: nowrap;
+        border-bottom: 2px solid transparent;
+        background-color: transparent;
+
+        &.selected-filter {
+          color: #2980b9 !important;
+          border-bottom-color: #2980b9;
+        }
+      }
+    }
+  }
+
+  .portfolio-filter-wrapper {
+    .portfolio-filter-item {
+      margin-bottom: 40px;
+
+      img {
+        margin-bottom: 10px;
+      }
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+}

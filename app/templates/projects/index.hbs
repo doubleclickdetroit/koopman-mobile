@@ -1,20 +1,32 @@
 <section class="page-index">
 
-  {{view 'select' class="form-control project-filter"
-                  content=listOfCategories
-                  value=selectedCategoryId
-                  optionValuePath='content.id'
-                  optionLabelPath='content.name'}}
+  <div class="container">
+    <div class="heading-style-5">
+      <h4 class="heading-title">Project Book</h4>
+      <i class="fa fa-wrench heading-icon"></i>
+      <div class="line bg-black"></div>
+    </div>
+  </div>
 
-  {{#each sortedProjects as |project|}}
+  {{#filterable-content}}
+    {{#filterable-navigation}}
+      {{#each sortedCategories as |category|}}
+        <span {{action 'selectCategory' category}}
+              data-rel="{{ category.id }}"
+              class="filter-category {{if category.isSelected 'selected-filter'}}">{{ category.name }}</span>
+      {{/each}}
+    {{/filterable-navigation}}
 
-    {{#link-to 'project' project class="project"}}
-      <figure>
-        <img src={{ project.image.blog-medium.url }}>
-        <caption>{{{ project.title }}}</caption>
-      </figure>
-    {{/link-to}}
-
-  {{/each}}
+    <div class="container">
+      {{#filterable-items filter=selectedCategory.id}}
+        {{#each sortedProjects as |project|}}
+          <div class="{{ project.categoryIds }}">
+            <img src="{{ project.image.blog-big.url }}" class="responsive-image" alt="img">
+            <h4>{{{ project.title }}}</h4>
+          </div>
+        {{/each}}
+      {{/filterable-items}}
+    </div>
+  {{/filterable-content}}
 
 </section>

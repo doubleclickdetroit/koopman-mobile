@@ -6,6 +6,8 @@ export default Ember.ArrayController.extend({
 
   selectedGroupYear: ( new Date().getFullYear() ).toString(),
 
+  hasMultipleYears: Ember.computed.gt( 'listOfGroupYears.length', 1 ),
+
   listOfGroupYears: function() {
     var groups = this.get( 'groupedByYear' );
     return _.keys( groups );

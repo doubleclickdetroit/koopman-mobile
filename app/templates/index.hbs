@@ -1,102 +1,51 @@
-<article class="app-view view-dashboard">
+<article class="app-view view-dashboard no-margin">
 
-  <section class="tiles pages">
-    <div class="tile">
-      {{#link-to 'entries'}}
-        <i class="fa fa-calendar"></i>Almanac
-      {{/link-to}}
+  {{#slider-items data-snap-ignore="true" margin="2"}}
+    <div class="content">
+      <div class="container-fullscreen heading-style-2">
+        <h4 class="heading-title">Deal One</h4>
+        <em class="heading-subtitle">Lorem ipsum dolor sit amet...</em>
+        <div class="overlay bg-black"></div>
+      </div>
     </div>
 
-    <div class="tile">
-      {{#link-to 'projects'}}
-        <i class="fa fa-wrench"></i>Projects
-      {{/link-to}}
+    <div class="content">
+      <div class="container-fullscreen heading-style-2">
+        <h4 class="heading-title">Deal Two</h4>
+        <em class="heading-subtitle">Lorem ipsum dolor sit amet...</em>
+        <div class="overlay bg-black"></div>
+      </div>
     </div>
 
-    <div class="tile">
-      {{#link-to 'cart'}}
-        <i class="fa fa-check-square-o"></i>Shopping List
-      {{/link-to}}
+    <div class="content">
+      <div class="container-fullscreen heading-style-2">
+        <h4 class="heading-title">Deal Three</h4>
+        <em class="heading-subtitle">Lorem ipsum dolor sit amet...</em>
+        <div class="overlay bg-black"></div>
+      </div>
     </div>
+  {{/slider-items}}
 
-    <div class="tile">
-      {{#link-to 'reminders'}}
-        <i class="fa fa-clock-o"></i>Reminders
-      {{/link-to}}
-    </div>
-  </section>
+  <section class="list">
+    {{#link-to 'entries' class="item"}}
+      <i class="fa fa-calendar"></i>
+      <em>Almanac</em>
+    {{/link-to}}
 
-  <section class="tiles posts">
-    <article class="tile entry">
-      <header>
-        <h1>Recent Almanac</h1>
-      </header>
+    {{#link-to 'projects' class="item"}}
+      <i class="fa fa-wrench"></i>
+      <em>Projects</em>
+    {{/link-to}}
 
-      {{#link-to 'entry' model.entry tagName='figure'}}
-        <img src={{if model.entry.image model.entry.image.post-medium.url 'http://lorempixel.com/180/137/'}}>
-        <caption>
-          <div class="date">
-            <span class="month">{{ model.entry.month }}</span>
-            <span class="day">{{ model.entry.day }}</span>
-          </div>
-          <div class="title">
-            {{{ model.entry.title }}}
-          </div>
-        </caption>
-      {{/link-to}}
-    </article>
+    {{#link-to 'cart' class="item"}}
+      <i class="fa fa-check-square-o"></i>
+      <em>Shopping List</em>
+    {{/link-to}}
 
-    <article class="tile project">
-      <header>
-        <h1>Recent Project</h1>
-      </header>
-
-      {{#link-to 'project' model.project tagName='figure'}}
-        <img src={{ model.project.image.post-medium.url }}>
-        <caption>{{{ model.project.title }}}</caption>
-      {{/link-to}}
-    </article>
-  </section>
-
-  <section class="tiles locations">
-    <article class="tile full banner">
-      {{link-to 'Koopman Locations' 'locations'}}
-    </article>
-  </section>
-
-  <section class="tiles session">
-    <article class="tile full banner">
-      {{#if session.isAuthenticated}}
-
-        <div class="well">
-          {{#link-to "settings"}}
-            <h4><i class="glyphicon glyphicon-user"></i> My Account</h4>
-            <hr>
-            {{#if fullName}}<p class="full-name">{{ fullName }}</p>{{/if}}
-
-            {{#if model.membership }}
-              <p class="my-points">Loyalty Points: {{ model.membership.loyaltyPoints }}</p>
-              <p class="my-points">Loyalty Dollars: ${{ model.membership.loyaltyDollars }}</p>
-            {{/if}}
-          {{/link-to}}
-
-          {{#unless model.membership }}
-            <a class="btn btn-lg btn-danger" href="http://koopmanadvantage.com/?mobileApp=true" target="_blank">
-              Signup For Koopman Rewards
-            </a>
-          {{/unless}}
-        </div>
-
-
-      {{else}}
-
-        {{#link-to "login" tagName="div" class="well"}}
-          <h4><i class="glyphicon glyphicon-user"></i> Sign Into My Account</h4>
-        {{/link-to}}
-
-      {{/if}}
-
-    </article>
+    {{#link-to 'reminders' class="item"}}
+      <i class="fa fa-clock-o"></i>
+      <em>Reminders</em>
+    {{/link-to}}
   </section>
 
 </article>

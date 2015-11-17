@@ -1,0 +1,24 @@
+.app-view {
+
+  padding-top: 90px;
+  height: 100%;
+
+  &.no-margin {
+    padding-top: 60px;
+  }
+
+  @media (max-width:766px) {
+    .container {
+      padding-left : 20px;
+      padding-right: 20px;
+    }
+  }
+
+  @media (min-width:767px) {
+    .container {
+      padding-left : 50px;
+      padding-right: 50px;
+    }
+  }
+
+}

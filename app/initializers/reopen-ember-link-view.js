@@ -9,7 +9,13 @@ export function initialize() {
   }
 
   Ember.LinkView.reopen({
-    attributeBindings: [ 'data-toggle', 'data-dismiss' ]
+
+    attributeBindings: [
+      'data-toggle',
+      'data-dismiss',
+      'data-snap-ignore'
+    ]
+
   });
 }
 

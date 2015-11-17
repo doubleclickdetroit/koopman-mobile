@@ -1,0 +1,12 @@
+.list {
+
+  @extend .navigation;
+  position: static;
+  box-shadow: none;
+  max-height: 100%;
+
+  .item {
+    @extend .navigation-item;
+  }
+
+}

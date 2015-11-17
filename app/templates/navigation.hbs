@@ -1,32 +1,60 @@
-<div class="navigation">
+<!--Left Sidebar-->
+<div class="snap-drawer snap-drawer-left">
+    <!--Disabled on this page-->
+</div>
 
-  <ul class="pages">
-    <li>{{#link-to 'index'}}Home{{/link-to}}</li>
-    <li>{{#link-to 'entries'}}Almanac{{/link-to}}</li>
-    <li>{{#link-to 'projects'}}Projects{{/link-to}}</li>
-  </ul>
+<!--Right Sidebar -->
+<div class="snap-drawer snap-drawer-right">
 
-  {{#if session.isAuthenticated}}
-  <ul class="actions">
-    <li class="heading">My Actions</li>
-    <li>{{#link-to 'cart'}}Shopping List{{/link-to}}</li>
-    <li>{{#link-to 'favorites'}}Favorites{{/link-to}}</li>
-    <li>{{#link-to 'reminders'}}Reminders{{/link-to}}</li>
-  </ul>
-  {{/if}}
+  <div class="sidebar-header-left">
+    <a class="sidebar-logo" href="#"></a>
+    <a class="close-sidebar" href="#"><i class="fa fa-times"></i></a>
+  </div>
 
+  <p class="sidebar-divider">Navigation</p>
 
-  <ul class="session">
-    <li>{{#link-to 'contact'}}Contact Us{{/link-to}}</li>
+  <div class="sidebar-menu">
+    {{#link-to 'index' class="menu-item"}}
+      <i class="fa fa-home"></i>
+      <em>Home</em>
+      <i class="fa fa-circle"></i>
+    {{/link-to}}
+
+    {{#link-to 'entries' class="menu-item"}}
+      <i class="fa fa-calendar"></i>
+      <em>Almanac</em>
+      <i class="fa fa-circle"></i>
+    {{/link-to}}
+
+    {{#link-to 'projects' class="menu-item"}}
+      <i class="fa fa-wrench"></i>
+      <em>Projects</em>
+      <i class="fa fa-circle"></i>
+    {{/link-to}}
 
     {{#if session.isAuthenticated}}
-      <li>{{#link-to 'settings'}}<i class="fa fa-cog"></i> Settings{{/link-to}}</li>
-      <li><a href="#" {{action 'invalidateSession'}}>Logout</a></li>
-    {{else}}
-      <li>{{#link-to 'login'}}Login{{/link-to}}</li>
-    {{/if}}
+      <div class="sidebar-divider">My Actions</div>
 
-    <li class="app-info">version 0.0.1</li>
-  </ul>
+      {{#link-to 'cart' class="menu-item"}}
+        <i class="fa fa-shopping-cart"></i>
+        <em>Shopping List</em>
+        <i class="fa fa-circle"></i>
+      {{/link-to}}
+
+      {{#link-to 'favorites' class="menu-item"}}
+        <i class="fa fa-star"></i>
+        <em>Favorites</em>
+        <i class="fa fa-circle"></i>
+      {{/link-to}}
+
+      {{#link-to 'reminders' class="menu-item"}}
+        <i class="fa fa-clock-o"></i>
+        <em>Reminders</em>
+        <i class="fa fa-circle"></i>
+      {{/link-to}}
+    {{/if}}
+  </div>
+
+  <p class="sidebar-footer">Copyright 2015. All rights reserved</p>
 
 </div>

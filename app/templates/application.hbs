@@ -1,29 +1,23 @@
-{{!-- main content --}}
-<div class="m-pikabu-container">
-  <header>
-    <h1 class="title">
-      {{#if model.routeName}}
-        {{#link-to model.routeName class="btn-back"}}<i class="fa fa-angle-left"></i>{{/link-to}}
-      {{/if}}
+{{!-- Important for all pages that have galleries or portfolios --}}
+<div class="gallery-fix"></div>
 
-      {{#if model.title}}
-        {{model.title}}
-      {{else}}
-        <img src="assets/images/koopman_logo.png">
-      {{/if}}
-    </h1>
-
-    <i class="fa fa-bars m-pikabu-nav-toggle" data-role="right"></i>
-  </header>
-
-  {{outlet}}
+<div id="header" class="header">
+  <div class="header-elements">
+    <a href="#" class="header-logo"></a>
+    <a href="#" class="header-icon-1 open-right-sidebar"><i class="fa fa-navicon"></i></a>
+  </div>
 </div>
 
+<div class="all-elements">
+  <div class="snap-drawers">
+    {{partial "navigation"}}
 
-{{!-- sidebar menu --}}
-<div class="m-pikabu-sidebar m-pikabu-right">
-  {{partial "navigation"}}
+    <div id="content" class="snap-content">
+      {{outlet}}
+    </div>
+  </div>
+
+  <a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>Back to top</a>
 </div>
-
 
 {{outlet "modal"}}

@@ -1,29 +1,14 @@
 import Ember from 'ember';
+import SidebarMixin from '../mixins/sidebar';
+import MobileMixin from '../mixins/mobile';
+import ContentMixin from '../mixins/content';
 
-export default Ember.View.extend({
-  classNames: [ 'm-pikabu-viewport' ],
+export default Ember.View.extend(SidebarMixin, MobileMixin, ContentMixin, {
 
-  getPikabuInstance: function() {
-    return this.get( 'pikabuService' ).getInstance();
-  },
-
-  currentPathDidChange: function() {
-    this.closeSidebars();
-  }.observes( 'controller.currentPath' ),
-
-  closeSidebars: function() {
-    this.getPikabuInstance().closeSidebars();
-  },
-
-  didInsertElement: function() {
-    // init pikabu
-    this.getPikabuInstance();
-
-    // in addition to changes in currentPath
-    // if a link is clicked in the sidebar, close it
-    this.$( '.m-pikabu-sidebar' ).on('click', 'a', function() {
-      this.closeSidebars();
-    }.bind( this ));
-
+  didInsertElement() {
+    this.initSideBar();
+    this.initMobile();
+    this.initContent();
   }
+
 });

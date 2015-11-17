@@ -1,36 +1,51 @@
-<section class="page-index">
+<section class="page-index content">
 
-  {{view 'select' class="form-control entry-filter"
-                  content=listOfGroupYears
-                  value=selectedGroupYear}}
+  <div class="container">
+    <div class="heading-style-5">
+      <h4 class="heading-title">Almanac Entries</h4>
+      <i class="fa fa-clock-o heading-icon"></i>
+      <div class="line bg-black"></div>
 
-  <div class="calendar">
-
-    {{#each month in groupedByDate}}
-    <div class="month">
-      <h4>{{ month.name }}</h4>
-
-      {{#each date in month.dates}}
-      <div class="day">
-        <div class="date">{{ date.number }}</div>
-
-        <div class="records">
-        {{#each entry in date.entries}}
-
-          {{#link-to 'entry' entry class="record"}}
-            <p class="title">{{{ entry.title }}}</p>
-            <div class="content">{{{ entry.excerpt }}}</div>
-          {{/link-to}}
-
-        {{/each}}
-        </div>
-
-      </div>
-      {{/each}}
-
+      {{#if hasMultipleYears}}
+        <p class="heading-subtitle">
+          {{view 'select' class="form-control entry-filter"
+                          content=listOfGroupYears
+                          value=selectedGroupYear}}
+        </p>
+      {{/if}}
     </div>
-    {{/each}}
 
+    {{#if hasMultipleYears}}
+      <div class="decoration full-bottom"></div>
+    {{/if}}
+
+    <div class="pageapp-timeline-2">
+      <div class="timeline-decoration"></div>
+
+      {{#each month in groupedByDate}}
+        <h4 class="timeline-month">{{ month.name }}</h4>
+
+        {{#each date in month.dates}}
+          <div class="timeline-item">
+            <div class="timeline-icon">
+              <i>{{ date.number }}</i>
+            </div>
+
+            {{#each entry in date.entries}}
+              {{#link-to 'entry' entry class="timeline-text" tagName="div"}}
+                <h3 class="title">{{{ entry.title }}}</h3>
+                {{{ entry.excerpt }}}
+                {{#link-to 'entry' entry}}
+                  <small>read</small> <i class="fa fa-angle-right"></i>
+                {{/link-to}}
+              {{/link-to}}
+            {{/each}}
+          </div>
+        {{/each}}
+
+        <div class="decoration"></div>
+      {{/each}}
+    </div>
   </div>
 
 </section>
