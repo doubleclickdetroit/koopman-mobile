@@ -24,7 +24,7 @@ export default Ember.Mixin.create({
             maxPosition: 266,
             minPosition: -266
         });
-        $('.close-sidebar, .menu-item').click(function(){snapper.close();});
+        this.$().on('click', '.close-sidebar, .menu-item, .sessionButton', function(){snapper.close();});
         $('.close-sidebar').click(function(evt){evt.preventDefault();});
         $('.open-left-sidebar').click(function() {
             //$(this).toggleClass('remove-sidebar');
@@ -63,7 +63,7 @@ export default Ember.Mixin.create({
             maxPosition: 266,
             minPosition: -266
         });
-        $('.close-sidebar, .menu-item').click(function(){snapper.close();});
+        this.$().on('click', '.close-sidebar, .menu-item, .sessionButton', function(){snapper.close();});
         $('.close-sidebar').click(function(evt){evt.preventDefault();});
         $('.open-left-sidebar').click(function() {
             //$(this).toggleClass('remove-sidebar');
@@ -91,7 +91,7 @@ export default Ember.Mixin.create({
             maxPosition: 266,
             minPosition: -266
         });
-        $('.close-sidebar, .menu-item').click(function(){snapper.close();});
+        this.$().on('click', '.close-sidebar, .menu-item, .sessionButton', function(){snapper.close();});
         $('.close-sidebar').click(function(evt){evt.preventDefault();});
         $('.open-right-sidebar').click(function() {
             //$(this).toggleClass('remove-sidebar');

@@ -22,4 +22,8 @@
   <a href="#" class="back-to-top-badge"><i class="fa fa-caret-up"></i>Back to top</a>
 </div>
 
+{{#if session.isAuthenticated}}
+  {{notification-signin}}
+{{/if}}
+
 {{outlet "modal"}}

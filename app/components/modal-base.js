@@ -1,20 +1,25 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: [ 'modal', 'fade' ],
-
   okLabel: 'Ok',
 
-  show: function() {
-    this.$().modal().on('hidden.bs.modal', function() {
-      this.sendAction( 'close' );
-    }.bind( this ));
-  }.on( 'didInsertElement' ),
+  didInsertElement() {
+    this.$dialog = this.$( '.simple-login-modal-content' );
+    this.showDialog();
+  },
+
+  showDialog() {
+    this.$dialog.modal({ onClose: () => this.closeDialog() });
+  },
+
+  closeDialog(action='close') {
+    $.modal.close();
+    this.sendAction( action );
+  },
 
   actions: {
-    ok: function() {
-      this.$().modal( 'hide' );
-      this.sendAction( 'ok' );
+    ok() {
+      this.closeDialog( 'ok' );
     }
   }
 });

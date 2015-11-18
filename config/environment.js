@@ -10,7 +10,8 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'hash',
     contentSecurityPolicy: {
-      'connect-src': "'self' http://koopmanblog.com/wp-json/posts http://localhost:3000/",
+      'default-src': "'self' https://www.youtube-nocookie.com/",
+      'connect-src': "'self' http://koopmanblog.com/wp-json/ http://localhost:3000/",
       'img-src': "'self' http://koopmanblog.com/",
       'style-src': "'self' 'unsafe-inline' use.typekit.net http://fonts.googleapis.com/",
       'font-src': "'self' http://fonts.gstatic.com/"

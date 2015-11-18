@@ -1,53 +1,43 @@
-<article class="app-view view-login">
-{{#if session.isAuthenticated}}
+<article class="app-view view-login no-margin">
 
-  <div class="alert alert-success" role="alert">
-    You have signed in as <strong>{{identification}}</strong>
-  </div>
+  {{#unless session.isAuthenticated}}
 
-{{else}}
+    <form {{action 'authenticate' on='submit'}}>
 
-  {{#if errorMessage}}
-    <div class="alert alert-danger" role="alert">
-      {{ errorMessage }}
-    </div>
-  {{/if}}
+      <div class="pageapp-login bg-5 cover-screen">
+        <div class="pageapp-login-content cover-center">
+          <div class="unboxed-layout">
+            <div class="pageapp-login-logo"></div>
 
-  <form {{action 'authenticate' on='submit'}}>
-    <section class="information-signin">
-      <div class="form-group">
-        <label for="identification">Email Address</label>
-        {{input value=identification type="email" class="form-control"}}
-      </div>
+            {{#if errorMessage}}
+              <div class="static-notification bg-red-dark tap-dismiss">
+                <p><i class="fa fa-times"></i>{{ errorMessage }}</p>
+              </div>
+            {{/if}}
 
-      <div class="form-group">
-        <label for="password">Password</label>
-        {{input value=password type="password" class="form-control"}}
-      </div>
-    </section>
+            <div class="pageapp-login-field">
+              <i class="fa fa-user"></i>
+              {{input value=identification type="email" placeholder="Email Address"}}
+            </div>
 
-    <hr>
+            <div class="pageapp-login-field">
+              <i class="fa fa-lock"></i>
+              {{input value=password type="password" placeholder="password"}}
+            </div>
 
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary btn-block btn-lg">Login</button>
-    </div>
+            <button class="pageapp-login-button button button-small button-blue button-round button-fullscreen">Login</button>
 
-    <hr>
+            <div class="decoration"></div>
 
-    <section class="cta-signup well">
-      <div class="blocks">
-        <div class="block">
-          <h4>Don&#39;t have an account?</h4>
+            {{#link-to "registration" class="login-create"}}
+              <i class="fa fa-user"></i>Create Account
+            {{/link-to}}
+          </div>
         </div>
-
-        <div class="block content-right">
-          {{link-to "Sign Up" "registration" class="btn btn-danger btn-outline"}}
-        </div>
+        <div class="overlay bg-black"></div>
       </div>
-    </section>
-  </form>
 
+    </form>
+  {{/unless}}
 
-
-{{/if}}
 </article>

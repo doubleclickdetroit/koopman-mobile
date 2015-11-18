@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Mixin.create({
   delegateAuthenticatedAction: function() {
     var isAuthed = this.get( 'session.isAuthenticated' );
+    console.log( '**** delegateAuthenticatedAction', isAuthed );
     if ( !isAuthed ) {
       this.send( 'showModal', 'modal-login-prompt' );
     }

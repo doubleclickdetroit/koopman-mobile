@@ -37,15 +37,17 @@
       <em>Projects</em>
     {{/link-to}}
 
-    {{#link-to 'cart' class="item"}}
-      <i class="fa fa-check-square-o"></i>
-      <em>Shopping List</em>
-    {{/link-to}}
+    {{#if session.isAuthenticated}}
+      {{#link-to 'cart' class="item"}}
+        <i class="fa fa-check-square-o"></i>
+        <em>Shopping List</em>
+      {{/link-to}}
 
-    {{#link-to 'reminders' class="item"}}
-      <i class="fa fa-clock-o"></i>
-      <em>Reminders</em>
-    {{/link-to}}
+      {{#link-to 'reminders' class="item"}}
+        <i class="fa fa-clock-o"></i>
+        <em>Reminders</em>
+      {{/link-to}}
+    {{/if}}
   </section>
 
 </article>

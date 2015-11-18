@@ -67,6 +67,14 @@
       <em>Contact Us</em>
       <i class="fa fa-circle"></i>
     {{/link-to}}
+
+    <div class="sidebar-session-buttons">
+      {{#if session.isAuthenticated}}
+        <a href="#" class="buttonWrap button button-green contactSubmitButton button-round sessionButton" {{action 'invalidateSession'}}>Sign Out</a>
+      {{else}}
+        {{link-to 'Sign In' 'login' class="buttonWrap button button-green contactSubmitButton button-round sessionButton"}}
+      {{/if}}
+    </div>
   </div>
 
   <p class="sidebar-footer">Copyright 2015. All rights reserved</p>
