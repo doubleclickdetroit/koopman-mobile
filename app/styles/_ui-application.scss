@@ -1,5 +1,7 @@
 @import "ui-application/app-view";
+@import "ui-application/button";
 @import "ui-application/list";
+@import "ui-application/post";
 @import "ui-application/slider-items";
 @import "ui-application/timeline";
 @import "ui-application/user-session";
@@ -7,4 +9,5 @@
 
 // Pages
 @import "views/dashboard";
+@import "views/locations";
 @import "views/projects";

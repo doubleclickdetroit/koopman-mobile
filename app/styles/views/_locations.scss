@@ -1,0 +1,48 @@
+.view-locations {
+
+  .location {
+    margin-bottom: 0;
+
+    .highlighted {
+      display: inline-block;
+      margin-right: 5px;
+      padding     : 5px;
+      line-height: normal;
+      border-radius: 3px;
+      vertical-align: middle;
+      font-size: .7rem;
+    }
+
+    .contact-call {
+      color: #2980b9;
+
+      .fa {
+        color: #666;
+      }
+    }
+
+    .manager {
+      font-size: .85rem;
+    }
+
+    .schedule {
+      font-size: .7rem;
+
+      .days,
+      .hours {
+        color: #888;
+      }
+
+      + .schedule {
+        margin-left: 5px;
+      }
+    }
+
+    + .location {
+      margin-top   : 15px;
+      padding-top: 15px;
+      border-top: 1px solid #ccc;
+    }
+  }
+
+}

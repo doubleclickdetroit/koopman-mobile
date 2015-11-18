@@ -1,13 +1,5 @@
 <section class="page-index">
 
-  <div class="container">
-    <div class="heading-style-5">
-      <h4 class="heading-title">Project Book</h4>
-      <i class="fa fa-wrench heading-icon"></i>
-      <div class="line bg-black"></div>
-    </div>
-  </div>
-
   {{#filterable-content}}
     {{#filterable-navigation}}
       {{#each sortedCategories as |category|}}
@@ -20,10 +12,10 @@
     <div class="container">
       {{#filterable-items filter=selectedCategory.id}}
         {{#each sortedProjects as |project|}}
-          <div class="{{ project.categoryIds }}">
+          {{#link-to 'project' project class=project.categoryIds}}
             <img src="{{ project.image.blog-big.url }}" class="responsive-image" alt="img">
             <h4>{{{ project.title }}}</h4>
-          </div>
+          {{/link-to}}
         {{/each}}
       {{/filterable-items}}
     </div>

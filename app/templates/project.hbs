@@ -4,123 +4,94 @@
     <img src="{{ model.image.large.url }}">
   </figure>
 
-  <header>
-    <h1>{{{ model.title }}}</h1>
-  </header>
+  <div class="container">
+    <header>
+      <h1>{{{ model.title }}}</h1>
+    </header>
 
-  <nav class="actions">
-    <div class="btn-group">
-      <a href="#" class="btn btn-default" {{action "handleFavoriteToggle" model}}>
-        <i class="fa fa-{{if model.favorite 'check' 'plus'}}"></i> Favorite
-      </a>
+    <nav class="actions">
+      <div class="btn-group">
+        <a href="#" class="btn btn-default" {{action "handleFavoriteToggle" model}}>
+          <i class="fa fa-{{if model.favorite 'check' 'star'}}"></i> Favorite
+        </a>
 
-      <a href="#" class="btn btn-default" {{action "handleDisplayShoppingList" model}}>
-        <i class="fa fa-plus"></i> Shopping List
-      </a>
+        <a href="#" class="btn btn-default" {{action "handleDisplayShoppingList" model}}>
+          <i class="fa fa-check-circle-o"></i> Shopping List
+        </a>
+      </div>
+    </nav>
 
-      {{!--
-      <a href="#" class="btn btn-default">
-        <i class="fa fa-share"></i> Share
-      </a>
-      --}}
-    </div>
-  </nav>
+    {{favorite-reminder favorite=model.favorite
+                        title="Remind me on:"
+                        onSave="handleFavoriteUpdate"}}
 
-  {{favorite-reminder favorite=model.favorite
-                      title="Remind me on:"
-                      onSave="handleFavoriteUpdate"}}
-
-  <div class="post-body">
-    <section class="post-attributes">
-      {{#if model.seriesTitle}}
-        <dl>
-          <dt>Blog Series:</dt>
-          <dd>{{{ model.seriesTitle }}}</dd>
-        </dl>
-      {{/if}}
-
-      {{#if model.hasMultipleParts}}
-        {{#if model.seriesPartNumber}}
+    <div class="post-body">
+      <section class="post-attributes">
+        {{#if model.seriesTitle}}
           <dl>
-            <dt>Part {{ model.seriesPartNumber }}:</dt>
-            <dd>{{ model.seriesPartTitle }}</dd>
+            <dt>Blog Series:</dt>
+            <dd>{{{ model.seriesTitle }}}</dd>
           </dl>
         {{/if}}
-      {{/if}}
 
-      {{#if model.seriesPartDifficulty}}
-        <dl>
-          <dt>Difficulty:</dt>
-          <dd>{{ model.seriesPartDifficulty }}</dd>
-        </dl>
-      {{/if}}
+        {{#if model.hasMultipleParts}}
+          {{#if model.seriesPartNumber}}
+            <dl>
+              <dt>Part {{ model.seriesPartNumber }}:</dt>
+              <dd>{{ model.seriesPartTitle }}</dd>
+            </dl>
+          {{/if}}
+        {{/if}}
 
-      {{#if model.seriesPartEstimateTime}}
-        <dl>
-          <dt>Time:</dt>
-          <dd>{{{ model.seriesPartEstimateTime }}}</dd>
-        </dl>
-      {{/if}}
-
-      {{#if model.seriesAttributes}}
-        {{#each attr in model.seriesAttributes}}
+        {{#if model.seriesPartDifficulty}}
           <dl>
-            <dt>{{ attr.attribute_name }}:</dt>
-            <dd>{{ attr.attribute_value }}</dd>
+            <dt>Difficulty:</dt>
+            <dd>{{ model.seriesPartDifficulty }}</dd>
           </dl>
-        {{/each}}
-      {{/if}}
-    </section>
+        {{/if}}
 
-    {{{ model.content }}}
+        {{#if model.seriesPartEstimateTime}}
+          <dl>
+            <dt>Time:</dt>
+            <dd>{{{ model.seriesPartEstimateTime }}}</dd>
+          </dl>
+        {{/if}}
 
-    {{{ model.seriesCautionStatement }}}
+        {{#if model.seriesAttributes}}
+          {{#each attr in model.seriesAttributes}}
+            <dl>
+              <dt>{{ attr.attribute_name }}:</dt>
+              <dd>{{ attr.attribute_value }}</dd>
+            </dl>
+          {{/each}}
+        {{/if}}
+      </section>
 
-    <section class="steps">
-    {{#each step in model.steps}}
+      {{{ model.content }}}
 
-      <article class="step">
-        <header>
-          <h1>{{ step.title }}</h1>
-        </header>
+      {{{ model.seriesCautionStatement }}}
 
-        <div class="step-content">
-          {{{ step.content }}}
-        </div>
-      </article>
+      <section class="steps">
+      {{#each model.steps as |step|}}
 
-    {{/each}}
-    </section>
+        <article class="step">
+          <header>
+            <h1>{{{ step.title }}}</h1>
+          </header>
 
-    <section class="wrap-up">
-      <h3>Wrap Up</h3>
-      {{{ model.wrapUp }}}
-    </section>
-  </div>
+          <div class="step-content">
+            {{{ step.content }}}
+          </div>
+        </article>
 
+      {{/each}}
+      </section>
 
-  {{!--
-  <div class="content-related">
-    <div class="col-xs-12">
-      <h4>Related Content</h4>
-    </div>
-
-    {{#if relatedPost}}
-      <div class="col-xs-6">
-        <div class="thumbnail">
-          <div class="caption text-center">Recommended</div>
-          <img src="{{ relatedPostThumb.url }}">
-        </div>
-      </div>
-    {{/if}}
-
-    <div class="{{if relatedPost 'col-xs-6' 'col-xs-12'}}">
-      <div class="thumbnail">
-        <div class="caption text-center">Recent Post</div>
-        <img src="{{ recentPostThumb.url }}">
-      </div>
+      <section class="wrap-up">
+        <h3>Wrap Up</h3>
+        {{{ model.wrapUp }}}
+      </section>
     </div>
   </div>
-  --}}
 
 </section>

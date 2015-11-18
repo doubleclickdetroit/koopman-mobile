@@ -1,57 +1,38 @@
 <section class="page-index">
 
-  {{#each model as |location index|}}
-    <article class="location">
-      <h4 class="title">
-        {{ location.title }}
-
+  <div class="container">
+    {{#each model as |location|}}
+      <p class="location">
         {{#if location.isNewLocation}}
-          <span class="label label-sm label-primary">NEW</span>
+          <span class="highlighted bg-night-dark color-white">NEW</span>
         {{/if}}
-      </h4>
 
-      <dl class="location-attributes">
-        <dt>Hours:</dt>
-        <dd>
-          {{#each location.scheduleCollection as |schedule|}}
-            <span class="schedule">
-              <span class="days">{{ schedule.days_range }}:</span>
-              <span class="hours">{{ schedule.hours_range }}</span>
-            </span>
-          {{/each}}
-        </dd>
+        <strong>{{ location.title }}</strong>
 
-        <dt>Address:</dt>
-        <dd>
-          <a href="maps:q={{ location.encodedAddress }}" target="_blank" class="icon-map">
-            <i class="fa fa-lg fa-map-marker"></i>
-          </a>
-
-          <a href="maps:q={{ location.encodedAddress }}" target="_blank">
-            {{{ location.address }}}
-          </a>
-        </dd>
-
-        <dt>Phone:</dt>
-        <dd>
-          <a href="tel:{{ location.encodedPhone }}" class="icon-phone">
-            <i class="fa fa-lg fa-phone"></i>
-          </a>
-
-          <a href="tel:{{ location.encodedPhone }}">
-            {{ location.phone }}
-          </a>
-        </dd>
-
+        <a href="maps:q={{ location.encodedAddress }}" target="_blank" class="contact-call">
+          <i class="fa fa-map-marker"></i>{{no-br location.address}}
+        </a>
+        <a href="tel:{{ location.encodedPhone }}" class="contact-call">
+          <i class="fa fa-phone"></i>{{ location.phone }}
+        </a>
         {{#if location.fax}}
-          <dt>Fax:</dt>
-          <dd>{{ location.fax }}</dd>
+          <a href="tel:{{ location.encodedPhone }}" class="contact-call">
+            <i class="fa fa-fax"></i>{{ location.fax }}
+          </a>
         {{/if}}
 
-        <dt>General Manager:</dt>
-        <dd>{{{ location.generalManager }}}</dd>
-      </dl>
-    </article>
-  {{/each}}
+        <span class="text-dark manager">General Manager:</span>
+        <span class="text-light manager">{{{ location.generalManager }}}</span>
+        <br>
+
+        {{#each location.scheduleCollection as |schedule|}}
+          <span class="schedule">
+            <span class="days">{{ schedule.days_range }}:</span>
+            <span class="hours">{{ schedule.hours_range }}</span>
+          </span>
+        {{/each}}
+      </p>
+    {{/each}}
+  </div>
 
 </section>
