@@ -24,7 +24,8 @@ export default Ember.Mixin.create({
             maxPosition: 266,
             minPosition: -266
         });
-        $('.close-sidebar').click(function(){snapper.close(); return false;});
+        $('.close-sidebar, .menu-item').click(function(){snapper.close();});
+        $('.close-sidebar').click(function(evt){evt.preventDefault();});
         $('.open-left-sidebar').click(function() {
             //$(this).toggleClass('remove-sidebar');
             if( snapper.state().state=="left" ){
@@ -44,6 +45,8 @@ export default Ember.Mixin.create({
             return false;
         });
         snapper.on('open', function(){$('.back-to-top-badge').removeClass('back-to-top-badge-visible');});
+
+        this.snapper = snapper;
     },
 
     left_sidebar() {
@@ -60,7 +63,8 @@ export default Ember.Mixin.create({
             maxPosition: 266,
             minPosition: -266
         });
-        $('.close-sidebar').click(function(){snapper.close(); return false;});
+        $('.close-sidebar, .menu-item').click(function(){snapper.close();});
+        $('.close-sidebar').click(function(evt){evt.preventDefault();});
         $('.open-left-sidebar').click(function() {
             //$(this).toggleClass('remove-sidebar');
             if( snapper.state().state=="left" ){
@@ -87,7 +91,8 @@ export default Ember.Mixin.create({
             maxPosition: 266,
             minPosition: -266
         });
-        $('.close-sidebar').click(function(){snapper.close(); return false;});
+        $('.close-sidebar, .menu-item').click(function(){snapper.close();});
+        $('.close-sidebar').click(function(evt){evt.preventDefault();});
         $('.open-right-sidebar').click(function() {
             //$(this).toggleClass('remove-sidebar');
             if( snapper.state().state=="right" ){

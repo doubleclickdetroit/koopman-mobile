@@ -14,11 +14,11 @@
     <nav class="actions">
       <div class="btn-group">
         <a href="#" class="btn btn-default" {{action "handleFavoriteToggle" model}}>
-          <i class="fa fa-{{if model.favorite 'check' 'plus'}}"></i> Favorite
+          <i class="fa fa-{{if model.favorite 'check' 'star'}}"></i> Favorite
         </a>
 
         <a href="#" class="btn btn-default" {{action "handleDisplayShoppingList" model}}>
-          <i class="fa fa-plus"></i> Shopping List
+          <i class="fa fa-check-circle-o"></i> Shopping List
         </a>
       </div>
     </nav>

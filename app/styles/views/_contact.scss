@@ -1,0 +1,21 @@
+.view-contact {
+
+  .contact-option-call {
+    margin-bottom: 10px;
+    text-align: center;
+
+    strong {
+      i.fa {
+        position: relative;
+        top: 1px;
+        margin-right: 10px;
+      }
+    }
+
+    .contact-call {
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+
+}

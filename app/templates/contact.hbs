@@ -1,29 +1,56 @@
 <article class="app-view view-contact">
 
-  <h4>Need to get a hold of us?</h4>
-  <p>
-    <i class="fa fa-lg fa-phone"></i> Call us at:
-    <a href="tel:(508) 234-4545">
-      (508) 234-4545
-    </a>
-  </p>
-
-  <hr>
-
-  {{#if displaySuccessMessage}}
-    <div class="alert alert-success fade {{if animateSuccessMessage 'in'}}">
-      Your message has been sent successfully.
-    </div>
-  {{/if}}
-
-  <form {{action "saveReaction" on="submit"}}>
-    <h4>Do you have something to say?</h4>
-    <div class="form-group has-feedback">
-      {{textarea value=model.feedback placeholder="Enter any feedback here" class="form-control" rows=10}}
+  <div class="container">
+    <div class="heading-style-5">
+      <h4 class="heading-title">Contact Us</h4>
+      <i class="fa fa-envelope-o heading-icon"></i>
+      <div class="line bg-black"></div>
     </div>
 
-    <div class="form-group">
-      <button class="btn btn-primary pull-right" disabled={{ isWithoutFeedback }}>Send Feedback</button>
+    <p class="contact-option-call">
+      <strong><i class="fa fa-phone"></i> Contact us by phone:</strong>
+      <a href="tel:(508) 234-4545" class="contact-call">(508) 234-4545</a>
+    </p>
+
+    <div class="or-buttons-style-3">
+      <em>or</em>
+      <strong></strong>
     </div>
-  </form>
+
+    <div class="contact-form no-bottom">
+      {{#if displaySuccessMessage}}
+        <div class="formSuccessMessageWrap {{if animateSuccessMessage 'in'}}" id="formSuccessMessageWrap">
+          <div class="big-notification green-notification">
+            <h3 class="uppercase">Message Sent </h3>
+            <a href="#" class="close-big-notification">x</a>
+            <p>Your message has been successfuly sent. Please allow up to 48 hours for a reply! Thank you!</p>
+          </div>
+        </div>
+      {{/if}}
+
+      <form {{action "saveReaction" on="submit"}} class="contactForm" id="contactForm">
+        <fieldset>
+          <div class="formFieldWrap">
+            <label class="field-title contactNameField" for="contactNameField">Name:<span>(required)</span></label>
+            <input type="text" name="contactNameField" value="" class="contactField requiredField" id="contactNameField">
+          </div>
+
+          <div class="formFieldWrap">
+            <label class="field-title contactEmailField" for="contactEmailField">Email: <span>(required)</span></label>
+            <input type="text" name="contactEmailField" value="" class="contactField requiredField requiredEmailField" id="contactEmailField">
+          </div>
+
+          <div class="formTextareaWrap">
+            <label class="field-title contactMessageTextarea" for="contactMessageTextarea">Message: <span>(required)</span></label>
+            {{textarea value=model.feedback placeholder="Enter feedback here" class="contactTextarea requiredField" id="contactMessageTextarea"}}
+          </div>
+
+          <div class="formSubmitButtonErrorsWrap">
+            <button disabled={{ isWithoutFeedback }} class="buttonWrap button button-blue button-round contactSubmitButton" id="contactSubmitButton" data-formid="contactForm">Send Feedback</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
 </article>
