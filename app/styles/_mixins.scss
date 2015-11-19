@@ -27,27 +27,27 @@
 }
 
 .paper-list {
-  position: relative;
   margin-bottom: 0;
   padding: 0 0 10px;
   list-style: none;
   background-color: #fafafa;
 
-  &:before {
-    position: absolute;
-    top : 0;
-    left: 15px;
-    width : 1px;
-    height: 100%;
-    background-color: #e99abf;
-    content: "";
-  }
-
   > li {
+    position: relative;
     margin-bottom: 0;
     padding: 5px 10px 5px 30px;
     line-height: 30px;
     border-bottom: 1px solid #b9e1f4;
+
+    &:before {
+      position: absolute;
+      top : 0;
+      left: 15px;
+      width : 1px;
+      height: 100%;
+      background-color: #e99abf;
+      content: "";
+    }
 
     &:after {
       display: table;

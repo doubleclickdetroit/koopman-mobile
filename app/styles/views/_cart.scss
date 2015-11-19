@@ -1,6 +1,15 @@
 .view-cart {
   background-color: #eee;
-  
+
+  .page-index {
+    height: 100%;
+
+    .shopping-cart {
+      height: calc(100% - 50px;);
+      overflow-y: scroll;
+    }
+  }
+
   .controls {
     display: flex;
     padding: 10px 20px;

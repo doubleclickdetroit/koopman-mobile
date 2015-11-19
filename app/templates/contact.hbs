@@ -18,14 +18,13 @@
     </div>
 
     <div class="contact-form no-bottom">
-      <div class="flip-down {{if animateSuccessMessage 'animate'}}">
-        <div class="slide-height {{if displaySuccessMessage 'animate'}}">
-          <div class="static-notification bg-green-dark">
-            <h6><i class="fa fa-check static-notification-icon"></i>Message Sent</h6>
-            <p>Your message has been successfuly sent. Please allow up to 48 hours for a reply! Thank you!</p>
-          </div>
+
+      {{#if animateSuccessMessage}}
+        <div class="static-notification bg-green-dark">
+          <h6><i class="fa fa-check static-notification-icon"></i>Message Sent</h6>
+          <p>Your message has been successfuly sent. Please allow up to 48 hours for a reply! Thank you!</p>
         </div>
-      </div>
+      {{/if}}
 
       <form {{action "saveReaction" on="submit"}} class="contactForm" id="contactForm">
         <fieldset>

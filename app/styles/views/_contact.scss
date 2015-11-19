@@ -1,5 +1,18 @@
 .view-contact {
 
+  .static-notification {
+    -webkit-animation:pop-in 0.5s;
+
+    @-webkit-keyframes pop-in {
+      0% { opacity: 0; -webkit-transform: scale(0); }
+      100% { opacity: 1; -webkit-transform: scale(1); }
+    }
+    @keyframes pop-in {
+      0% { opacity: 0; transform: scale(0); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+  }
+
   .contact-option-call {
     margin-bottom: 10px;
     text-align: center;
