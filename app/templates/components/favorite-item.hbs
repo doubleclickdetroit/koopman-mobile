@@ -1,0 +1,14 @@
+<div class="wide-title show-wide-text" {{action 'toggleContent'}}>
+  <h3>{{{ title }}}</h3>
+  <em>{{{ subtitle }}}</em>
+
+  <div class="overlay bg-black"></div>
+  <img src="{{ imageUrl }}">
+</div>
+
+<div class="wide-text">
+    <p>{{{ excerpt }}}</p>
+    <a href="#" class="portfolio-close" {{action 'toggleContent'}}><i class="fa fa-times"></i>Close</a>
+    {{#link-to 'post' resource class="portfolio-link"}}<i class="fa fa-link"></i>More{{/link-to}}
+    <div class="clear"></div>
+</div>

@@ -1,0 +1,11 @@
+<h3>{{ title }}</h3>
+
+<div class="share-socials-bottom">
+  {{yield}}
+  <div class="clear"></div>
+</div>
+
+<div class="buttons">
+  <a class="close-share-bottom" {{action 'ok'}}>{{ btnLabel }}</a>
+  <a class="close-share-bottom" {{action 'close'}}>Close</a>
+</div>

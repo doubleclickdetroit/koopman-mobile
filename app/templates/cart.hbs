@@ -1,7 +1,16 @@
-<article class="app-view view-cart">
+<article class="app-view view-cart {{if productCollection.length 'no-margin'}}">
 
   <section class="page-index">
     {{#if productCollection.length}}
+      <nav class="controls">
+        <a href="#" {{action 'createCustomItem'}}>
+          <i class="fa fa-plus"></i> Add Item
+        </a>
+        <a href="#" style="{{if withoutAcquiredProducts 'opacity: .2;'}}" {{action 'clearCompleted'}}>
+          Clear Completed <i class="fa fa-remove"></i>
+        </a>
+      </nav>
+
       <ul class="shopping-cart paper-list">
         {{#each product in productCollection}}
           <li>
@@ -11,7 +20,7 @@
             {{#if product.tool}}
               {{product-related-posts product=product}}
             {{else}}
-              <small class="custom-entry">Custom Entry</small>
+              <p class="custom-entry">Custom Entry</p>
             {{/if}}
           </li>
         {{/each}}
@@ -19,30 +28,11 @@
     {{/if}}
 
 
-    {{#if session.isAuthenticated}}
-      <form {{action "addProduct" customProduct on="submit"}}>
-        <div class="input-group">
-          {{input value=customProduct.title placeholder="Enter item name here..." class="form-control"}}
-
-          <span class="input-group-btn">
-            <button class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add Item</button>
-          </span>
-        </div>
-      </form>
-
-      <hr>
-    {{/if}}
-
-
-    {{#if productCollection.length}}
-      <div class="controls">
-        <button class="btn btn-danger btn-outline btn-sm" disabled={{withoutAcquiredProducts}} {{action 'clearCompleted'}}>Clear Completed</button>
-      </div>
-    {{/if}}
-
-
     {{#unless productCollection.length}}
-      <p class="text-center">Looks like there aren&#39;t any items in your Shopping List.</p>
+      <div class="container text-center">
+        <h5>Shopping List Is Empty</h5>
+        <p>Why don&#39;t you <a href="#" {{action 'createCustomItem'}}>add an item</a>?</p>
+      </div>
     {{/unless}}
   </section>
 

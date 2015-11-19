@@ -1,0 +1,34 @@
+.view-cart {
+  background-color: #eee;
+  
+  .controls {
+    display: flex;
+    padding: 10px 20px;
+    background-color: #fff;
+
+    a {
+      flex: 1 100%;
+
+      &:last-child {
+        text-align: right;
+      }
+
+      i.fa {
+        font-size: .7rem;
+      }
+    }
+  }
+
+  .paper-list {
+    border-top: 1px solid #eee;
+    box-shadow: inset 0 0px 2px rgba(0,0,0,.1);
+  }
+
+  .custom-entry {
+    margin-bottom: 0;
+    padding-left: 20px;
+    font-size: .7rem;
+    color: #444;
+  }
+
+}

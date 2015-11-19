@@ -3,19 +3,7 @@
   padding-right: 50px;
   padding-left : 50px;
 
-  -webkit-transform-origin: 50% 0%;
-  transform-origin:         50% 0%;
-  -webkit-transform: perspective(350px) rotateX(-90deg);
-  transform:         perspective(350px) rotateX(-90deg);
-  -webkit-transition: 0.2s linear 0.2s;
-  transition:         0.2s linear 0.2s;
-
-  &.flip-down {
-    -webkit-transform: perspective(350px) rotateX(0deg);
-    transform:         perspective(350px) rotateX(0deg);
-    -webkit-transition: 0.2s linear 0s;
-    transition:         0.2s linear 0s;
-  }
+  @extend .flip-down;
 
   p {
     margin-bottom: 0;

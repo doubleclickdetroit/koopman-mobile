@@ -1,0 +1,18 @@
+{{#bottom-panel-base title="Add Custom Entry"
+                     btnLabel="Add Item"
+                     ok="addCustomProduct"
+                     close="removeBottomPanel"}}
+
+  {{#if session.isAuthenticated}}
+
+    <form {{action "addCustomProduct" on="submit"}}>
+      <fieldset>
+        <div class="formFieldWrap">
+          <label class="field-title contactNameField">Item Name:<span>(required)</span></label>
+          {{input value=customProduct.title class="contactField requiredField"}}
+        </div>
+      </fieldset>
+    </form>
+  {{/if}}
+
+{{/bottom-panel-base}}

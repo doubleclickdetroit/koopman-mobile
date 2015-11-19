@@ -111,16 +111,30 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       this.transitionTo( 'index' );
     },
 
-    showModal: function(name) {
+    showModal(name) {
       this.render(name, {
         into  : 'application',
         outlet: 'modal'
       });
     },
 
-    removeModal: function() {
+    removeModal() {
       this.disconnectOutlet({
         outlet    : 'modal',
+        parentView: 'application'
+      });
+    },
+
+    showBottomPanel(name) {
+      this.render(name, {
+        into:   'application',
+        outlet: 'bottomPanel'
+      });
+    },
+
+    removeBottomPanel() {
+      this.disconnectOutlet({
+        outlet:     'bottomPanel',
         parentView: 'application'
       });
     }

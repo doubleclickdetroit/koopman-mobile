@@ -1,15 +1,14 @@
-<a href="#" class="btn-toggle" {{action 'toggleRelatedPosts'}}>
-  {{ labelAction }} Related Posts
-</a>
+<ul class="icon-list">
+  <li {{action 'toggleRelatedPosts'}}>
+    <i class="fa fa-caret-{{if isDisplayed 'down' 'right'}}"></i> Related Posts
+  </li>
 
-{{#if isDisplayed}}
-<div class="list-posts">
 
-  {{#each post in product.relatedPosts}}
-    {{#link-to 'post' post class="related-post-link label label-primary"}}
-      {{{ post.title }}}
-    {{/link-to}}
-  {{/each}}
-
-</div>
-{{/if}}
+  <div class="slide-height {{if isDisplayed 'animate'}}">
+    <ul>
+      {{#each product.relatedPosts as |post|}}
+        {{#link-to 'post' post tagName="li"}}{{{ post.title }}}{{/link-to}}
+      {{/each}}
+    </ul>
+  </div>
+</ul>

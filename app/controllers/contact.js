@@ -7,12 +7,9 @@ export default Ember.Controller.extend({
     this.set( 'animateSuccessMessage', true );
     this.set( 'displaySuccessMessage', true );
 
-    setTimeout(function() {
+    setTimeout(() => {
       this.set( 'animateSuccessMessage', false );
-    }.bind( this ), 5000);
-
-    setTimeout(function() {
       this.set( 'displaySuccessMessage', false );
-    }.bind( this ), 5300);
+    }, 5000);
   }
 });

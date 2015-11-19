@@ -102,7 +102,13 @@ export default Ember.Mixin.create({
             }
             return false;
         });
-        snapper.on('open', function(){$('.back-to-top-badge').removeClass('back-to-top-badge-visible');});
+        snapper.on('open', function(){
+          $( window ).trigger( 'app.sidebar.open' );
+          $('.back-to-top-badge').removeClass('back-to-top-badge-visible');
+        });
+        snapper.on('close', function(){
+          $( window ).trigger( 'app.sidebar.close' );
+        });
     },
 
     no_sidebar() {

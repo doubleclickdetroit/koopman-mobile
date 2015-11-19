@@ -13,7 +13,7 @@ export default Ember.Component.extend({
   },
 
   toggleDisplay() {
-    this.$().toggleClass( 'flip-down' );
+    this.$().toggleClass( 'animate' );
   }
 
 });

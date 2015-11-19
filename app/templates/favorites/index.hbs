@@ -2,37 +2,33 @@
 
   {{#if content.length}}
 
-    {{#each favorite in model}}
+    <div class="portfolio-wide container-fullscreen">
+      {{#each model as |favorite|}}
 
-      {{#if favorite.entry}}
-        {{#link-to 'post' favorite.entry class="favorite"}}
-          <figure>
-            <img src={{ favorite.entry.image.blog-medium.url }}>
-            <caption>
-              <div class="type"><i class="fa fa-lg fa-clock-o"></i></div>
-              <div class="title">{{{ favorite.entry.title }}}</div>
-            </caption>
-          </figure>
-        {{/link-to}}
-      {{/if}}
+        {{#if favorite.entry}}
+            {{favorite-item resource=favorite.entry
+                            title=favorite.entry.title
+                            subtitle="<i class='fa fa-lg fa-clock-o'></i> Almanac Entry"
+                            imageUrl=favorite.entry.image.blog-medium.url
+                            excerpt=favorite.entry.excerpt}}
+        {{/if}}
 
-      {{#if favorite.project}}
-        {{#link-to 'post' favorite.project class="favorite"}}
-          <figure>
-            <img src={{ favorite.project.image.blog-medium.url }}>
-            <caption>
-              <div class="type"><i class= "fa fa-lg fa-wrench"></i></div>
-              <div class="title">{{{ favorite.project.title }}}</div>
-            </caption>
-          </figure>
-        {{/link-to}}
-      {{/if}}
+        {{#if favorite.project}}
+            {{favorite-item resource=favorite.project
+                            title=favorite.project.title
+                            subtitle="<i class='fa fa-lg fa-wrench'></i> Project Book"
+                            imageUrl=favorite.project.image.blog-medium.url
+                            excerpt=favorite.project.excerpt}}
+        {{/if}}
 
-    {{/each}}
+      {{/each}}
+    </div>
 
   {{else}}
 
-    <p class="text-center">Looks like you haven&#39;t saved any favorites.</p>
+    <div class="container">
+      <p class="text-center">Looks like you haven&#39;t saved any favorites.</p>
+    </div>
 
   {{/if}}
 

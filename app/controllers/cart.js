@@ -7,5 +7,11 @@ export default Ember.Controller.extend({
 
   customProduct: Ember.Object.create({
     title: ''
-  })
+  }),
+
+  actions: {
+    createCustomItem() {
+      this.send( 'showBottomPanel', 'bottom-panel-custom-entry' );
+    }
+  }
 });

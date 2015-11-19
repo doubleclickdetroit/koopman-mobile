@@ -1,0 +1,113 @@
+.slide-height {
+  overflow: hidden;
+  max-height: 0;
+
+  -webkit-transition: 0.5s ease-in-out;
+  transition:         0.5s ease-in-out;
+
+  &.animate {
+    max-height: 999px;
+  }
+}
+
+.flip-down {
+  -webkit-transform-origin: 50% 0%;
+  transform-origin:         50% 0%;
+  -webkit-transform: perspective(350px) rotateX(-90deg);
+  transform:         perspective(350px) rotateX(-90deg);
+  -webkit-transition: 0.2s ease-in-out 0.2s;
+  transition:         0.2s ease-in-out 0.2s;
+
+  &.animate {
+    -webkit-transform: perspective(350px) rotateX(0deg);
+    transform:         perspective(350px) rotateX(0deg);
+    -webkit-transition: 0.2s ease-in-out 0s;
+    transition:         0.2s ease-in-out 0s;
+  }
+}
+
+.paper-list {
+  position: relative;
+  margin-bottom: 0;
+  padding: 0 0 10px;
+  list-style: none;
+  background-color: #fafafa;
+
+  &:before {
+    position: absolute;
+    top : 0;
+    left: 15px;
+    width : 1px;
+    height: 100%;
+    background-color: #e99abf;
+    content: "";
+  }
+
+  > li {
+    margin-bottom: 0;
+    padding: 5px 10px 5px 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #b9e1f4;
+
+    &:after {
+      display: table;
+      clear: both;
+      content: "";
+    }
+  }
+
+  .btn-outline {
+    float: right;
+    margin-top: 2px;
+    padding: 0;
+    width : 25px;
+    height: 25px;
+    line-height: normal;
+    border-radius: 50%;
+  }
+
+  .ui-checkbox {
+    position: relative;
+    display: inline-block;
+    padding-left: 30px;
+    line-height: 20px;
+    cursor: pointer;
+    vertical-align: middle;
+    color: #372f2b;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select : none;
+    -moz-user-select   : none;
+    -ms-user-select    : none;
+    user-select        : none;
+
+    &:before {
+      position: absolute;
+      display: block;
+      top : 0;
+      left: 0;
+      content: "";
+      width      : 20px;
+      height     : 20px;
+      line-height: 20px;
+      text-align: center;
+      font-family: 'FontAwesome';
+      color: transparent;
+      border: 1px solid #e4e4e2;
+      box-shadow: 0 -1px 0 #c5c5c2;
+      background-color: #fff;
+      -webkit-transition: 0.5s ease-in-out;
+      transition:         0.5s ease-in-out;
+    }
+
+    &.is-checked {
+      color: #aaa;
+      text-decoration: line-through;
+
+      &:before {
+        color: green;
+        content: "\f00c";
+      }
+    }
+  }
+}

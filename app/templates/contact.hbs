@@ -8,7 +8,7 @@
     </div>
 
     <p class="contact-option-call">
-      <strong><i class="fa fa-phone"></i> Contact us by phone:</strong>
+      <strong><i class="fa fa-phone"></i> By phone:</strong>
       <a href="tel:(508) 234-4545" class="contact-call">(508) 234-4545</a>
     </p>
 
@@ -18,15 +18,14 @@
     </div>
 
     <div class="contact-form no-bottom">
-      {{#if displaySuccessMessage}}
-        <div class="formSuccessMessageWrap {{if animateSuccessMessage 'in'}}" id="formSuccessMessageWrap">
-          <div class="big-notification green-notification">
-            <h3 class="uppercase">Message Sent </h3>
-            <a href="#" class="close-big-notification">x</a>
+      <div class="flip-down {{if animateSuccessMessage 'animate'}}">
+        <div class="slide-height {{if displaySuccessMessage 'animate'}}">
+          <div class="static-notification bg-green-dark">
+            <h6><i class="fa fa-check static-notification-icon"></i>Message Sent</h6>
             <p>Your message has been successfuly sent. Please allow up to 48 hours for a reply! Thank you!</p>
           </div>
         </div>
-      {{/if}}
+      </div>
 
       <form {{action "saveReaction" on="submit"}} class="contactForm" id="contactForm">
         <fieldset>
