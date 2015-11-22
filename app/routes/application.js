@@ -3,58 +3,8 @@ import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
-  model: function() {
-    var entries, projects, store = this.store;
-
-    function fetchResource(resourceName) {
-      return store.find( resourceName ).catch( handleFailFn );
-    }
-    function handleFailFn() {
-      return [];
-    }
-
-    entries  = store.all( 'entry' );
-    if ( entries.get('length') < 1 ) {
-      entries = fetchResource( 'entry' );
-    }
-
-    projects = store.all( 'project' );
-    if ( projects.get('length') < 1 ) {
-      projects = fetchResource( 'project' );
-    }
-
-    return Ember.RSVP.hash({
-      membership: fetchResource( 'membership' ),
-      products  : fetchResource( 'product' ),
-      favorites : fetchResource( 'favorite' ),
-      entries   : entries,
-      projects  : projects,
-    });
-  },
-
-  afterModel: function(model) {
-    var moment = this.moment;
-
-    model.posts = Ember.ArrayProxy.create({
-      content: Ember.A(_.union(
-        model.entries.toArray(),
-        model.projects.toArray()
-      ))
-    });
-
-    model.entries = model.entries.filter(function(entry) {
-      var date = moment( entry.get('date') );
-      return date.diff( moment(), 'days' ) >= 0;
-    }).sortBy( 'date' );
-
-    // schedule modal-network-down modal if "network is down"
-    if ( !model.entries.length && !model.projects.length ) {
-      Ember.run.schedule('afterRender', this, function() {
-        this.send( 'showModal', 'modal-network-down' );
-      });
-    }
-
-    this._super( model );
+  model() {
+    return Ember.RSVP.hash({});
   },
 
   actions: {

@@ -12,6 +12,11 @@ export default Ember.Route.extend({
   },
 
   model: function() {
-    return this.store.all( 'favorite' );
+    let favorites = this.store.all( 'favorite' );
+    if ( !favorites.get('length') ) {
+      favorites = this.store.find( 'favorite' );
+    }
+
+    return favorites;
   }
 });

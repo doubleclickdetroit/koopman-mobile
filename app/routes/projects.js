@@ -9,7 +9,7 @@ export default Ember.Route.extend({
   },
 
   model: function() {
-    return this.store.all( 'project' );
+    return this.store.find( 'project' );
   },
 
   setupController: function(controller, model) {
