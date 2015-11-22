@@ -1,0 +1,104 @@
+.component-title-bar {
+  $height: 60px;
+
+  position: relative;
+  display: flex;
+  height: $height;
+
+  .titlebar-title-wrapper {
+    flex: 1 100%;
+
+    i, a {
+      color: #fff;
+    }
+    .titlebar-icon,
+    .titlebar-title,
+    .titlebar-prev-title {
+      height:      $height;
+      line-height: $height;
+    }
+    .titlebar-icon {
+      position: absolute;
+      top:  -1px;
+      left: 15px;
+      font-size: 1.6rem;
+    }
+    .titlebar-title,
+    .titlebar-prev-title {
+      position: absolute;
+      top : 0;
+      left: 0;
+      padding-left: 30px;
+      width: 100%;
+      font-size: 1rem;
+      align-items:     center;
+      justify-content: center;
+      font-weight: 100;
+    }
+
+    /**
+     * Animation
+    */
+    @-webkit-keyframes slide-in {
+      0%   { opacity: 0; -webkit-transform: translate3d(100%, 0px, 0px); }
+      100% { opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px); }
+    }
+    @keyframes slide-in {
+      0%   { opacity: 0; transform: translate3d(100%, 0px, 0px); }
+      100% { opacity: 1;  transform: translate3d(0%, 0px, 0px); }
+    }
+
+    @-webkit-keyframes slide-out {
+      0%   { opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px); }
+      100% { opacity: 0; -webkit-transform: translate3d(-100%, 0px, 0px); }
+    }
+    @keyframes slide-out {
+      0%   { opacity: 1; transform: translate3d(0%, 0px, 0px); }
+      100% { opacity: 0;  transform: translate3d(-100%, 0px, 0px); }
+    }
+
+    .titlebar-title {
+      -webkit-transform: translate3d(calc(100% + 250px), 0px, 0px);
+      transform:         translate3d(calc(100% + 250px), 0px, 0px);
+    }
+    .titlebar-prev-title {
+      -webkit-transform: translate3d(0%, 0px, 0px);
+      transform:         translate3d(0%, 0px, 0px);
+    }
+
+    &.transition {
+      .titlebar-title {
+        -webkit-animation: slide-in 0.5s;
+        animation:         slide-in 0.5s;
+      }
+      .titlebar-prev-title {
+        -webkit-animation: slide-out 0.5s;
+        animation:         slide-out 0.5s;
+      }
+    }
+
+    .titlebar-icon {
+      opacity: 0;
+      -webkit-transition-duration: 0.5s;
+      transition-duration        : 0.5s;
+    }
+
+    &.has-title {
+      .titlebar-icon {
+        opacity: 1;
+      }
+    }
+  }
+
+  .titlebar-yield {
+    a {
+      position: absolute;
+      left: 50%;
+      margin: 0 0 0 -77px;
+      width: 155px;
+      height: $height;
+      background-position: center;
+    }
+  }
+
+}

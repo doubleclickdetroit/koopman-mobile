@@ -1,0 +1,9 @@
+<nav class="titlebar-title-wrapper {{if inTransition 'transition'}} {{if hasTitle 'has-title'}}">
+  {{#link-to routeName class="titlebar-icon"}}<i class="fa fa-angle-left"></i>{{/link-to}}
+  {{#link-to routeName class="titlebar-title"}}{{ title }}{{/link-to}}
+  {{#link-to routeName class="titlebar-prev-title"}}{{ displayTitle }}{{/link-to}}
+</nav>
+
+<nav class="titlebar-yield">
+  {{ yield }}
+</nav>
