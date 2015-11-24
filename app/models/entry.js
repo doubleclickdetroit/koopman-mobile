@@ -11,6 +11,11 @@ export default DS.Model.extend({
   image   : DS.attr(),
   excerpt : DS.attr(),
 
+  dateFormatted: Ember.computed('date', function() {
+    let date = this.get( 'date' );
+    return this.moment( date ).format( 'MMMM DD, YYYY' );
+  }),
+
   day: function() {
     var date = this.get( 'date' );
     return this.moment( date ).format( 'DD' );

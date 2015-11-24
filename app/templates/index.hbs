@@ -26,28 +26,106 @@
     </div>
   {{/slider-items}}
 
-  <section class="list">
-    {{#link-to 'entries' class="item"}}
-      <i class="fa fa-calendar"></i>
-      <em>Almanac</em>
-    {{/link-to}}
-
-    {{#link-to 'projects' class="item"}}
-      <i class="fa fa-wrench"></i>
-      <em>Projects</em>
-    {{/link-to}}
-
+  <div class="page-profile">
     {{#if session.isAuthenticated}}
-      {{#link-to 'cart' class="item"}}
-        <i class="fa fa-check-square-o"></i>
-        <em>Shopping List</em>
-      {{/link-to}}
 
-      {{#link-to 'favorites' class="item"}}
-        <i class="fa fa-star"></i>
-        <em>Favorites</em>
-      {{/link-to}}
+      <div class="page-profile-header container-fullscreen">
+        {{#if model.membership.isPending}}
+          <i class="fa fa-refresh fa-spin"></i>
+        {{/if}}
+
+        {{#if model.membership.isFulfilled}}
+          <h3>{{ model.membership.nameFormatted }}</h3>
+          {{#if model.membership.isAdvantageMember}}
+            <em><i class="fa fa-certificate"></i>Koopman Advantage Member</em>
+            <em>Since {{ model.membership.advantageMembershipSignupDate }}</em>
+          {{else}}
+            <em><i class="fa fa-certificate"></i>Non-Member</em>
+            <div class="follow-buttons">
+              <a href="#">Signup for Koopman Advantage</a>
+            </div>
+          {{/if}}
+        {{/if}}
+
+        <div class="overlay bg-black"></div>
+      </div>
+
+      <div class="page-profile-followers">
+        <!-- <img src="assets/images/views/dashboard/koopman-advantage-logo.png" class="koopman-advantage-logo"> -->
+
+        <a href="#">
+          <i class="fa fa-money"></i>
+          <span class="membership-benefit">K Cash</span>
+          {{#if model.membership.isPending}}
+            <i class="fa fa-refresh fa-spin"></i>
+          {{/if}}
+          {{#if model.membership.isFulfilled}}
+            {{ model.membership.loyaltyDollarsFormatted }}
+          {{/if}}
+        </a>
+        <a href="#">
+          <i class="fa fa-gift"></i>
+          <span class="membership-benefit">K Points</span>
+          {{#if model.membership.isPending}}
+            <i class="fa fa-refresh fa-spin"></i>
+          {{/if}}
+          {{#if model.membership.isFulfilled}}
+            {{pluralize model.membership.loyaltyPoints 'Point'}}
+          {{/if}}
+        </a>
+      </div>
+
+    {{else}}
+
+      <div class="page-profile-header container-fullscreen cta-signin">
+        <h3>Sign Into My Account</h3>
+        <div class="follow-buttons">
+          {{link-to 'Sign In' 'login'}}
+        </div>
+        <div class="overlay bg-black"></div>
+      </div>
+
     {{/if}}
-  </section>
+
+    <div class="decoration"></div>
+  </div>
+
+  <div class="posts-list">
+    <div class="container">
+      {{#if model.entry.isPending}}
+        <i class="fa fa-refresh fa-spin"></i>
+      {{/if}}
+
+      {{#if model.entry.isFulfilled}}
+        {{#link-to 'entry' model.entry tagName="div" class="image-column-right"}}
+          <section class="resource-image">
+            <img src="{{ model.entry.image.post-big.url }}">
+          </section>
+          <section class="resource-text">
+            <strong>{{{ model.entry.title }}}</strong>
+            <div class="from-resource">In <span class="from-resource-text">Almanac Entry</span><span class="from-resource-date">{{ model.entry.dateFormatted }}</span></div>
+          </section>
+        {{/link-to}}
+      {{/if}}
+    </div>
+
+    <div class="container">
+      {{#if model.project.isPending}}
+        <i class="fa fa-refresh fa-spin"></i>
+      {{/if}}
+
+      {{#if model.project.isFulfilled}}
+        {{#link-to 'project' model.project tagName="div" class="image-column-right"}}
+          <section class="resource-image">
+            <img src="{{ model.project.image.post-big.url }}">
+          </section>
+          <section class="resource-text">
+            <strong>{{{ model.project.title }}}</strong>
+            <div class="from-resource">In <span class="from-resource-text">Project Book</span></div>
+          </section>
+        {{/link-to}}
+      {{/if}}
+    </div>
+  </div>
 
 </article>

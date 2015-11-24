@@ -15,5 +15,21 @@ export default DS.Model.extend({
   pointsConverted: DS.attr('number'),
   ytdSales       : DS.attr('number'),
   loyaltyPoints  : DS.attr('number'),
-  loyaltyDollars : DS.attr('number')
+  loyaltyDollars : DS.attr('number'),
+
+  isAdvantageMember: Ember.computed.notEmpty( 'loyaltyId' ),
+  advantageMembershipSignupDate: Ember.computed('acctOpenDate', function() {
+    let date = this.get( 'acctOpenDate' );
+    return this.moment( date ).format( 'MMMM DD, YYYY' );
+  }),
+
+  nameFormatted: Ember.computed('name', function() {
+    let name = this.get( 'name' );
+    return name.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+  }),
+
+  loyaltyDollarsFormatted: Ember.computed('loyaltyDollars', function() {
+    let amt = ( this.get('loyaltyDollars') ).toFixed( 2 );
+    return `$${amt}`;
+  })
 });
