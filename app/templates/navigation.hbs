@@ -62,6 +62,15 @@
       <i class="fa fa-circle"></i>
     {{/link-to}}
 
+    {{#if session.isAuthenticated}}
+      <p class="sidebar-divider">My Account</p>
+      {{#link-to 'settings' class="menu-item"}}
+        <i class="fa fa-cog"></i>
+        <em>Settings</em>
+        <i class="fa fa-circle"></i>
+      {{/link-to}}
+    {{/if}}
+
     <div class="sidebar-session-buttons">
       {{#if session.isAuthenticated}}
         <a href="#" class="buttonWrap button button-green contactSubmitButton button-round sessionButton" {{action 'invalidateSession'}}>Sign Out</a>

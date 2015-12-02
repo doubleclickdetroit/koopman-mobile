@@ -2,6 +2,13 @@
 
   height: 100%;
 
+  .snap-drawer {
+    &.snap-drawer-left,
+    &.snap-drawer-right {
+      overflow-x: hidden;
+    }
+  }
+
   .sidebar-header-left a:last-child {
     border-left-style: solid;
   }

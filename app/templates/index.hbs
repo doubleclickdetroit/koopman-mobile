@@ -26,59 +26,116 @@
     </div>
   {{/slider-items}}
 
+
+  <div class="posts-list">
+    {{#link-to 'entries' tagName="div" class="post-header"}}
+      Almanac Entries
+      <div class="btn-see-all">
+        See more
+        <i class="fa fa-angle-right"></i>
+      </div>
+    {{/link-to}}
+    <section class="container" style="background-image: url({{ model.entry.image.post-big.url }});">
+      {{#if model.entry.isPending}}
+        <i class="fa fa-refresh fa-spin"></i>
+      {{/if}}
+
+      {{#if model.entry.isFulfilled}}
+        {{#link-to 'entry' model.entry tagName="div" class="image-column-right"}}
+          <section class="resource-image">
+            <i class="fa fa-calendar"></i>
+          </section>
+          <section class="resource-text">
+            <strong>{{{ model.entry.title }}}</strong>
+            <div class="from-resource">In <span class="from-resource-text">Almanac Entry</span><span class="from-resource-date">{{ model.entry.dateFormatted }}</span></div>
+          </section>
+        {{/link-to}}
+      {{/if}}
+    </section>
+
+    {{#link-to 'projects' tagName="div" class="post-header"}}
+      Project Book
+      <div class="btn-see-all">
+        See more
+        <i class="fa fa-angle-right"></i>
+      </div>
+    {{/link-to}}
+    <section class="container" style="background-image: url({{ model.project.image.post-big.url }});">
+      {{#if model.project.isPending}}
+        <i class="fa fa-refresh fa-spin"></i>
+      {{/if}}
+
+      {{#if model.project.isFulfilled}}
+        {{#link-to 'project' model.project tagName="div" class="image-column-right"}}
+          <section class="resource-image">
+            <i class="fa fa-wrench"></i>
+          </section>
+          <section class="resource-text">
+            <strong>{{{ model.project.title }}}</strong>
+            <div class="from-resource">In <span class="from-resource-text">Project Book</span></div>
+          </section>
+        {{/link-to}}
+      {{/if}}
+    </section>
+  </div>
+
+
   <div class="page-profile">
     {{#if session.isAuthenticated}}
-
       <div class="page-profile-header container-fullscreen">
+        <img src="assets/images/views/dashboard/koopman-advantage-logo.png" class="koopman-advantage-logo">
+
         {{#if model.membership.isPending}}
           <i class="fa fa-refresh fa-spin"></i>
         {{/if}}
 
         {{#if model.membership.isFulfilled}}
-          <h3>{{ model.membership.nameFormatted }}</h3>
-          {{#if model.membership.isAdvantageMember}}
-            <em><i class="fa fa-certificate"></i>Koopman Advantage Member</em>
-            <em>Since {{ model.membership.advantageMembershipSignupDate }}</em>
-          {{else}}
-            <em><i class="fa fa-certificate"></i>Non-Member</em>
-            <div class="follow-buttons">
-              <a href="#">Signup for Koopman Advantage</a>
-            </div>
-          {{/if}}
+          <div class="page-profile-followers">
+
+            {{#if model.membership.isAdvantageMember}}
+              <a href="#">
+                <i class="fa fa-money"></i>
+                {{#if model.membership.isPending}}
+                  <i class="fa fa-refresh fa-spin"></i>
+                {{/if}}
+                {{#if model.membership.isFulfilled}}
+                  {{ model.membership.loyaltyDollarsFormatted }}
+                {{/if}}
+              </a>
+              <a href="#">
+                <i class="fa fa-gift"></i>
+                {{#if model.membership.isPending}}
+                  <i class="fa fa-refresh fa-spin"></i>
+                {{/if}}
+                {{#if model.membership.isFulfilled}}
+                  {{pluralize model.membership.loyaltyPoints 'Point'}}
+                {{/if}}
+              </a>
+            {{/if}}
+          </div>
+
+          <div class="follow-buttons">
+            {{link-to 'My Account' 'settings'}}
+            {{#unless model.membership.isAdvantageMember}}
+              <a href="#">Signup</a>
+            {{/unless}}
+          </div>
+        {{/if}}
+
+        {{#if model.membership.isRejected}}
+          <div class="follow-buttons">
+            {{link-to 'My Account' 'settings'}}
+            <a href="#">Signup</a>
+          </div>
         {{/if}}
 
         <div class="overlay bg-black"></div>
       </div>
 
-      <div class="page-profile-followers">
-        <!-- <img src="assets/images/views/dashboard/koopman-advantage-logo.png" class="koopman-advantage-logo"> -->
-
-        <a href="#">
-          <i class="fa fa-money"></i>
-          <span class="membership-benefit">K Cash</span>
-          {{#if model.membership.isPending}}
-            <i class="fa fa-refresh fa-spin"></i>
-          {{/if}}
-          {{#if model.membership.isFulfilled}}
-            {{ model.membership.loyaltyDollarsFormatted }}
-          {{/if}}
-        </a>
-        <a href="#">
-          <i class="fa fa-gift"></i>
-          <span class="membership-benefit">K Points</span>
-          {{#if model.membership.isPending}}
-            <i class="fa fa-refresh fa-spin"></i>
-          {{/if}}
-          {{#if model.membership.isFulfilled}}
-            {{pluralize model.membership.loyaltyPoints 'Point'}}
-          {{/if}}
-        </a>
-      </div>
-
     {{else}}
 
       <div class="page-profile-header container-fullscreen cta-signin">
-        <h3>Sign Into My Account</h3>
+        <img src="assets/images/views/dashboard/koopman-advantage-logo.png" class="koopman-advantage-logo">
         <div class="follow-buttons">
           {{link-to 'Sign In' 'login'}}
         </div>
@@ -88,44 +145,6 @@
     {{/if}}
 
     <div class="decoration"></div>
-  </div>
-
-  <div class="posts-list">
-    <div class="container">
-      {{#if model.entry.isPending}}
-        <i class="fa fa-refresh fa-spin"></i>
-      {{/if}}
-
-      {{#if model.entry.isFulfilled}}
-        {{#link-to 'entry' model.entry tagName="div" class="image-column-right"}}
-          <section class="resource-image">
-            <img src="{{ model.entry.image.post-big.url }}">
-          </section>
-          <section class="resource-text">
-            <strong>{{{ model.entry.title }}}</strong>
-            <div class="from-resource">In <span class="from-resource-text">Almanac Entry</span><span class="from-resource-date">{{ model.entry.dateFormatted }}</span></div>
-          </section>
-        {{/link-to}}
-      {{/if}}
-    </div>
-
-    <div class="container">
-      {{#if model.project.isPending}}
-        <i class="fa fa-refresh fa-spin"></i>
-      {{/if}}
-
-      {{#if model.project.isFulfilled}}
-        {{#link-to 'project' model.project tagName="div" class="image-column-right"}}
-          <section class="resource-image">
-            <img src="{{ model.project.image.post-big.url }}">
-          </section>
-          <section class="resource-text">
-            <strong>{{{ model.project.title }}}</strong>
-            <div class="from-resource">In <span class="from-resource-text">Project Book</span></div>
-          </section>
-        {{/link-to}}
-      {{/if}}
-    </div>
   </div>
 
 </article>

@@ -6,7 +6,7 @@
 .ember-application {
   > .ember-view {
     position: absolute;
-    overflow-x: hidden !important;
+    // overflow-x: hidden !important; /* what's this for? */
     width : 100%;
     height: 100%;
     min-height: 100%;

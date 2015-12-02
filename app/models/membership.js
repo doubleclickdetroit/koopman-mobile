@@ -20,7 +20,7 @@ export default DS.Model.extend({
   isAdvantageMember: Ember.computed.notEmpty( 'loyaltyId' ),
   advantageMembershipSignupDate: Ember.computed('acctOpenDate', function() {
     let date = this.get( 'acctOpenDate' );
-    return this.moment( date ).format( 'MMMM DD, YYYY' );
+    return this.moment( date ).format( 'MMMM, YYYY' );
   }),
 
   nameFormatted: Ember.computed('name', function() {

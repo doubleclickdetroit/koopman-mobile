@@ -8,7 +8,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   },
 
   actions: {
-    loading: function() {
+    loadinga: function() {
       var view = this.container.lookup( 'view:loading' ).append();
       this.router.one( 'didTransition', view, 'destroy' );
     },

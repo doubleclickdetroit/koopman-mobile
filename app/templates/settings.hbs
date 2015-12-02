@@ -2,95 +2,110 @@
   {{#if session.isAuthenticated}}
 
     {{#if displaySuccessMessage}}
-      <div class="alert alert-success fade {{if animateSuccessMessage 'in'}}">
-        Your settings have been successfully saved.
-      </div>
+      {{#if animateSuccessMessage}}
+        <div class="container">
+          <div class="static-notification bg-green-dark">
+            <h6><i class="fa fa-check static-notification-icon"></i>Settings Saved Succesfully</h6>
+            <a class="static-notification-close" href="#"><i class="fa fa-times"></i></a>
+          </div>
+        </div>
+      {{/if}}
     {{/if}}
 
     <form {{action 'update' on='submit'}}>
-      <section class="information-personal">
-        <h4>Personal Information</h4>
 
-        <div class="form-group">
-          <label>First Name</label>
-          {{input value=model.firstName class="form-control"}}
-        </div>
+          <div class="container">
+            <div class="full-bottom">
+              <h5>Personal Information</h5>
+              <div class="text-icon-field">
+                <h6>First Name</h6>
+                {{input value=model.firstName class="text-field green-field"}}
+              </div>
+              <div class="text-icon-field">
+                <h6>Last Name</h6>
+                {{input value=model.lastName class="text-field green-field"}}
+              </div>
+              <div class="text-icon-field">
+                <h6>Gender</h6>
+                {{view 'select' class="form-control gender-selection"
+                                content=listOfGenders
+                                value=model.gender
+                                optionValuePath='content.id'
+                                optionLabelPath='content.label'}}
+              </div>
 
-        <div class="form-group">
-          <label>Last Name</label>
-          {{input value=model.lastName class="form-control"}}
-        </div>
+              <div class="decoration"></div>
 
-        <div class="form-group">
-          <label>Gender</label>
-          {{view 'select' class="form-control gender-selection"
-                          content=listOfGenders
-                          value=model.gender
-                          optionValuePath='content.id'
-                          optionLabelPath='content.label'}}
-        </div>
-
-        <div class="form-group">
-          <label>Telephone</label>
-          {{input value=model.tel type="tel" class="form-control"}}
-        </div>
-
-        <div class="form-group">
-          <label>Street Address</label>
-          {{input value=model.street class="form-control"}}
-        </div>
-
-        <div class="form-group">
-          <label>City</label>
-          {{input value=model.city class="form-control"}}
-        </div>
-
-        <div class="form-group">
-          <label>State</label>
-          {{view 'select' class="form-control state-selection"
-                          content=listOfStates
-                          value=model.state
-                          optionValuePath='content.id'
-                          optionLabelPath='content.label'}}
-        </div>
-
-        <div class="form-group">
-          <label>Zipcode</label>
-          {{input value=model.zipcode class="form-control"}}
-        </div>
-      </section>
-
-      <hr>
-
-      <section class="information-customer">
-        <h4>Koopman Rewards Information</h4>
-
-        <p>{{ foo }}</p>
-
-        {{#if shouldDisplayMatchedAccountMsg}}
-          <div class="favorite-reminder alert alert-warning">
-            We paired you with the following Loyalty Account:
-          </div>
-        {{/if}}
-
-        <div class="well">
-          <div class="form-group">
-            <label>Customer Number</label>
-            {{input value=model.customerNumber class="form-control"}}
+              <h5>Contact Information</h5>
+              <div class="text-icon-field">
+                <h6>Telephone</h6>
+                {{input value=model.tel type="tel" class="text-field green-field"}}
+              </div>
+              <div class="text-icon-field">
+                <h6>Street Address</h6>
+                {{input value=model.street class="text-field green-field"}}
+              </div>
+              <div class="text-icon-field">
+                <h6>City</h6>
+                {{input value=model.city class="text-field green-field"}}
+              </div>
+              <div class="text-icon-field">
+                <h6>State</h6>
+                {{view 'select' class="form-control state-selection"
+                                content=listOfStates
+                                value=model.state
+                                optionValuePath='content.id'
+                                optionLabelPath='content.label'}}
+              </div>
+              <div class="text-icon-field">
+                <h6>Zipcode</h6>
+                {{input value=model.zipcode class="text-field green-field"}}
+              </div>
+            </div>
           </div>
 
-          <div class="form-group">
-            <label>Loyalty Number</label>
-            {{input value=model.loyaltyNumber class="form-control"}}
+          <div class="container-fullscreen">
+            <div class="container heading-style-5">
+                <h4 class="heading-title"><img src="assets/images/views/settings/koopman-advanatge-logo.png"></h4>
+                <i class="fa fa-user heading-icon"></i>
+                <div class="line bg-black"></div>
+                <p class="heading-subtitle">Koopman Advantag is a featured-packed loyalty program! If you&#39;re already a member, please enter your member information below:</p>
+            </div>
+
+            {{#if shouldDisplayMatchedAccountMsg}}
+              <div class="static-notification bg-blue-dark">
+                <h6><i class="fa fa-info static-notification-icon"></i>Howdy, Member!</h6>
+                <a class="static-notification-close" href="#"><i class="fa fa-times"></i></a>
+                <p>Based on your information, we paired you with the following Koopman Advantage Account:</p>
+              </div>
+            {{/if}}
+
+            <div class="text-icon-field">
+              <h6>Customer Number</h6>
+              {{input value=model.customerNumber class="text-field green-field"}}
+            </div>
+
+            <div class="text-icon-field">
+              <h6>Loyalty Number</h6>
+              {{input value=model.loyaltyNumber class="text-field green-field"}}
+            </div>
+
+            {{#unless isLoyaltyMember}}
+            <div class="or-buttons-style-2">
+              <div class="or-buttons-style-3">
+                <em>or</em>
+                <strong></strong>
+              </div>
+
+              <a href="#" class="button button-dark button-round">Join Koopman Advantage</a>
+            </div>
+            {{/unless}}
           </div>
-        </div>
-      </section>
 
-      <hr>
+          <div class="container">
+            <button type="submit" class="pageapp-login-button button button-xl button-blue button-round button-fullscreen">Save</button>
+          </div>
 
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block">Save</button>
-      </div>
     </form>
 
   {{/if}}

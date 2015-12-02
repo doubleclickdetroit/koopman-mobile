@@ -1,0 +1,101 @@
+.view-loading {
+
+  background-color: #e11b22;
+
+  p {
+    margin: 0 auto;
+    width: 100px;
+    white-space: nowrap;
+
+    .loading-text {
+      color: #fff;
+      font-weight: 100;
+      font-size: 20px;
+    }
+  }
+
+  .loading {
+    position: relative;
+    top: 2px;
+    color: #fff;
+    font-size: 3em;
+    text-align: left;
+    font-weight: 100;
+  }
+  .loading:after {
+    overflow: hidden;
+    display: inline-block;
+    // vertical-align: bottom;
+    -moz-animation:     ellipsis 2s infinite;
+    -webkit-animation:  ellipsis 2s infinite;
+    -o-animation:       ellipsis 2s infinite;
+    animation:          ellipsis 2s infinite;
+    content: "\2026"; /* ascii code for ellipsis */
+  }
+  @keyframes ellipsis {
+    from {
+      width: 2px;
+    }
+    to {
+      width: 55px;
+    }
+  }
+
+  @-moz-keyframes ellipsis {
+    from {
+      width: 2px;
+    }
+    to {
+      width: 55px;
+    }
+  }
+
+  @-webkit-keyframes ellipsis {
+    from {
+      width: 2px;
+    }
+    to {
+      width: 55px;
+    }
+  }
+
+  @-o-keyframes ellipsis {
+    from {
+      width: 2px;
+    }
+    to {
+      width: 55px;
+    }
+  }
+
+  .spinner {
+    width:  100px;
+    height: 100px;
+    background-color: #fff;
+
+    margin: 100px auto 20px;
+    -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+    animation: sk-rotateplane 1.2s infinite ease-in-out;
+  }
+
+  @-webkit-keyframes sk-rotateplane {
+    0% { -webkit-transform: perspective(120px) }
+    50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+    100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+  }
+
+  @keyframes sk-rotateplane {
+    0% {
+      transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+      -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+    } 50% {
+      transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+      -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+    } 100% {
+      transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+      -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    }
+  }
+
+
+}

@@ -1,9 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  activate: function() {
-    this.controllerFor( 'application' ).set( 'model.title', 'Settings' );
-  },
 
   model: function() {
     return this.store.find( 'profile', {} ).then(function(profiles) {
@@ -23,7 +20,10 @@ export default Ember.Route.extend({
 
     // only display the back button if the account has been confirmed
     if ( hasConfirmedAccount ) {
-      this.controllerFor( 'application' ).set( 'model.routeName', 'index' );
+      this.controllerFor( 'application' ).setProperties({
+        'model.title': 'My Account',
+        'model.routeName': 'index'
+      });
     }
   },
 
