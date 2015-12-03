@@ -6,5 +6,9 @@ export default Ember.Route.extend({
       'model.title'    : 'Almanac',
       'model.routeName': 'index'
     });
+  },
+
+  model: function() {
+    return this.store.find( 'entry' );
   }
 });

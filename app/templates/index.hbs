@@ -41,7 +41,7 @@
       {{/if}}
 
       {{#if model.entry.isFulfilled}}
-        {{#link-to 'entry' model.entry tagName="div" class="image-column-right"}}
+        {{#link-to 'entry' model.entry (query-params title="Home" redirect="index") tagName="div" class="image-column-right"}}
           <section class="resource-image">
             <i class="fa fa-calendar"></i>
           </section>
@@ -66,7 +66,7 @@
       {{/if}}
 
       {{#if model.project.isFulfilled}}
-        {{#link-to 'project' model.project tagName="div" class="image-column-right"}}
+        {{#link-to 'project' model.project (query-params title="Home" redirect="index") tagName="div" class="image-column-right"}}
           <section class="resource-image">
             <i class="fa fa-wrench"></i>
           </section>

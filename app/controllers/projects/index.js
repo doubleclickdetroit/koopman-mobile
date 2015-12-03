@@ -17,8 +17,10 @@ export default Ember.Controller.extend({
   }),
 
   sortedCategoriesDidChange: Ember.observer('model.categories', function() {
-    let defaultCategory = this.get( 'sortedCategories.firstObject' );
-    this.setCategoryAsSelected( defaultCategory );
+    let defaultCategory = this.get( 'model.categories.firstObject' );
+    if ( defaultCategory ) {
+      this.setCategoryAsSelected( defaultCategory );
+    }
   }),
 
   setCategoryAsSelected(category) {

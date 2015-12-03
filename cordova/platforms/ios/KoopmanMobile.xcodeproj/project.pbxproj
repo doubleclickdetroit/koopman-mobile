@@ -432,6 +432,7 @@
 					"-weak-lSystem",
 					"-ObjC",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.koopman.mobile;
 				PRODUCT_NAME = KoopmanMobile;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -464,6 +465,7 @@
 					"-weak-lSystem",
 					"-ObjC",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.koopman.mobile;
 				PRODUCT_NAME = KoopmanMobile;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

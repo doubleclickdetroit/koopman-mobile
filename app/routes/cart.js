@@ -10,5 +10,11 @@ export default Ember.Route.extend(ToolProductActionsMixin, {
   },
   deactivate: function() {
     this.controllerFor( 'application' ).set( 'model.routeName', 'cart' );
+  },
+
+  model() {
+    return Ember.RSVP.hash({
+      products: this.store.find( 'product' )
+    });
   }
 });

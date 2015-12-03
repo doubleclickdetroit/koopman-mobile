@@ -1,6 +1,15 @@
 import Ember from 'ember';
 
 export default Ember.Mixin.create({
+  afterModel() {
+    let productsCache = this.store.all( 'product' );
+    if ( productsCache.get('length') < 1 ) {
+      this.store.find( 'product' );
+    }
+
+    this._super.apply( this, arguments );
+  },
+
   actions: {
 
     addProduct: function(model) {

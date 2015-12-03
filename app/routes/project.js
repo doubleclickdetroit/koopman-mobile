@@ -8,6 +8,7 @@ export default Ember.Route.extend(PostFavoriteActionsMixin, ToolProductActionsMi
   },
   deactivate: function() {
     this.controllerFor( 'application' ).set( 'model.routeName', 'index' );
+    this.controller.set( 'redirect', '' );
   },
 
   model: function(params) {

@@ -2,7 +2,7 @@ import Ember from 'ember';
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  tool: DS.belongsTo( 'tool' ),
+  tool: DS.belongsTo( 'tool', { async: true } ),
 
   name       : DS.attr(),
   hasAcquired: DS.attr( 'boolean', { defaultValue: false } ),
