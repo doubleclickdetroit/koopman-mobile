@@ -16,7 +16,7 @@
   .page-profile {
     .page-profile-header {
       margin-bottom: 0;
-      padding: 25px 0 30px;
+      padding: 10px 0;
       background-image: url(images/views/dashboard/koopman-advantage.jpg);
       background-position: center bottom;
 
@@ -32,7 +32,7 @@
       }
 
       .koopman-advantage-logo {
-        margin: 0 15px 15px;
+        margin: 0 15px 0;
         width:  auto;
         height: auto;
         max-width: calc(100% - 30px);
@@ -44,17 +44,27 @@
       position: relative;
       z-index: 1;
       display: table;
-      margin: 0 15px;
-      padding: 15px 0;
-      width: calc(100% - 30px);
+      margin: 10px 0 5px;
+      width: 100%;
 
       a {
+        position: relative;
         margin-bottom: 0;
         width: 50%;
         font-size: 1.2rem;
         color: #fff;
         font-weight: 300;
-        border-right-color: #aaa;
+
+        & + a {
+          &:before {
+            position: absolute;
+            left: 0;
+            color: #aaa;
+            content: "|";
+            font-weight: 100;
+            font-size: 1rem;
+          }
+        }
       }
       i {
         display: inline-block;
@@ -73,16 +83,20 @@
     .follow-buttons {
       position: relative;
       z-index: 1;
-      margin-top: 10px;
+      margin-top: 15px;
       text-align: center;
 
       a {
         display: inline-block;
         float: none;
-        margin: 0 5px;
+        margin: 0;
         border-width: 1px;
-        background-color: rgba(255,255,255,.1);
+        border-radius: 3px;
+        color: #fff;
       }
+    }
+    .page-profile-followers + .follow-buttons {
+      margin-top: 0;
     }
 
     .decoration {
@@ -114,15 +128,12 @@
         position: relative;
         top: 50%;
         transform: translateY(-50%);
-        font-size: .6rem;
-        color: #bbb;
-
-        i {
-          position: relative;
-          top: 2px;
-          margin-left: 5px;
-          font-size: 1rem;
-        }
+        padding: 0 10px;
+        line-height: 20px;
+        color: #fff;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+        font-family: FontAwesome;
       }
     }
 

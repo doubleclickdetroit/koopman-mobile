@@ -29,11 +29,8 @@
 
   <div class="posts-list">
     {{#link-to 'entries' tagName="div" class="post-header"}}
-      Almanac Entries
-      <div class="btn-see-all">
-        See more
-        <i class="fa fa-angle-right"></i>
-      </div>
+      Koopman Almanac
+      <div class="btn-see-all"></div>
     {{/link-to}}
     <section class="container" style="background-image: url({{ model.entry.image.post-big.url }});">
       {{#if model.entry.isPending}}
@@ -47,18 +44,15 @@
           </section>
           <section class="resource-text">
             <strong>{{{ model.entry.title }}}</strong>
-            <div class="from-resource">In <span class="from-resource-text">Almanac Entry</span><span class="from-resource-date">{{ model.entry.dateFormatted }}</span></div>
+            <div class="from-resource">In <span class="from-resource-text">Koopman Almanac</span><span class="from-resource-date">{{ model.entry.dateFormatted }}</span></div>
           </section>
         {{/link-to}}
       {{/if}}
     </section>
 
     {{#link-to 'projects' tagName="div" class="post-header"}}
-      Project Book
-      <div class="btn-see-all">
-        See more
-        <i class="fa fa-angle-right"></i>
-      </div>
+      The Project Book
+      <div class="btn-see-all"></div>
     {{/link-to}}
     <section class="container" style="background-image: url({{ model.project.image.post-big.url }});">
       {{#if model.project.isPending}}
@@ -72,7 +66,7 @@
           </section>
           <section class="resource-text">
             <strong>{{{ model.project.title }}}</strong>
-            <div class="from-resource">In <span class="from-resource-text">Project Book</span></div>
+            <div class="from-resource">In <span class="from-resource-text">The Project Book</span></div>
           </section>
         {{/link-to}}
       {{/if}}
