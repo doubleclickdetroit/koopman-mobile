@@ -1,12 +1,26 @@
 .view-dashboard {
 
-  // display: flex;
-  // flex-flow: column;
+  display: flex;
+  flex-flow: column;
   background-color: #eee;
 
   .owl-carousel {
-    // flex: 1;
-    // min-height: 100px;
+    flex: 1;
+
+    .owl-stage-outer {
+      position: absolute;
+      top:  0;
+      left: 0;
+      width:  100%;
+      height: 100%;
+
+      .owl-stage,
+      .owl-item,
+      .content,
+      .container-fullscreen {
+        height: 100%;
+      }
+    }
   }
 
   .list {
@@ -105,7 +119,6 @@
   }
 
   .posts-list {
-    margin: 10px 0;
     border-top:    1px solid #e11b22;
     border-bottom: 1px solid #e11b22;
 
@@ -116,12 +129,8 @@
       padding: 0 20px;
       height: 30px;
       color: #fff;
-      font-weight: 100;
+      font-weight: 300;
       background-color: rgba(0,0,0,.7);
-
-      &:not(:nth-child(1)) {
-        border-top: 1px solid #888;
-      }
 
       .btn-see-all {
         float: right;
@@ -208,7 +217,7 @@
         height: 50px;
         font-size: 22px;
         text-align: center;
-        border-radius: 50%;
+        border-radius: 25px;
         border: 1px solid #fff;
         background-color: rgba(0,0,0,.3);
 

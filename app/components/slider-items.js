@@ -19,7 +19,7 @@ export default Ember.Component.extend({
     this.$().owlCarousel({
       loop      : true,
       nav       : false,
-      autoHeight: true,
+      autoHeight: false,
       margin    : margin,
       autoplay  : this.get( 'autoplay' ),
       responsive: {
