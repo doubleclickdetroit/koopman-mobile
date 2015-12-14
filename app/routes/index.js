@@ -11,19 +11,20 @@ export default Ember.Route.extend({
   model() {
     const query = { 'filter[posts_per_page]' : 1 };
 
-    let requestSingleResource = (resourceName, query) => {
+    let requestResource = (resourceName, isSingular, query) => {
       let ObjectPromiseProxy = Ember.ObjectProxy.extend( Ember.PromiseProxyMixin );
       let request = query ? this.store.find( resourceName, query ) : this.store.find( resourceName );
 
       return ObjectPromiseProxy.create({
-        promise: request.then( (collection) => collection.get('firstObject') )
+        promise: request.then( (collection) => isSingular ? collection.get('firstObject') : collection )
       });
     };
 
     return {
-      entry  : requestSingleResource( 'entry', query ),
-      project: requestSingleResource( 'project', query ),
-      membership: requestSingleResource( 'membership' )
+      entry  : requestResource( 'entry', true, query ),
+      project: requestResource( 'project', true, query ),
+      deals:   requestResource( 'deal', false ),
+      membership: requestResource( 'membership', true )
     };
   }
 });

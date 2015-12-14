@@ -43,6 +43,7 @@ module.exports = function(environment) {
 
     ENV.API_WP_URL = config.apiWp.url.dev;
     ENV.API_RAILS_URL = config.apiRails.url.dev;
+    ENV.API_CATALOG_URL = config.apiCatalog.url.dev;
   }
 
   if (environment === 'test') {
@@ -60,6 +61,7 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.API_WP_URL = config.apiWp.url.prod;
     ENV.API_RAILS_URL = config.apiRails.url.prod;
+    ENV.API_CATALOG_URL = config.apiCatalog.url.prod;
   }
 
 

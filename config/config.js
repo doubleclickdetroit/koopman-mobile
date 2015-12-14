@@ -13,6 +13,13 @@ exports.config = {
       prod: 'http://koopmanblog.com'
     },
     namespace: 'wp-json'
+  },
+
+  apiCatalog: {
+    url: {
+      dev: 'http://localhost:3001',
+      prod: 'https://koopman-admin.herokuapp.com'
+    }
   }
 
 };

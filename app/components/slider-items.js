@@ -4,11 +4,19 @@ export default Ember.Component.extend({
 
   attributeBindings: [ 'data-snap-ignore' ],
 
+  hasFufilled: true,
   margin  : 0,
   autoplay: true,
 
+  hasFufilledDidChange: Ember.observer('hasFufilled', function() {
+    Ember.run.scheduleOnce('afterRender', this, 'initSlider');
+  }),
+
   didInsertElement() {
-    this.initSlider();
+    let hasFufilled = this.get( 'hasFufilled' );
+    if ( hasFufilled ) {
+      this.initSlider();
+    }
   },
 
   initSlider() {

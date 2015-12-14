@@ -1,31 +1,16 @@
 <article class="app-view view-dashboard no-margin">
 
-  {{#slider-items data-snap-ignore="true" margin="2"}}
-    <div class="content">
-      <div class="container-fullscreen heading-style-2">
-        <h4 class="heading-title">Deal One</h4>
-        <em class="heading-subtitle">Lorem ipsum dolor sit amet...</em>
-        <div class="overlay bg-black"></div>
+  {{#slider-items data-snap-ignore="true" margin="2" hasFufilled=model.deals.isFulfilled}}
+    {{#each model.deals.content as |deal|}}
+      <div class="content">
+        <div class="container-fullscreen heading-style-2">
+          <h4 class="heading-title">{{ deal.title }}</h4>
+          <em class="heading-subtitle">{{ deal.details }}</em>
+          <div class="overlay bg-black"></div>
+        </div>
       </div>
-    </div>
-
-    <div class="content">
-      <div class="container-fullscreen heading-style-2">
-        <h4 class="heading-title">Deal Two</h4>
-        <em class="heading-subtitle">Lorem ipsum dolor sit amet...</em>
-        <div class="overlay bg-black"></div>
-      </div>
-    </div>
-
-    <div class="content">
-      <div class="container-fullscreen heading-style-2">
-        <h4 class="heading-title">Deal Three</h4>
-        <em class="heading-subtitle">Lorem ipsum dolor sit amet...</em>
-        <div class="overlay bg-black"></div>
-      </div>
-    </div>
+    {{/each}}
   {{/slider-items}}
-
 
   <div class="posts-list">
     {{#link-to 'entries' tagName="div" class="post-header"}}
