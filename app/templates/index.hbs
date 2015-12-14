@@ -1,14 +1,26 @@
 <article class="app-view view-dashboard no-margin">
 
-  {{#slider-items data-snap-ignore="true" margin="2" hasFufilled=model.deals.isFulfilled}}
+  {{#slider-items autoplay=false data-snap-ignore="true" margin="2" hasFufilled=model.deals.isFulfilled}}
     {{#each model.deals.content as |deal|}}
-      <div class="content">
-        <div class="container-fullscreen heading-style-2">
-          <h4 class="heading-title">{{ deal.title }}</h4>
-          <em class="heading-subtitle">{{ deal.details }}</em>
-          <div class="overlay bg-black"></div>
+      <section class="slider-item" style="background-image: url({{ deal.image }});">
+        <div class="container">
+          <div class="details">
+            <figure></figure>
+            <aside>
+              <div class="boxed">
+                <!-- <p>{{ deal.details }}</p> -->
+                <p>Buy One<br>Get One Free</p>
+                <small>{{ deal.price }}</small>
+              </div>
+            </aside>
+          </div>
+
+          <header>
+            <h3 class="heading-title">{{ deal.title }}</h3>
+            <em class="heading-subtitle">{{ deal.modelNumber }}</em>
+          </header>
         </div>
-      </div>
+      </section>
     {{/each}}
   {{/slider-items}}
 
