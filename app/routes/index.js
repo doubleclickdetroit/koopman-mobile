@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import ENV from 'koopman-mobile/config/environment';
 
 export default Ember.Route.extend({
   activate() {
@@ -11,6 +12,18 @@ export default Ember.Route.extend({
   model() {
     const query = { 'filter[posts_per_page]' : 1 };
 
+    let requestDeals = () => {
+      let ObjectPromiseProxy = Ember.ObjectProxy.extend( Ember.PromiseProxyMixin );
+      let request = Ember.$.getJSON( `${ENV.API_CATALOG_URL}/deals/featured.json` );
+
+      return ObjectPromiseProxy.create({
+        promise: request.then(payload => {
+          this.store.pushPayload( 'deal', payload );
+          return this.store.all( 'deal' );
+        })
+      });
+    };
+
     let requestResource = (resourceName, isSingular, query) => {
       let ObjectPromiseProxy = Ember.ObjectProxy.extend( Ember.PromiseProxyMixin );
       let request = query ? this.store.find( resourceName, query ) : this.store.find( resourceName );
@@ -21,10 +34,10 @@ export default Ember.Route.extend({
     };
 
     return {
-      entry  : requestResource( 'entry', true, query ),
-      project: requestResource( 'project', true, query ),
-      deals:   requestResource( 'deal', false ),
-      membership: requestResource( 'membership', true )
+      entry:      requestResource( 'entry', query ),
+      project:    requestResource( 'project', query ),
+      membership: requestResource( 'membership' ),
+      deals:      requestDeals(),
     };
   }
 });
