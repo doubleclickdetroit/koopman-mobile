@@ -17,6 +17,10 @@ Router.map(function() {
 
   this.route( 'post', { path: '/post/:post_id' } );
 
+  this.resource('deals', function() {
+    this.resource( 'deal', { path: ':deal_id' } );
+  });
+
   this.resource('locations', function() { });
 
   this.route( 'cart' );

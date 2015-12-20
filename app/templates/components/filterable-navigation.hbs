@@ -1,4 +1,7 @@
-<nav class="portfolio-filter-categories-navigation" data-snap-ignore="true">
-  <span class="filter-category portfolio-filter-item">&nbsp;</span>
+<nav class="portfolio-filter-categories-navigation {{if isInline 'is-inline'}}" data-snap-ignore="true">
+  {{#unless isInline}}
+    <span class="filter-category portfolio-filter-item">&nbsp;</span>
+  {{/unless}}
+
   {{yield}}
 </nav>

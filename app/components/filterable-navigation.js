@@ -11,6 +11,12 @@ export default Ember.Component.extend({
 
   assignClassNames() {
     let width = $( window ).outerWidth();
+    let $category = this.$( '.filter-category:last' );
+    let position  = this.getCategoryPosition( $category );
+    let isInline  = width >= position.endPos;
+
+    this.set( 'isInline', isInline );
+
     this.$( '.portfolio-filter-categories-navigation' )
       .css( 'width', width )
       .children( ':not(:input)' ).addClass( 'filter-category' );
@@ -20,25 +26,36 @@ export default Ember.Component.extend({
     this.$().on( 'click', '.filter-category', (e) => this.handleSelectedCategory(e) );
   },
 
-  handleSelectedCategory(evt) {
-    let $category  = this.$( evt.target );
-    let $scroll    = $category.parent();
-
-    let maxWidth = $( window ).outerWidth();
+  getCategoryPosition($category) {
     let offset   = Math.floor( $category.offset().left );
     let width    = $category.outerWidth();
     let startPos = 0; $category.prevAll().each( (n,e) => startPos += $(e).outerWidth() );
     let endPos   = offset + Math.ceil( $category.outerWidth() );
 
+    return {
+      offset  : offset,
+      width   : width,
+      startPos: startPos,
+      endPos  : endPos
+    }
+  },
+
+  handleSelectedCategory(evt) {
+    let $category  = this.$( evt.target );
+    let $scroll    = $category.parent();
+
+    let maxWidth = $( window ).outerWidth();
+    let position = this.getCategoryPosition( $category );
+
     // move left
-    if ( maxWidth < endPos ) {
-      let pos = ( startPos + width ) - maxWidth;
+    if ( maxWidth < position.endPos ) {
+      let pos = ( position.startPos + position.width ) - maxWidth;
       $scroll.animate({ scrollLeft: pos });
     }
 
     // move right
-    else if ( 0 > offset ) {
-      let pos = startPos;
+    else if ( 0 > position.offset ) {
+      let pos = position.startPos;
       $scroll.animate({ scrollLeft: pos });
     }
   }

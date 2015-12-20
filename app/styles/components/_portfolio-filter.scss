@@ -8,6 +8,11 @@
     	overflow-x: scroll;
     	-webkit-overflow-scrolling: touch;
 
+      &.is-inline {
+        display: table;
+        table-layout: fixed;
+      }
+
       .filter-category {
         padding-bottom: 0;
         white-space: nowrap;

@@ -1,0 +1,23 @@
+<section class="page-index">
+
+  {{#filterable-content}}
+    {{#filterable-navigation}}
+      {{#each categories as |category|}}
+        <span {{action 'selectCategory' category}}
+              data-rel="{{ category.id }}"
+              class="filter-category {{if category.isSelected 'selected-filter'}}">{{ category.label }}</span>
+      {{/each}}
+    {{/filterable-navigation}}
+
+    <div class="container">
+      {{#filterable-items filter=selectedCategory.id}}
+        {{#each model as |deal|}}
+          {{#link-to 'deal' deal class=deal.categoryIds}}
+            {{deal-details deal=deal}}
+          {{/link-to}}
+        {{/each}}
+      {{/filterable-items}}
+    </div>
+  {{/filterable-content}}
+
+</section>

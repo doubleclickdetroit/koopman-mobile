@@ -17,7 +17,8 @@ exports.config = {
 
   apiCatalog: {
     url: {
-      dev: 'http://localhost:3001',
+      // dev: 'http://localhost:3001',
+      dev: 'https://koopman-admin.herokuapp.com',
       prod: 'https://koopman-admin.herokuapp.com'
     }
   }

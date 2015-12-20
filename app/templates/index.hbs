@@ -2,23 +2,7 @@
 
   {{#slider-items autoplay=false data-snap-ignore="true" margin="2" hasFufilled=model.deals.isFulfilled}}
     {{#each model.deals.content as |deal|}}
-      <section class="slider-item" style="background-image: url({{ deal.image }});">
-        <div class="container">
-          <div class="details">
-            <aside>
-              <div class="boxed">
-                <p>{{ deal.details }}</p>
-                <small>{{ deal.price }}</small>
-              </div>
-            </aside>
-          </div>
-
-          <header>
-            <h3 class="heading-title">{{ deal.title }}</h3>
-            <em class="heading-subtitle">{{ deal.modelNumber }}</em>
-          </header>
-        </div>
-      </section>
+      {{deal-details deal=deal class="slider-item"}}
     {{/each}}
   {{/slider-items}}
 
