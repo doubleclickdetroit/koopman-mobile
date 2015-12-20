@@ -19,7 +19,8 @@ export default Ember.Route.extend({
       return ObjectPromiseProxy.create({
         promise: request.then(payload => {
           this.store.pushPayload( 'deal', payload );
-          return this.store.all( 'deal' );
+          let deals =  this.store.all( 'deal' ).filterBy( 'isFeatured', true );
+          return deals.slice( 0, 3 );
         })
       });
     };
