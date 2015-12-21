@@ -1,4 +1,5 @@
-<div class="container">
+{{#link-to 'deal' deal (query-params title=redirectTitle redirect=redirectRoute) tagName="div" class="container"}}
+
   <div class="details">
     <aside>
       <div class="boxed">
@@ -12,4 +13,5 @@
     <h3 class="heading-title">{{ deal.title }}</h3>
     <em class="heading-subtitle">{{ deal.modelNumber }}</em>
   </header>
-</div>
+
+{{/link-to}}

@@ -2,7 +2,7 @@
 
   {{#slider-items autoplay=false data-snap-ignore="true" margin="2" hasFufilled=model.deals.isFulfilled}}
     {{#each model.deals.content as |deal|}}
-      {{deal-details deal=deal class="slider-item"}}
+      {{deal-details deal=deal redirectRoute="index" redirectTitle="Home" class="slider-item"}}
     {{/each}}
   {{/slider-items}}
 
