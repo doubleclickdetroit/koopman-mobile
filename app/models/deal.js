@@ -14,6 +14,16 @@ export default DS.Model.extend({
   sku:           DS.attr('string'),
   image:         DS.attr('string'),
 
+  startDateFormatted: Ember.computed('startDate', function() {
+    let date = this.get( 'startDate' );
+    return this.moment( date ).format( 'MMMM DD, YYYY' );
+  }),
+
+  endDateFormatted: Ember.computed('endDate', function() {
+    let date = this.get( 'endDate' );
+    return this.moment( date ).format( 'MMMM DD, YYYY' );
+  }),
+
   price: Ember.computed('priceCents', function() {
     let cents = this.get( 'priceCents' );
     return ( cents / 100 ).toFixed( 2 );

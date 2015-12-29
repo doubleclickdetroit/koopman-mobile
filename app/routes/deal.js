@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import PostFavoriteActionsMixin from '../mixins/post-favorite-actions';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(PostFavoriteActionsMixin, {
   activate: function() {
     this.controllerFor( 'application' ).set( 'model.routeName', 'deals' );
   },
@@ -26,18 +27,5 @@ export default Ember.Route.extend({
   setupController(controller, model) {
     this._super( controller, model );
     controller.set( 'hasExpired', false );
-  },
-
-  actions: {
-
-    handleClaim() {
-      let model  = this.controller.get( 'model' );
-      let params = { deal: model };
-
-      this.store.createRecord( 'claim', params ).save().then(() => {
-        this.refresh();
-      });
-    }
-
   }
 });

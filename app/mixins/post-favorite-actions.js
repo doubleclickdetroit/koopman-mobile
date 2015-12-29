@@ -3,7 +3,6 @@ import Ember from 'ember';
 export default Ember.Mixin.create({
   delegateAuthenticatedAction: function() {
     var isAuthed = this.get( 'session.isAuthenticated' );
-    console.log( '**** delegateAuthenticatedAction', isAuthed );
     if ( !isAuthed ) {
       this.send( 'showModal', 'modal-login-prompt' );
     }
@@ -54,6 +53,19 @@ export default Ember.Mixin.create({
 
     handleFavoriteUpdate: function() {
       this.get( 'controller.model.favorite' ).save();
+    },
+
+    handleClaim() {
+      if ( !this.delegateAuthenticatedAction() ) {
+        return false;
+      }
+      
+      let model  = this.controller.get( 'model' );
+      let params = { deal: model };
+
+      this.store.createRecord( 'claim', params ).save().then(() => {
+        this.refresh();
+      });
     }
   }
 });

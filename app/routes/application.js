@@ -52,6 +52,8 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       this.refresh();
 
       // unload all user models
+      this.store.unloadAll( 'claim' );
+      this.store.unloadAll( 'deal' );
       this.store.unloadAll( 'favorite' );
       this.store.unloadAll( 'product' );
       this.store.unloadAll( 'profile' );

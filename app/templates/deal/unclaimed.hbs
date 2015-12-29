@@ -1,10 +1,33 @@
 <div class="page-blog container">
 
-  {{deal-details deal=model}}
+  <div class="page-blog-list">
+    <div class="deal-details">
+      <aside>
+        <div class="boxed">
+          <p>{{ model.details }}</p>
+          <small>Reg. Price ${{ model.price }}</small>
+        </div>
+      </aside>
 
-  <div class="page-blog-content">
-    <p>{{ model.description }}</p>
-    <a href="#" {{action 'handleClaim'}} class="button button-blue button-round button-xl">Claim Deal</a>
+      <img src="{{ model.image }}" class="responsive-image">
+    </div>
+
+    <h2 class="page-blog-title">{{ model.title }}</h2>
+    <strong class="page-blog-tags">Model Shown: {{ model.modelNumber }}</strong>
+    <strong class="page-blog-tags">SKU: {{ model.sku }}</strong>
+
+    <div class="decoration"></div>
+
+    <div class="deal-claim">
+      <a href="#" {{action 'handleClaim'}} class="button button-blue button-round button-xl">Claim Deal</a>
+      <small>Offer expires {{ model.endDateFormatted }}</small>
+    </div>
+
+    <div class="decoration"></div>
+
+    <div class="page-blog-content">
+      <p>{{ model.description }}</p>
+    </div>
   </div>
 
 </div>

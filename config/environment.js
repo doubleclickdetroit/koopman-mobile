@@ -11,7 +11,7 @@ module.exports = function(environment) {
     locationType: 'hash',
     contentSecurityPolicy: {
       'default-src': "'self' https://www.youtube-nocookie.com/",
-      'connect-src': "'self' http://koopmanblog.com/wp-json/ http://localhost:3000/",
+      'connect-src': "'self' http://koopmanblog.com/wp-json/ http://localhost:3000/ http://localhost:3001/",
       'img-src': "'self' http://koopmanblog.com/",
       'style-src': "'self' 'unsafe-inline' use.typekit.net http://fonts.googleapis.com/",
       'font-src': "'self' http://fonts.gstatic.com/"
