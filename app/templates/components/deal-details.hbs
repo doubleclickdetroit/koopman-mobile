@@ -4,14 +4,14 @@
     <aside>
       <div class="boxed">
         <p>{{ deal.details }}</p>
-        <small>${{ deal.price }}</small>
+        <small>Reg. Price ${{ deal.price }}</small>
       </div>
     </aside>
   </div>
 
   <header>
     <h3 class="heading-title">{{ deal.title }}</h3>
-    <em class="heading-subtitle">{{ deal.modelNumber }}</em>
+    <em class="heading-subtitle">Model Shown {{ deal.modelNumber }}</em>
   </header>
 
 {{/link-to}}

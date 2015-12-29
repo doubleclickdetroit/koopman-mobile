@@ -1,2 +1,10 @@
-<p>Deal Deails</p>
-<button {{action 'handleClaim'}}>Claim Deal</button>
+<div class="page-blog container">
+
+  {{deal-details deal=model}}
+
+  <div class="page-blog-content">
+    <p>{{ model.description }}</p>
+    <a href="#" {{action 'handleClaim'}} class="button button-blue button-round button-xl">Claim Deal</a>
+  </div>
+
+</div>
