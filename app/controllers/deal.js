@@ -16,5 +16,11 @@ export default Ember.Controller.extend({
       'model.title'    : title,
       'model.routeName': routeName
     });
-  })
+  }),
+
+  actions: {
+    handleExpired() {
+      this.set( 'hasExpired', true );
+    }
+  }
 });

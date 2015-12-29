@@ -1,0 +1,7 @@
+.component-claim-countdown {
+
+  [class*="date-"]:not(:first-child):not(:last-child) {
+    border-right: 1px solid #555;
+  }
+
+}

@@ -1,5 +1,15 @@
 <section class="page-show">
 
-  {{!--  --}}
+  {{#if model.claim.isPending}}
+    {{loading-spinner}}
+  {{/if}}
+
+  {{#if model.claim.isFulfilled}}
+    {{partial 'deal/claimed'}}
+  {{/if}}
+
+  {{#if model.claim.isRejected}}
+    {{partial 'deal/unclaimed'}}
+  {{/if}}
 
 </section>

@@ -3,7 +3,6 @@ import Ember from 'ember';
 export default Ember.Mixin.create({
 
   initContent() {
-    $(window).resize(() => this.create_paddings());
     this.$('#content').on( 'scroll', this.displayBackToTop );
   },
 
@@ -24,6 +23,39 @@ export default Ember.Mixin.create({
     if (footer_reached == true){
         $badge.removeClass('back-to-top-badge-visible');
     }
+  },
+
+  align_cover_elements() {
+    let screen_offset = this.$( '.cover-screen' ).offset().top;
+    let cover_width  = $(window).width();
+    let cover_height = $(window).height() - screen_offset;
+    let cover_vertical   = -( this.$('.cover-center').height() ) / 2;
+    let cover_horizontal = -( this.$('.cover-center').width() ) / 2;
+
+    this.$('.cover-screen').css({
+      width:  cover_width,
+      height: cover_height
+    });
+
+    this.$('.cover-screen .overlay').css({
+      width:  cover_width,
+      height: cover_height
+    });
+
+    this.$('.cover-center').css({
+      marginTop:  cover_vertical + 30,
+      marginLeft: cover_horizontal
+    });
+
+    this.$('.cover-left').css('margin-top', cover_vertical);
+    this.$('.cover-right').css('margin-top', cover_vertical);
+
+    this.$('.homepage-cover, .homepage-cover-slider').css({
+      width:  cover_width,
+      height: cover_height
+    });
+
+    this.$( '.responsive-image' ).load( () => this.align_cover_elements() );
   }
 
 });
