@@ -1,0 +1,14 @@
+.component-advantage-logo {
+
+  $brandColor: #e11b22;
+  $size: 70px;
+
+  display: inline-block;
+  width:  $size;
+  height: $size;
+  border-radius: $size / 2;
+  border: 1px solid $brandColor;
+  background: $brandColor url(images/advantage-logo.png) no-repeat center;
+  background-size: contain;
+
+}

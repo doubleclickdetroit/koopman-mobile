@@ -19,8 +19,24 @@
     <div class="decoration"></div>
 
     <div class="deal-claim">
-      <a href="#" {{action 'handleClaim'}} class="button button-blue button-round button-xl">Claim Deal</a>
-      <small>Offer expires {{ model.endDateFormatted }}</small>
+      {{#if isElligible}}
+
+        <a href="#" {{action 'handleClaim'}} class="button button-blue button-round button-xl">Claim Deal</a>
+        <small>Offer expires {{ model.endDateFormatted }}</small>
+
+      {{else}}
+
+        <div class="heading-style-5">
+          <span class="heading-icon">
+            {{advantage-logo}}
+          </span>
+          <div class="line bg-black"></div>
+          <h4 class="heading-title">Become a Koopman Advantage Member</h4>
+          <p class="heading-subtitle">This deal is only for Koopman Advantage Members only. Enroll today to receive this deal!</p>
+          <a href="#" class="button button-blue button-round">Enroll</a>
+        </div>
+
+      {{/if}}
     </div>
 
     <div class="decoration"></div>

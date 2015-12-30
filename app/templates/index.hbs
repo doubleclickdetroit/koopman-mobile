@@ -1,5 +1,9 @@
 <article class="app-view view-dashboard no-margin">
 
+  {{#link-to 'deals' tagName="div" class="section-header"}}
+    Koopman Deals
+    <div class="btn-see-all">See All </div>
+  {{/link-to}}
   {{#slider-items autoplay=false data-snap-ignore="true" margin="2" hasFufilled=model.deals.isFulfilled}}
     {{#each model.deals.content as |deal|}}
       {{deal-details deal=deal redirectRoute="index" redirectTitle="Home" class="slider-item"}}
@@ -7,7 +11,7 @@
   {{/slider-items}}
 
   <div class="posts-list">
-    {{#link-to 'entries' tagName="div" class="post-header"}}
+    {{#link-to 'entries' tagName="div" class="section-header"}}
       Koopman Almanac
       <div class="btn-see-all">See All </div>
     {{/link-to}}
@@ -29,7 +33,7 @@
       {{/if}}
     </section>
 
-    {{#link-to 'projects' tagName="div" class="post-header"}}
+    {{#link-to 'projects' tagName="div" class="section-header"}}
       The Project Book
       <div class="btn-see-all">See All </div>
     {{/link-to}}

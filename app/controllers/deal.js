@@ -18,6 +18,12 @@ export default Ember.Controller.extend({
     });
   }),
 
+  isElligible: Ember.computed('model.isMembersOnly', 'model.membership.isAdvantageMember', function() {
+    let isMembersOnly     = this.get( 'model.isMembersOnly' );
+    let isAdvantageMember = this.get( 'model.membership.isAdvantageMember' );
+    return !isMembersOnly || isMembersOnly && isAdvantageMember;
+  }),
+
   actions: {
     handleExpired() {
       this.set( 'hasExpired', true );

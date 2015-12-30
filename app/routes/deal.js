@@ -21,7 +21,12 @@ export default Ember.Route.extend(PostFavoriteActionsMixin, {
       promise: this.store.find( 'claim', dealId )
     });
 
-    model.set( 'claim', claimRequest );
+    let membership = this.store.all( 'membership' ).get( 'firstObject' );
+
+    model.setProperties({
+      membership: membership,
+      claim:      claimRequest
+    });
   },
 
   setupController(controller, model) {

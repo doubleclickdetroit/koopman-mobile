@@ -56,7 +56,7 @@
 
       .portfolio-filter-item {
         margin-bottom: 25px;
-        padding: 5px;
+        padding: 5px 5px 0;
         background-color: #fff;
         box-shadow: 0 1px 1px rgba(0,0,0,.1);
 
@@ -175,6 +175,24 @@
     animation:         rubber-stamp 0.25s;
   }
 
+  .heading-style-5 {
+    $icon-height: 70px;
+
+    .heading-title {
+      margin-top: 50px;
+    }
+
+    .heading-icon {
+      width:  90px;
+      height: $icon-height;
+      text-align: center;
+    }
+    .line {
+      margin-top: -($icon-height / 2);
+      background-color: #e11b22;
+    }
+  }
+
   .countdown-page {
     display: flex;
     align-items: center;
@@ -192,7 +210,7 @@
     .responsive-image {
       display: block;
       margin-bottom: 40px;
-      border: 1px solid #000;
+      border: 20px solid #fff;
       background-color: #fff;
     }
   }
