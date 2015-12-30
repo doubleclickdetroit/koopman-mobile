@@ -13,7 +13,7 @@
 
   header {
     margin: 0 -20px;
-    padding: 8px 40px 0 0;
+    padding: 8px 0 0;
     text-align: center;
     background-color: rgba(255,255,255,.6);
     border-top: 1px solid #fff;
@@ -30,9 +30,12 @@
 
   &.is-members-only {
     header {
+      padding-left:  20px;
+      padding-right: 55px;
+      text-align: left;
       background-image: url(images/advantage-logo-red.png);
       background-repeat: no-repeat;
-      background-position: right center;
+      background-position: calc(100% - 10px) center;
       background-size: 35px;
     }
   }

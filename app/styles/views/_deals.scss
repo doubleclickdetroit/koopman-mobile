@@ -25,12 +25,23 @@
       content: "";
     }
 
-    .component-deal-details .details {
-      margin-top: 20px;
+    .component-deal-details {
+      header {
+        padding-left: 20px;
+        text-align: left;
 
-      aside {
-        p {
-          font-size: 2vh;
+        em {
+          color: #666;
+        }
+      }
+
+      .details {
+        margin-top: 20px;
+
+        aside {
+          p {
+            font-size: 2vh;
+          }
         }
       }
     }
