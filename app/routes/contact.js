@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   activate: function() {
     this.controllerFor( 'application' ).setProperties({
-      'model.title': 'Contact Us',
+      'model.title': 'Home',
       'model.routeName': 'index'
     });
   },

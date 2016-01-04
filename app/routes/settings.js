@@ -21,7 +21,7 @@ export default Ember.Route.extend({
     // only display the back button if the account has been confirmed
     if ( hasConfirmedAccount ) {
       this.controllerFor( 'application' ).setProperties({
-        'model.title': 'My Account',
+        'model.title': 'Home',
         'model.routeName': 'index'
       });
     }

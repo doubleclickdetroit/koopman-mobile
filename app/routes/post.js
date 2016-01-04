@@ -3,6 +3,12 @@ import PostFavoriteActionsMixin from '../mixins/post-favorite-actions';
 import ToolProductActionsMixin from '../mixins/tool-product-actions';
 
 export default Ember.Route.extend(PostFavoriteActionsMixin, ToolProductActionsMixin, {
+  activate: function() {
+    this.controllerFor( 'application' ).setProperties({
+      'model.title': 'Favorites'
+    });
+  },
+
   model: function(params) {
     return this.modelFor( 'application' ).posts.find(function(post) {
       if ( post.get('id') === params.post_id ) {

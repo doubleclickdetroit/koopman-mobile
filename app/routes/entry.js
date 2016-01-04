@@ -4,7 +4,10 @@ import ToolProductActionsMixin from '../mixins/tool-product-actions';
 
 export default Ember.Route.extend(PostFavoriteActionsMixin, ToolProductActionsMixin, {
   activate: function() {
-    this.controllerFor( 'application' ).set( 'model.routeName', 'entries' );
+    this.controllerFor( 'application' ).setProperties({
+      'model.title': 'Entries',
+      'model.routeName': 'entries'
+    });
   },
   deactivate: function() {
     this.controllerFor( 'application' ).set( 'model.routeName', 'index' );
