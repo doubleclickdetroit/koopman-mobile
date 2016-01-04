@@ -124,21 +124,33 @@
     z-index: 2;
     margin-bottom: -30px;
     padding: 0 20px;
-    height: 30px;
+    height:      40px;
+    line-height: 40px;
     color: #fff;
+    font-size: 1.1rem;
     font-weight: 400;
-    background-color: #000;
+    background-color: #c41624;
+
+    &:first-of-type {
+      border-top: 1px solid rgba(0,0,0,.08);
+    }
 
     .btn-see-all {
       float: right;
       position: relative;
       top: 50%;
-      transform: translateY(-50%);
+      margin-top: -12px;
       padding: 0 10px;
       line-height: 20px;
       color: #fff;
       font-weight: 100;
+      font-size: .8rem;
       font-family: FontAwesome;
+      border: 1px solid #fff;
+      box-shadow: 3px 3px 3px rgba(107,46,51,.6);
+
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
     }
   }
 
