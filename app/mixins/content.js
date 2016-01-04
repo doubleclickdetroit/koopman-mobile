@@ -7,11 +7,13 @@ export default Ember.Mixin.create({
   },
 
   displayBackToTop() {
+    var $badge = $('.back-to-top-badge');
+    $badge.data( 'at-bottom', false );
+
     var total_scroll_height = $('#content')[0].scrollHeight;
     var inside_header = $('#content').scrollTop() <= 150;
     var passed_header = $('#content').scrollTop() >= 0;
     var footer_reached = $('#content').scrollTop() >= (total_scroll_height - ($(window).height() +100 ));
-    var $badge = $('.back-to-top-badge');
 
     if (inside_header == true) {
         $badge.removeClass('back-to-top-badge-visible');
@@ -21,7 +23,14 @@ export default Ember.Mixin.create({
     }
 
     if (footer_reached == true){
-        $badge.removeClass('back-to-top-badge-visible');
+      $badge.data( 'at-bottom', true );
+
+      setTimeout(function() {
+        if ( $badge.data('at-bottom') ) {
+          $badge.removeClass('back-to-top-badge-visible');
+          $badge.data( 'at-bottom', false );
+        }
+      }, 1000);
     }
   },
 
