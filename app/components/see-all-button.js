@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: [ 'btn-see-all', 'animated' ],
-  classNameBindings: [ 'isAnimated:swing' ],
+  classNames: [ 'component-btn-see-all', 'animated' ],
+  classNameBindings: [ 'isAnimated:shine' ],
 
   isAnimated: true,
 

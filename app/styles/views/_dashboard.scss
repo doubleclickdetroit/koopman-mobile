@@ -135,7 +135,7 @@
       border-top: 1px solid rgba(0,0,0,.08);
     }
 
-    .btn-see-all {
+    .component-btn-see-all {
       float: right;
       position: relative;
       top: 50%;
@@ -148,9 +148,6 @@
       font-family: FontAwesome;
       border: 1px solid #fff;
       box-shadow: 3px 3px 3px rgba(107,46,51,.6);
-
-      -webkit-animation-duration: 1s;
-      animation-duration: 1s;
     }
   }
 

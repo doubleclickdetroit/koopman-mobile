@@ -1,0 +1,46 @@
+@mixin fade-transition($element) {
+  -webkit-transition: $element 0.15s ease-in-out;
+  transition:         $element 0.15s ease-in-out;
+}
+
+@keyframes move {
+  0%  { left: 0; opacity: 0; }
+  5% {opacity: 0.0}
+  48% {opacity: 0.5}
+  100% { opacity: 0.0; left: 82%}
+}
+
+@-webkit-keyframes move {
+  0%  { left: 0; opacity: 0; }
+  5% {opacity: 0.0}
+  48% {opacity: 0.5}
+  100% { opacity: 0.0; left: 82%}
+}
+
+.component-btn-see-all {
+
+  i {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 15%;
+    height: 100%;
+    transform: skew(-10deg,0deg);
+    -webkit-transform: skew(-10deg,0deg);
+
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(1%,rgba(255,255,255,0.03)), color-stop(30%,rgba(255,255,255,0.85)), color-stop(50%,rgba(255,255,255,0.85)), color-stop(70%,rgba(255,255,255,0.85)), color-stop(71%,rgba(255,255,255,0.85)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.03) 1%,rgba(255,255,255,0.6) 30%,rgba(255,255,255,0.85) 50%,rgba(255,255,255,0.85) 70%,rgba(255,255,255,0.85) 71%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.03) 1%,rgba(255,255,255,0.6) 30%,rgba(255,255,255,0.85) 50%,rgba(255,255,255,0.85) 70%,rgba(255,255,255,0.85) 71%,rgba(255,255,255,0) 100%); /* W3C */
+  }
+
+  &.shine {
+    i {
+      animation: move 2s;
+      animation-delay: 1s;
+      -webkit-animation: move 2s;
+      -webkit-animation-delay: 1s;
+    }
+  }
+
+}
