@@ -14,22 +14,28 @@ export default DS.Model.extend({
   acctOpenDate   : DS.attr('date'),
   pointsConverted: DS.attr('number'),
   ytdSales       : DS.attr('number'),
-  loyaltyPoints  : DS.attr('number'),
-  loyaltyDollars : DS.attr('number'),
+  loyaltyPoints  : DS.attr('number', { defaultValue: 0 }),
+  loyaltyDollars : DS.attr('number', { defaultValue: 0 }),
+  isGhostAccount : DS.attr('boolean', { defaultValue: false }),
 
-  isAdvantageMember: Ember.computed.notEmpty( 'loyaltyId' ),
+  isAdvantageMember: Ember.computed('loyaltyId', 'isGhostAccount', function() {
+    let hasLoyaltyId   = !!this.get( 'loyaltyId' );
+    let isGhostAccount = this.get( 'isGhostAccount' );
+    return hasLoyaltyId || isGhostAccount;
+  }),
+
   advantageMembershipSignupDate: Ember.computed('acctOpenDate', function() {
     let date = this.get( 'acctOpenDate' );
-    return this.moment( date ).format( 'MMMM, YYYY' );
+    return moment( date ).format( 'MMMM, YYYY' );
   }),
 
   nameFormatted: Ember.computed('name', function() {
-    let name = this.get( 'name' );
+    let name = this.get( 'name' ) || '';
     return name.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
   }),
 
   loyaltyDollarsFormatted: Ember.computed('loyaltyDollars', function() {
-    let amt = ( this.get('loyaltyDollars') ).toFixed( 2 );
+    let amt = ( this.get('loyaltyDollars') || 0 ).toFixed( 2 );
     return `$${amt}`;
   })
 });

@@ -59,6 +59,9 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       this.store.unloadAll( 'profile' );
       this.store.unloadAll( 'membership' );
 
+      // clear ghost membership
+      this.ghostMembershipService.removeMembership();
+
       // now transition to index
       this.transitionTo( 'index' );
     },

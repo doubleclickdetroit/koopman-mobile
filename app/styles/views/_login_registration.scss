@@ -1,5 +1,6 @@
 .view-login,
-.view-registration {
+.view-registration,
+.view-activation {
 
   form,
   .pageapp-login,
@@ -15,6 +16,28 @@
     -webkit-transform: translateY(-50%);
     -ms-transform:     translateY(-50%);
     transform:         translateY(-50%);
+  }
+
+  &.view-activation {
+    .pageapp-login {
+      background-image: url(images/views/dashboard/koopman-advantage.jpg);
+      background-position: right top;
+
+      .unboxed-layout {
+        .pageapp-login-logo {
+          width : 300px;
+          height: 15px;
+          background-image: url(images/views/dashboard/koopman-advantage-logo.png);
+          background-position: center;
+          background-size: 397px 15px;
+          background-repeat: no-repeat;
+        }
+
+        div input {
+          padding-left: 10px;
+        }
+      }
+    }
   }
 
   .pageapp-login {

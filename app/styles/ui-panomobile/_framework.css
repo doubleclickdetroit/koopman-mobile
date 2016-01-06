@@ -5396,6 +5396,11 @@ ul.tabs li.active-tab{
 
 /*Unboxed Layout*/
 
+.pageapp-login .unboxed-layout .red-field input,
+.pageapp-login .unboxed-layout .red-field input:focus {
+	border-bottom:solid 1px #c0392b !important;
+}
+
 .pageapp-signup .unboxed-layout .pageapp-signup-field input{
     display:block;
     width:100%;
@@ -7551,28 +7556,3 @@ ul.tabs li.active-tab{
 {
     margin-top:-70px!important;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

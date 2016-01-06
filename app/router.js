@@ -27,7 +27,8 @@ Router.map(function() {
   this.route( 'settings' );
   this.route( 'login' );
   this.route( 'registration' );
-  this.route('contact');
+  this.route( 'contact' );
+  this.route( 'activation' );
 });
 
 export default Router;

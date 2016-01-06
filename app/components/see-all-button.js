@@ -7,11 +7,15 @@ export default Ember.Component.extend({
   isAnimated: true,
 
   didInsertElement() {
-    setInterval(() => {
+    this.interval = setInterval(() => {
       this.set( 'isAnimated', false );
       setTimeout(() => {
         this.set( 'isAnimated', true );
       }, 1000)
     }, 10000);
+  },
+
+  willDestroyElement() {
+    clearInterval( this.interval );
   }
 });

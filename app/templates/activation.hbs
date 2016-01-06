@@ -1,0 +1,59 @@
+<article class="app-view view-activation no-margin">
+  {{#if session.isAuthenticated}}
+
+    <form {{action 'activate' on='submit'}}>
+
+      <div class="pageapp-login bg-5 cover-screen">
+        <div class="pageapp-login-content cover-center">
+          <div class="unboxed-layout">
+            <div class="pageapp-login-logo"></div>
+
+            {{#if errors}}
+              <div class="static-notification bg-red-dark tap-dismiss">
+                <p><i class="fa fa-times"></i>Please correct the following {{pluralize errors.errorsCount 'error'}} to continue.</p>
+              </div>
+            {{/if}}
+
+            <div class="pageapp-login-field {{if errors.fields.firstName 'red-field'}}">
+              {{input value=model.firstName type="text" placeholder="First Name"}}
+            </div>
+
+            <div class="pageapp-login-field {{if errors.fields.lastName 'red-field'}}">
+              {{input value=model.lastName type="text" placeholder="Last Name"}}
+            </div>
+
+            <div class="pageapp-login-field {{if errors.fields.tel 'red-field'}}">
+              {{input value=model.tel type="phone" placeholder="Phone"}}
+            </div>
+
+            <div class="pageapp-login-field {{if errors.fields.email 'red-field'}}">
+              {{input value=model.email type="email" placeholder="Email Address"}}
+            </div>
+
+            <div class="pageapp-login-field {{if errors.fields.street 'red-field'}}">
+              {{input value=model.street type="text" placeholder="Street Address"}}
+            </div>
+
+            <div class="pageapp-login-field {{if errors.fields.city 'red-field'}}">
+              {{input value=model.city type="text" placeholder="City"}}
+            </div>
+
+            <div class="pageapp-login-field {{if errors.fields.state 'red-field'}}">
+              {{input value=model.state type="text" placeholder="State"}}
+            </div>
+
+            <div class="pageapp-login-field {{if errors.fields.zipcode 'red-field'}}">
+              {{input value=model.zipcode type="text" placeholder="Zipcode"}}
+            </div>
+
+            <button class="pageapp-login-button button button-small button-blue button-round button-fullscreen">Register</button>
+
+          </div>
+        </div>
+        <div class="overlay bg-black"></div>
+      </div>
+
+    </form>
+
+  {{/if}}
+</article>

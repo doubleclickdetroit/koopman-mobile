@@ -25,20 +25,51 @@ export default Ember.Route.extend({
       });
     };
 
-    let requestResource = (resourceName, isSingular, query) => {
+    let membershipResource = this.store.all( 'membership' ).get( 'firstObject' );
+    let ObjectPromiseProxy = Ember.ObjectProxy.extend( Ember.PromiseProxyMixin );
+    let deferred = Ember.RSVP.defer();
+    if ( membershipResource ) {
+      deferred.resolve( membershipResource );
+    }
+    let membershipPromise  = ObjectPromiseProxy.create({
+      promise: deferred.promise
+    });
+
+    let requestResource = (resourceName, query) => {
       let ObjectPromiseProxy = Ember.ObjectProxy.extend( Ember.PromiseProxyMixin );
       let request = query ? this.store.find( resourceName, query ) : this.store.find( resourceName );
 
       return ObjectPromiseProxy.create({
-        promise: request.then( (collection) => isSingular ? collection.get('firstObject') : collection )
+        promise: request.then( collection => collection.get('firstObject') )
       });
     };
 
     return {
       entry:      requestResource( 'entry', query ),
       project:    requestResource( 'project', query ),
-      membership: requestResource( 'membership' ),
+      membership: membershipResource ? membershipPromise : requestResource( 'membership' ),
       deals:      requestDeals(),
     };
+  },
+
+  afterModel(model, transition) {
+    model.membership.then(membership => {
+      let isGhostAccount = membership.get( 'isGhostAccount' );
+      if ( isGhostAccount ) {
+        this.store.find( 'membership' ).then(membershipRecords => {
+          let ObjectPromiseProxy = Ember.ObjectProxy.extend( Ember.PromiseProxyMixin );
+          let deferred = Ember.RSVP.defer();
+          let membershipPromise = ObjectPromiseProxy.create({
+            promise: deferred.promise
+          });
+
+          membership.deleteRecord();
+          deferred.resolve( membershipRecords.get('lastObject') );
+
+          this.ghostMembershipService.removeMembership();
+          Ember.set( model, 'membership', membershipPromise );
+        });
+      }
+    });
   }
 });

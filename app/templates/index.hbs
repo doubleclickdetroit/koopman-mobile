@@ -1,3 +1,7 @@
+{{#if flashMessage}}
+  {{notification-signin message=flashMessage onClose='handleNotificationClose'}}
+{{/if}}
+
 <article class="app-view view-dashboard no-margin">
 
   {{#link-to 'deals' tagName="div" class="section-header"}}
@@ -94,7 +98,7 @@
           <div class="follow-buttons">
             {{link-to 'My Account' 'settings'}}
             {{#unless model.membership.isAdvantageMember}}
-              <a href="#">Signup</a>
+              {{link-to 'Signup' 'activation'}}
             {{/unless}}
           </div>
         {{/if}}
@@ -102,7 +106,7 @@
         {{#if model.membership.isRejected}}
           <div class="follow-buttons">
             {{link-to 'My Account' 'settings'}}
-            <a href="#">Signup</a>
+            {{link-to 'Signup' 'activation'}}
           </div>
         {{/if}}
 
