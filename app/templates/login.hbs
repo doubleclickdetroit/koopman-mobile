@@ -2,9 +2,9 @@
 
   {{#unless session.isAuthenticated}}
 
+  <div class="pageapp-login bg-5 cover-screen">
     <form {{action 'authenticate' on='submit'}}>
 
-      <div class="pageapp-login bg-5 cover-screen">
         <div class="pageapp-login-content cover-center">
           <div class="unboxed-layout">
             <div class="pageapp-login-logo"></div>
@@ -34,10 +34,10 @@
             {{/link-to}}
           </div>
         </div>
-        <div class="overlay bg-black"></div>
-      </div>
 
     </form>
+    <div class="overlay bg-black"></div>
+  </div>
   {{/unless}}
 
 </article>

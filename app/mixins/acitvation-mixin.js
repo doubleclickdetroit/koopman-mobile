@@ -7,21 +7,22 @@ export default Ember.Mixin.create({
   getUserData(model) {
     let city  = model.get( 'city' );
     let state = ( model.get('state') || '' ).toUpperCase();
-    let cityState = `${city}, ${state}`;
+    let cityState = city && state ? `${city}, ${state}` : '';
 
     return {
       'First Name'    : model.get( 'firstName' ),
       'Last Name'     : model.get( 'lastName' ),
       'Email Address' : model.get( 'email' ),
-      'Street Address': model.get( 'street' ),
+      'Street Address': model.get( 'street' ) || '',
       'Phone'         : model.get( 'tel' ),
       'Town, State'   : cityState,
-      'ZIP Code'      : model.get( 'zipcode' )
+      'ZIP Code'      : model.get( 'zipcode' ) || ''
     };
   },
 
   validateModel(model) {
-    let data = _.pick( model, 'firstName', 'lastName', 'email', 'street', 'tel', 'city', 'state', 'zipcode' );
+    let data = _.pick( model, 'firstName', 'lastName', 'email', 'tel' );
+    // let data = _.pick( model, 'firstName', 'lastName', 'email', 'street', 'tel', 'city', 'state', 'zipcode' );
     let validations = _.map(data, (val, key) => {
       return { key: key, isValid: !!val, isInvalid: !!!val };
     });
@@ -43,7 +44,10 @@ export default Ember.Mixin.create({
 
     if ( result.isValid ) {
       let data = this.getUserData( model );
-      Ember.$.post( ACTIVATE_URL, data ).then( () => deferred.resolve() );
+      Ember.$.post( ACTIVATE_URL, data ).then(() => {
+        this.ghostMembershipService.insertMembership( model );
+        deferred.resolve();
+      });
     }
     else {
       console.log( 'errors', result.errorsCount, result.fields );
@@ -59,7 +63,6 @@ export default Ember.Mixin.create({
       let model = this.get( 'model' );
       this.activateMembership( model )
         .then(() => {
-          this.ghostMembershipService.insertMembership( model );
           let params = { flashType: 'success', flashMessage: 'You have become a Koopman Advantage Member!' };
           this.transitionTo( 'index', { queryParams: params } );
         })

@@ -6,5 +6,5 @@ export default Ember.Route.extend({
       'model.title'    : null,
       'model.routeName': null
     });
-  },
+  }
 });

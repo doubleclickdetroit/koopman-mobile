@@ -6,8 +6,11 @@ export default Ember.Object.extend({
 
   insertMembership(model) {
     let data = {
-      email: model.get( 'email' ),
-      isGhostAccount: true
+      isGhostAccount: true,
+      firstName: model.get( 'firstName' ),
+      lastName:  model.get( 'lastName' ),
+      email:     model.get( 'email' ),
+      phone:     model.get( 'tel' )
     };
 
     localStorage.setItem( STORAGE_KEY, JSON.stringify(data) );

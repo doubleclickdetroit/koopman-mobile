@@ -1,9 +1,9 @@
 <article class="app-view view-registration no-margin">
 {{#unless session.isAuthenticated}}
 
-  <form {{action 'register' on='submit'}}>
+<div class="pageapp-login bg-5 cover-screen">
+  <form {{action 'handleRegistration' on='submit'}}>
 
-    <div class="pageapp-login bg-5 cover-screen">
       <div class="pageapp-login-content cover-center">
         <div class="unboxed-layout">
           <div class="pageapp-login-logo"></div>
@@ -13,6 +13,24 @@
               <p><i class="fa fa-times"></i>Please correct the following {{pluralize errorsCollection.length 'error'}} below:</p>
 
               <ul>
+                {{#if errors.firstName }}
+                  {{#each message in errors.firstName}}
+                    <li class="help-block">First Name {{ message }}</li>
+                  {{/each}}
+                {{/if}}
+
+                {{#if errors.lastName }}
+                  {{#each message in errors.lastName}}
+                    <li class="help-block">Last Name {{ message }}</li>
+                  {{/each}}
+                {{/if}}
+
+                {{#if errors.tel }}
+                  {{#each message in errors.tel}}
+                    <li class="help-block">Phone Number {{ message }}</li>
+                  {{/each}}
+                {{/if}}
+
                 {{#if errors.email }}
                   {{#each message in errors.email}}
                     <li class="help-block">Email {{ message }}</li>
@@ -34,9 +52,28 @@
             </div>
           {{/if}}
 
+          <div class="advantage-signup {{if isAdvantageSignup 'show-fields'}}">
+            <div class="pageapp-login-field">
+              <i class="fa fa-user"></i>
+              {{input value=firstName placeholder="First Name"}}
+            </div>
+
+            <div class="pageapp-login-field">
+              <i class="fa fa-user"></i>
+              {{input value=lastName placeholder="Last Name"}}
+            </div>
+          </div>
+
           <div class="pageapp-login-field">
-            <i class="fa fa-user"></i>
+            <i class="fa fa-envelope-o"></i>
             {{input value=email type="email" placeholder="Email Address"}}
+          </div>
+
+          <div class="advantage-signup {{if isAdvantageSignup 'show-fields'}}">
+            <div class="pageapp-login-field">
+              <i class="fa fa-phone"></i>
+              {{input value=tel type="phone" placeholder="Phone Number"}}
+            </div>
           </div>
 
           <div class="pageapp-login-field">
@@ -49,6 +86,14 @@
             {{input value=password_confirmation type="password" placeholder="Re-Enter Password"}}
           </div>
 
+          <div class="switch-box">
+            <h4>Enroll in Koopman Advantage</h4>
+            {{switch-control isActive=isAdvantageSignup}}
+            <em class="switch-box-subtitle">
+              Activate my Koopman Advantage account with the information above.
+            </em>
+          </div>
+
           <button class="pageapp-login-button button button-small button-blue button-round button-fullscreen">Create Account</button>
 
           <div class="decoration"></div>
@@ -59,10 +104,10 @@
 
         </div>
       </div>
-      <div class="overlay bg-black"></div>
-    </div>
 
   </form>
+  <div class="overlay bg-black"></div>
+</div>
 
 {{/unless}}
 </article>

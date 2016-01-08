@@ -2,13 +2,32 @@
 .view-registration,
 .view-activation {
 
+  .pageapp-login-content {
+    position: relative;
+    top:  0;
+    left: 0;
+    margin: 0 auto !important;
+    padding-top: 30px;
+    transform: translateY(0) !important;
+
+    .unboxed-layout {
+      margin-top: 0 !important;
+      padding-bottom: 40px;
+    }
+  }
+
   form,
   .pageapp-login,
   .cover-screen .overlay {
-    height: calc(100%);
+    min-height: calc(100%);
   }
   .cover-screen .overlay {
     width: 100%;
+  }
+
+  form {
+    position: relative;
+    z-index: 2;
   }
 
   .cover-center {
@@ -95,8 +114,36 @@
       font-size: .9rem;
     }
 
-    .unboxed-layout .pageapp-login-field i {
-      z-index: 1;
+    .advantage-signup {
+      overflow: hidden;
+      max-height: 0;
+      -webkit-transition: max-height 1s;
+      transition:         max-height 1s;
+
+      .pageapp-login-field {
+        opacity: 0;
+        -webkit-transition: opacity .5s;
+        transition:         opacity .5s;
+      }
+
+      &.show-fields {
+        max-height: 120px;
+
+        .pageapp-login-field {
+          opacity: 1;
+        }
+      }
+    }
+
+    .unboxed-layout .pageapp-login-field {
+      &.no-indent {
+        input {
+          padding-left: 10px;
+        }
+      }
+      i {
+        z-index: 1;
+      }
     }
 
     .login-create {
@@ -111,6 +158,26 @@
         padding-left : 10px;
         padding-right: 10px;
       }
+    }
+  }
+
+  .switch-box {
+    display: table;
+    width: 100%;
+
+    .switch:not(.switch-1-on) + .switch-box-subtitle {
+      // display: none;
+    }
+
+    h4,
+    .switch-box-subtitle {
+      font-weight: 300;
+    }
+    h4 {
+      color: #fff;
+    }
+    .switch-box-subtitle {
+      color: #bbb;
     }
   }
 

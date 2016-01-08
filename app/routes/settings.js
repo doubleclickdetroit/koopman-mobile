@@ -9,6 +9,25 @@ export default Ember.Route.extend({
     });
   },
 
+  afterModel(model, transition) {
+    let membership = this.store.all( 'membership' ).get( 'firstObject' );
+    if ( membership ) {
+      let isGhostAccount = membership.get( 'isGhostAccount' );
+
+      if ( isGhostAccount ) {
+        let firstName = model.get( 'firstName' ) || membership.get( 'firstName' );
+        let lastName  = model.get( 'lastName' )  || membership.get( 'lastName' );
+        let tel       = model.get( 'tel' )       || membership.get( 'phone' );
+
+        model.set( 'firstName', firstName);
+        model.set( 'lastName', lastName);
+        model.set( 'tel', tel);
+      }
+
+      model.set( 'isGhostAccount', isGhostAccount );
+    }
+  },
+
   setupController: function(controller, model) {
     var hasConfirmedAccount = model.get( 'hasConfirmedLinkedAccount' );
 

@@ -69,37 +69,43 @@
                 <h4 class="heading-title"><img src="assets/images/views/settings/koopman-advanatge-logo.png"></h4>
                 <i class="fa fa-user heading-icon"></i>
                 <div class="line bg-black"></div>
-                <p class="heading-subtitle">Koopman Advantag is a featured-packed loyalty program! If you&#39;re already a member, please enter your member information below:</p>
+                {{#if model.isGhostAccount}}
+                  <p class="heading-subtitle">Your Koopman Advantage Membership is processing.<br>Please allow up to 48 hours to complete.</p>
+                {{else}}
+                  <p class="heading-subtitle">Koopman Advantag is a featured-packed loyalty program! If you&#39;re already a member, please enter your member information below:</p>
+                {{/if}}
             </div>
 
-            {{#if shouldDisplayMatchedAccountMsg}}
-              <div class="static-notification bg-blue-dark">
-                <h6><i class="fa fa-info static-notification-icon"></i>Howdy, Member!</h6>
-                <a class="static-notification-close" href="#"><i class="fa fa-times"></i></a>
-                <p>Based on your information, we paired you with the following Koopman Advantage Account:</p>
-              </div>
-            {{/if}}
+            {{#unless model.isGhostAccount}}
+              {{#if shouldDisplayMatchedAccountMsg}}
+                <div class="static-notification bg-blue-dark">
+                  <h6><i class="fa fa-info static-notification-icon"></i>Howdy, Member!</h6>
+                  <a class="static-notification-close" href="#"><i class="fa fa-times"></i></a>
+                  <p>Based on your information, we paired you with the following Koopman Advantage Account:</p>
+                </div>
+              {{/if}}
 
-            <div class="text-icon-field">
-              <h6>Customer Number</h6>
-              {{input value=model.customerNumber class="text-field green-field"}}
-            </div>
-
-            <div class="text-icon-field">
-              <h6>Loyalty Number</h6>
-              {{input value=model.loyaltyNumber class="text-field green-field"}}
-            </div>
-
-            {{#unless isLoyaltyMember}}
-            <div class="or-buttons-style-2">
-              <div class="or-buttons-style-3">
-                <em>or</em>
-                <strong></strong>
+              <div class="text-icon-field">
+                <h6>Customer Number</h6>
+                {{input value=model.customerNumber class="text-field green-field"}}
               </div>
 
-              {{#link-to 'activation' class="button button-dark button-round"}}Join Koopman Advantage{{/link-to}}
-            </div>
-            {{/unless}}
+              <div class="text-icon-field">
+                <h6>Loyalty Number</h6>
+                {{input value=model.loyaltyNumber class="text-field green-field"}}
+              </div>
+
+              {{#unless isLoyaltyMember}}
+              <div class="or-buttons-style-2">
+                <div class="or-buttons-style-3">
+                  <em>or</em>
+                  <strong></strong>
+                </div>
+
+                {{#link-to 'activation' class="button button-dark button-round"}}Join Koopman Advantage{{/link-to}}
+              </div>
+              {{/unless}} {{!-- end of isLoyaltyMember --}}
+            {{/unless}} {{!-- end of isGhostAccount --}}
           </div>
 
           <div class="container">
