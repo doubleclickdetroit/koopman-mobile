@@ -59,7 +59,11 @@ export default Ember.Mixin.create({
       if ( !this.delegateAuthenticatedAction() ) {
         return false;
       }
-      
+
+      this.send( 'showModal', 'modal-claim-confirm' );
+    },
+
+    handleClaimConfirmed() {
       let model  = this.controller.get( 'model' );
       let params = { deal: model };
 

@@ -215,6 +215,24 @@
 
       .unboxed-layout {
         margin-top: 0 !important;
+
+        h3 {
+          line-height: 40px;
+        }
+        
+        h4 {
+          margin-bottom: 0;
+          font-size: 14px;
+          line-height: 30px;
+          color: rgba(255, 255, 255, 0.8);
+        }
+
+        p {
+          padding-top: 0;
+          color: rgba(255, 255, 255, 0.5);
+          font-size: 12px;
+          font-weight: 400;
+        }
       }
     }
 

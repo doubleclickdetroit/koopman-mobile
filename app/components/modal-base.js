@@ -1,7 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  okLabel: 'Ok',
+  okLabel:     'Ok',
+  cancelLabel: 'Close',
 
   didInsertElement() {
     this.$dialog = this.$( '.simple-login-modal-content' );

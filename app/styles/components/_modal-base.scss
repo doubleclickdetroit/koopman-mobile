@@ -15,6 +15,29 @@
         margin-right: 0;
       }
     }
+
+    .login-button {
+      margin-right: 0;
+    }
+
+    button {
+      float: none;
+      color: #444;
+      font-weight: 500;
+      background-color: #f5f5f5;
+      background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+      background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+      background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+      background-repeat: repeat-x;
+      border: 1px solid #cccccc;
+      border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+      border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+      border-bottom-color: #b3b3b3;
+    }
+  }
+
+  .text-center {
+    text-align: center;
   }
 
   .paper-list {

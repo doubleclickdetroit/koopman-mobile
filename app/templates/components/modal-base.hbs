@@ -4,11 +4,11 @@
     {{ yield }}
 
     <div class="buttons {{if hideCancelButton 'single-button'}}">
-      {{#unless hideCancelButton}}
-        <button type="button" class="button-dark login-close modal-close">Close</button>
-      {{/unless}}
-
       <button type="button" class="button-blue login-button" {{action 'ok'}}>{{ okLabel }}</button>
+
+      {{#unless hideCancelButton}}
+        <button type="button" class="button-dark login-close modal-close">{{ cancelLabel }}</button>
+      {{/unless}}
     </div>
 
     <div class="clear"></div>
