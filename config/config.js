@@ -2,7 +2,7 @@ exports.config = {
 
   apiRails: {
     url: {
-      dev: 'http://localhost:3000',
+      dev: 'https://koopman.herokuapp.com',
       prod: 'https://koopman.herokuapp.com'
     }
   },

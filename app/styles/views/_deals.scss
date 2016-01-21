@@ -1,6 +1,12 @@
 .view-deals,
 .view-deal {
 
+  @media (max-height: 599px) {
+    &.view-deals {
+      height: auto !important;
+    }
+  }
+
   .page-index {
     position: relative;
 
@@ -219,7 +225,7 @@
         h3 {
           line-height: 40px;
         }
-        
+
         h4 {
           margin-bottom: 0;
           font-size: 14px;

@@ -1,18 +1,18 @@
 <div class="countdown-page cover-screen">
 
   <div class="countdown-content">
-      <div class="unboxed-layout">
-          <img src="{{ model.image }}" class="responsive-image" style="display: block;" />
-          <h3>{{ model.title }}</h3>
-          <h4>{{ model.details }}</h4>
-          <p><small>Reg. Price ${{ model.price }}</small></p>
-          {{claim-countdown timestamp=model.claim.expiresAt onExpired='handleExpired' class="countdown-class"}}
-          <div class="clear"></div>
+    <div class="unboxed-layout">
+      <img src="{{ model.image }}" class="responsive-image" style="display: block;" />
+      <h3>{{ model.title }}</h3>
+      <h4>{{ model.details }}</h4>
+      <p><small>Reg. Price ${{ model.price }}</small></p>
+      {{claim-countdown timestamp=model.claim.expiresAt onExpired='handleExpired' class="countdown-class"}}
+      <div class="clear"></div>
 
-          {{#if hasExpired}}
-            <div class="ui-expired"></div>
-          {{/if}}
-      </div>
+      {{#if hasExpired}}
+        <div class="ui-expired"></div>
+      {{/if}}
+    </div>
   </div>
 
 </div>
