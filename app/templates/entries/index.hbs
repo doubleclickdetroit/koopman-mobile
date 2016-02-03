@@ -19,7 +19,7 @@
       <div class="timeline-decoration"></div>
 
       {{#each month in groupedByDate}}
-        <h4 class="timeline-month">{{ month.name }}</h4>
+        {{almanac-header month=month.name year=selectedGroupYear}}
 
         {{#each date in month.dates}}
           <div class="timeline-item">
