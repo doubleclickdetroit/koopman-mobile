@@ -13,6 +13,7 @@ export default DS.Model.extend({
   modelNumber:   DS.attr('string'),
   sku:           DS.attr('string'),
   image:         DS.attr('string'),
+  promoCode:     DS.attr('string'),
 
   startDateFormatted: Ember.computed('startDate', function() {
     let date = this.get( 'startDate' );

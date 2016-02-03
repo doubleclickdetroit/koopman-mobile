@@ -6,6 +6,7 @@
       <h3>{{ model.title }}</h3>
       <h4>{{ model.details }}</h4>
       <p><small>Reg. Price ${{ model.price }}</small></p>
+      <h2>Promo Code: {{ model.promoCode }}</h2>
       {{claim-countdown timestamp=model.claim.expiresAt onExpired='handleExpired' class="countdown-class"}}
       <div class="clear"></div>
 

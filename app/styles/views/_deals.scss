@@ -233,11 +233,22 @@
           color: rgba(255, 255, 255, 0.8);
         }
 
+        h2 {
+          margin-bottom: 30px;
+          padding-bottom: 30px;
+          color: #fff;
+          font-weight: 100;
+          text-align: center;
+          border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+        }
+
         p {
-          padding-top: 0;
+          margin-bottom: 0;
+          padding: 0;
           color: rgba(255, 255, 255, 0.5);
           font-size: 12px;
           font-weight: 400;
+          border-bottom: none;
         }
       }
     }
