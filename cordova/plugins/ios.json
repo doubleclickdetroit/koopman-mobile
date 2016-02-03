@@ -12,6 +12,10 @@
             }
         }
     },
-    "installed_plugins": {},
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.highsailsmedia.koopman"
+        }
+    },
     "dependent_plugins": {}
 }
