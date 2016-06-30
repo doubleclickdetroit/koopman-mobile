@@ -1,13 +1,15 @@
 import Ember from 'ember';
 
-const ACTIVATE_URL = "https://script.google.com/macros/s/AKfycbx-Moj3h9xVW749ZPivtT4nPxNpgzo4wRPZWoTx9l8CdjK4QUew/exec";
+const ACTIVATE_URL = "https://hooks.zapier.com/hooks/catch/592966/441js7/";
 
 export default Ember.Mixin.create({
 
   getUserData(model) {
-    let city  = model.get( 'city' );
-    let state = ( model.get('state') || '' ).toUpperCase();
+    let moment    = this.get( 'moment' );
+    let city      = model.get( 'city' );
+    let state     = ( model.get('state') || '' ).toUpperCase();
     let cityState = city && state ? `${city}, ${state}` : '';
+    let timestamp = moment().format('l LTS');
 
     return {
       'First Name'    : model.get( 'firstName' ),
@@ -16,7 +18,8 @@ export default Ember.Mixin.create({
       'Street Address': model.get( 'street' ) || '',
       'Phone'         : model.get( 'tel' ),
       'Town, State'   : cityState,
-      'ZIP Code'      : model.get( 'zipcode' ) || ''
+      'ZIP Code'      : model.get( 'zipcode' ) || '',
+      'Timestamp'     : timestamp
     };
   },
 
