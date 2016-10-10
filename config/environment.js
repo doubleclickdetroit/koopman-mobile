@@ -12,7 +12,7 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'default-src': "'self' https://www.youtube-nocookie.com/",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' localhost:35729 0.0.0.0:35729",
-      'connect-src': "'self' http://koopmanblog.com/wp-json/ http://localhost:3000/ http://localhost:3001/",
+      'connect-src': "'self' https://koopman-admin.herokuapp.com/ http://koopman-admin.herokuapp.com/ http://koopman.herokuapp.com/ http://koopmanblog.com/wp-json/ http://localhost:3000/ http://localhost:3001/",
       'img-src': "'self' http://koopmanblog.com/",
       'style-src': "'self' 'unsafe-inline' use.typekit.net http://fonts.googleapis.com/",
       'font-src': "'self' http://fonts.gstatic.com/"

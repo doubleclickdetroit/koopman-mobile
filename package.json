@@ -23,7 +23,7 @@
     "broccoli-sass": "^0.6.4",
     "ember-cli": "0.1.2",
     "ember-cli-autoprefixer": "^0.3.0",
-    "ember-cli-content-security-policy": "0.3.0",
+    "ember-cli-content-security-policy": "git://github.com/rwjblue/ember-cli-content-security-policy.git#master",
     "ember-cli-cordova": "0.0.15",
     "ember-cli-htmlbars": "^0.6.0",
     "ember-cli-ic-ajax": "0.1.1",
