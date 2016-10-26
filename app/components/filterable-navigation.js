@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+var throttleAssignClassNames;
+
 export default Ember.Component.extend({
 
   classNames: [ 'portfolio-filter-categories' ],
@@ -7,9 +9,19 @@ export default Ember.Component.extend({
   didInsertElement() {
     this.assignClassNames();
     this.assignListeners();
+
+    throttleAssignClassNames = _.throttle(() => {
+      this.assignClassNames();
+    }, 100, { leading: false });
   },
 
+  itemsDidChange: function() {
+    throttleAssignClassNames();
+  }.observes( 'items.[]' ),
+
   assignClassNames() {
+    this.$( '.portfolio-filter-categories-navigation' ).css( 'width', 'auto' );
+
     let width = $( window ).outerWidth();
     let $category = this.$( '.filter-category:last' );
     let position  = this.getCategoryPosition( $category );
@@ -23,7 +35,7 @@ export default Ember.Component.extend({
   },
 
   assignListeners() {
-    this.$().on( 'click', '.filter-category', (e) => this.handleSelectedCategory(e) );
+    this.$().on( 'click', '.filter-category', e => this.handleSelectedCategory(e) );
   },
 
   getCategoryPosition($category) {

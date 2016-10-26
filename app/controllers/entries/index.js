@@ -1,17 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.ArrayController.extend({
-  sortProperties: [ 'date:desc' ],
+  currentPage: 0,
+  sortProperties: [ 'acf_almanac_date:desc' ],
   sortedEntries : Ember.computed.sort( 'model', 'sortProperties' ),
 
   selectedGroupYear: ( new Date().getFullYear() ).toString(),
 
   hasMultipleYears: Ember.computed.gt( 'listOfGroupYears.length', 1 ),
-
-  listOfGroupYears: function() {
-    var groups = this.get( 'groupedByYear' );
-    return _.keys( groups );
-  }.property( 'groupedByYear' ),
 
   groupedByYear: function() {
     var entries = this.get( 'model.content' );
@@ -19,7 +15,12 @@ export default Ember.ArrayController.extend({
       var year = item.get( 'date' ).getFullYear();
       return year;
     });
-  }.property( 'model.content' ),
+  }.property( 'model.@each' ),
+
+  listOfGroupYears: function() {
+    var groups = this.get( 'groupedByYear' );
+    return _.keys( groups );
+  }.property( 'groupedByYear' ),
 
   groupedByDate: function() {
     var groupDates,

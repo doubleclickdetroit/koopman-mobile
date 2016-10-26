@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  currentPage: 0,
   listOfProjects: Ember.computed.alias( 'model' ),
 
   sortProjectsProperties: [ 'date:desc' ],
@@ -16,7 +17,11 @@ export default Ember.Controller.extend({
     return categories.findBy( 'isSelected', true );
   }),
 
-  sortedCategoriesDidChange: Ember.observer('model.categories', function() {
+  sortedCategoriesDidChange: Ember.observer('model.categories.[]', function() {
+    // ensure category isn't yet selected, if it is skip assigning one
+    let categories = this.get( 'model.categories' );
+    if ( categories && categories.findBy('isSelected', true) ) { return; }
+
     let defaultCategory = this.get( 'model.categories.firstObject' );
     if ( defaultCategory ) {
       this.setCategoryAsSelected( defaultCategory );

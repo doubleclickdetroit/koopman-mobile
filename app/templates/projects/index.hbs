@@ -1,7 +1,7 @@
 <section class="page-index">
 
   {{#filterable-content}}
-    {{#filterable-navigation}}
+    {{#filterable-navigation items=sortedCategories}}
       {{#each sortedCategories as |category|}}
         <span {{action 'selectCategory' category}}
               data-rel="{{ category.id }}"
@@ -9,8 +9,8 @@
       {{/each}}
     {{/filterable-navigation}}
 
-    <div class="container">
-      {{#filterable-items filter=selectedCategory.id}}
+    <div class="container has-scroll">
+      {{#filterable-items filter=selectedCategory.id items=sortedProjects}}
         {{#each sortedProjects as |project|}}
           {{#link-to 'project' project class=project.categoryIds}}
             <img src="{{ project.image.blog-big.url }}" class="responsive-image" alt="img">
@@ -18,6 +18,8 @@
           {{/link-to}}
         {{/each}}
       {{/filterable-items}}
+
+      {{infinite-scroll modelName="project" page=currentPage}}
     </div>
   {{/filterable-content}}
 

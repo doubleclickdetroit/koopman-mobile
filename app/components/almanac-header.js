@@ -22,9 +22,11 @@ export default Ember.Component.extend({
         var $el = Ember.$( this.$() );
         var height = Ember.$( '.header-elements' ).outerHeight();
 
+        /*
         Ember.$('#content').scrollTop(0).animate({
           scrollTop: $el.offset().top - 60
         }, 500, 'easeInOutQuad');
+        */
       });
     }
   }.observes( 'year', 'month' ).on( 'init' )
