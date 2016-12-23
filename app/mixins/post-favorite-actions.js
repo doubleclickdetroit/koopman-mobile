@@ -10,6 +10,11 @@ export default Ember.Mixin.create({
     return isAuthed;
   },
 
+  init() {
+    this._super.apply( arguments );
+    this.store.find( 'favorite' );
+  },
+
 
   actions: {
     setPreviousRouteBeforeLogin: function() {

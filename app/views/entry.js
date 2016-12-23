@@ -6,5 +6,7 @@ export default Ember.View.extend(PostContentMixin, {
     Ember.$('#content').animate({
       scrollTop: 0
     }, 500, 'easeInOutQuad');
+
+    this._super();
   }
 });

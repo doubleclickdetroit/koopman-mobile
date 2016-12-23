@@ -1,8 +1,6 @@
 import DS from 'ember-data';
 
 export default DS.RESTSerializer.extend({
-  primaryKey: 'ID',
-
   extractSingle(store, type, payload, id, requestType) {
     var tools = [];
 
@@ -103,9 +101,10 @@ export default DS.RESTSerializer.extend({
       hash.wrapUp = hash.acf_wrap_up;
       delete hash.acf_wrap_up;
 
-      if ( hash.featured_image ) {
-        hash.image = hash.featured_image.attachment_meta.sizes;
-        delete hash.featured_image;
+      if ( hash.better_featured_image ) {
+        hash.image = hash.better_featured_image.media_details.sizes;
+        hash.image.full_width = { url: hash.better_featured_image.source_url };
+        delete hash.better_featured_image;
       }
 
       return hash;
@@ -142,9 +141,10 @@ export default DS.RESTSerializer.extend({
       hash.wrapUp = hash.acf_wrap_up;
       delete hash.acf_wrap_up;
 
-      if ( hash.featured_image ) {
-        hash.image = hash.featured_image.attachment_meta.sizes;
-        delete hash.featured_image;
+      if ( hash.better_featured_image ) {
+        hash.image = hash.better_featured_image.media_details.sizes;
+        hash.image.full_width = { url: hash.better_featured_image.source_url };
+        delete hash.better_featured_image;
       }
 
       return hash;

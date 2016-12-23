@@ -5,6 +5,7 @@ export default DS.RESTSerializer.extend({
 
   normalizeHash: {
     tools: function(hash) {
+      hash.title       = hash.title || hash.post_title;
       hash.sku         = hash.acf_sku;
       hash.image       = hash.acf_image;
       hash.description = hash.acf_description;

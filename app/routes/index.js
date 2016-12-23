@@ -10,7 +10,13 @@ export default Ember.Route.extend({
   },
 
   model() {
-    const query = { 'filter[posts_per_page]' : 1 };
+    const query = { 'per_page' : 1 };
+    const currentModel = this.get( 'currentModel' );
+
+    // return cached model, if it exists
+    if ( currentModel ) {
+      return currentModel;
+    }
 
     let requestDeals = () => {
       let ObjectPromiseProxy = Ember.ObjectProxy.extend( Ember.PromiseProxyMixin );

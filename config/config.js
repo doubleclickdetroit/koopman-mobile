@@ -12,7 +12,7 @@ exports.config = {
       dev: 'http://koopmanblog.com',
       prod: 'http://koopmanblog.com'
     },
-    namespace: 'wp-json'
+    namespace: "wp-json/wp/v2"
   },
 
   apiCatalog: {

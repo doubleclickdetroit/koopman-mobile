@@ -1,8 +1,6 @@
 import DS from 'ember-data';
 
 export default DS.RESTSerializer.extend({
-  primaryKey: 'ID',
-
   extractSingle(store, type, payload, id, requestType) {
     var tools = [];
 
@@ -48,28 +46,28 @@ export default DS.RESTSerializer.extend({
   normalizeHash: {
     entry(hash) {
       if ( hash.acf_almanac_date ) {
-        hash.date = hash.acf_almanac_date;
+        hash.date = moment( hash.acf_almanac_date ).add( 1, 'day' ).format( 'YYYY-MM-DD' );
         delete hash.acf_almanac_date;
       }
 
-      if ( hash.featured_image ) {
-        hash.image = hash.featured_image.attachment_meta.sizes;
-        hash.image.full_width = { url: hash.featured_image.source };
-        delete hash.featured_image;
+      if ( hash.better_featured_image ) {
+        hash.image = hash.better_featured_image.media_details.sizes;
+        hash.image.full_width = { url: hash.better_featured_image.source_url };
+        delete hash.better_featured_image;
       }
 
       return hash;
     },
     entries: function(hash) {
-      if ( hash.acf_almanac_date ) {
-        hash.date = hash.acf_almanac_date;
+        if ( hash.acf_almanac_date ) {
+        hash.date = moment( hash.acf_almanac_date ).add( 1, 'day' ).format( 'YYYY-MM-DD' );
         delete hash.acf_almanac_date;
       }
 
-      if ( hash.featured_image ) {
-        hash.image = hash.featured_image.attachment_meta.sizes;
-        hash.image.full_width = { url: hash.featured_image.source };
-        delete hash.featured_image;
+      if ( hash.better_featured_image ) {
+        hash.image = hash.better_featured_image.media_details.sizes;
+        hash.image.full_width = { url: hash.better_featured_image.source_url };
+        delete hash.better_featured_image;
       }
 
       return hash;

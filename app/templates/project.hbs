@@ -1,7 +1,7 @@
 <section class="page-show post">
 
   <figure class="post-image">
-    <img src="{{ model.image.large.url }}">
+    <img src="{{ model.image.large.source_url }}">
   </figure>
 
   <div class="container">
@@ -63,7 +63,7 @@
         {{/if}}
       </section>
 
-      {{{ model.content }}}
+      {{{ model.content.rendered }}}
 
       {{{ model.seriesCautionStatement }}}
 

@@ -2,7 +2,7 @@
 
   {{#if model.image.post-medium }}
     <figure class="post-image">
-      <img src="{{model.image.post-medium.url}}">
+      <img src="{{model.image.post-medium.source_url}}">
     </figure>
   {{/if}}
 
@@ -24,7 +24,7 @@
     </nav>
 
     <div class="post-body">
-      {{{ model.content }}}
+      {{{ model.content.rendered }}}
     </div>
   </div>
 
