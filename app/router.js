@@ -29,6 +29,7 @@ Router.map(function() {
   this.route( 'registration' );
   this.route( 'contact' );
   this.route( 'activation' );
+  this.route( 'forgotPassword' );
 });
 
 export default Router;

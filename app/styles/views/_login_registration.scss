@@ -14,6 +14,17 @@
       margin-top: 0 !important;
       padding-bottom: 40px;
     }
+
+    .text-instructions {
+      text-align: center;
+
+      h1 {
+        color: #fff;
+      }
+      p {
+        color: #bbb;
+      }
+    }
   }
 
   form,
@@ -146,8 +157,8 @@
       }
     }
 
-    .login-create {
-      margin-top: 30px;
+    .login-create,
+    .login-forgot-password {
       text-align: center;
       text-indent: -16px;
       font-size: 12px;
@@ -158,6 +169,12 @@
         padding-left : 10px;
         padding-right: 10px;
       }
+    }
+    .login-create {
+      margin-top: 30px;
+    }
+    .login-forgot-password {
+      margin-top: 10px;
     }
   }
 
