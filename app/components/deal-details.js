@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   classNameBindings: [ 'deal.isMembersOnly' ],
 
   redirectRoute: 'deals',
-  redirectTitle: 'Deals',
+  redirectTitle: 'Koopons',
 
   didInsertElement() {
     let image = this.get( 'deal.image' );

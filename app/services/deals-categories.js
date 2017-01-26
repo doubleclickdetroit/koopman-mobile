@@ -4,13 +4,13 @@ export default Ember.Object.extend({
   categories: [
     Ember.Object.create({
       id: 'all',
-      label: 'All Deals',
+      label: 'All Koopons',
       isSelected: true
     }),
 
     Ember.Object.create({
       id: 'advantage',
-      label: 'Advantage Deals',
+      label: 'Advantage Koopons',
       isSelected: false
     })
   ]

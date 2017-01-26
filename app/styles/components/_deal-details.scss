@@ -111,6 +111,8 @@
   }
 
   .boxed {
+    display: flex;
+    flex-direction: column;
     padding: 10px;
     width: 100%;
     color: #fff;
@@ -130,6 +132,7 @@
 
   small {
     font-size: 1.3vh;
+    line-height: normal;
   }
 
   @media (max-height: 599px) {
