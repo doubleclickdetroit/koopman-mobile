@@ -132,11 +132,8 @@
     color: #fff;
     font-size: 1.1rem;
     font-weight: 400;
-    background-color: #000;
-
-    &:first-of-type {
-      border-top: 1px solid rgba(0,0,0,.08);
-    }
+    background-color: darken(#e11b22, 8%);
+    box-shadow: inset 0 4px 4px rgba(0,0,0,0.2);
 
     .component-btn-see-all {
       float: right;
@@ -146,17 +143,20 @@
       padding: 0 10px;
       line-height: 20px;
       color: #fff;
-      font-weight: 100;
       font-size: .8rem;
-      font-family: FontAwesome;
       border: 1px solid #fff;
       box-shadow: 3px 3px 3px rgba(107,46,51,.6);
+
+      .fa-chevron-right {
+        display: none;
+        font-weight: 100;
+      }
     }
   }
 
   .posts-list {
     border-top:    1px solid #e11b22;
-    border-bottom: 1px solid #e11b22;
+    border-bottom: 2px solid #000;
 
     .container {
       margin: 0;

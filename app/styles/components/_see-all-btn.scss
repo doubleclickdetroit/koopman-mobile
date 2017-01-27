@@ -19,7 +19,7 @@
 
 .component-btn-see-all {
 
-  i {
+  .shineable {
     position: absolute;
     opacity: 0;
     top: 0;
@@ -35,7 +35,7 @@
   }
 
   &.shine {
-    i {
+    .shineable {
       animation: move 2s;
       animation-delay: 1s;
       -webkit-animation: move 2s;
